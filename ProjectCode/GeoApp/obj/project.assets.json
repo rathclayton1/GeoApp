@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp\\GeoApp.csproj",
+      "projectUniqueName": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp.csproj",
       "projectName": "GeoApp",
-      "projectPath": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp\\GeoApp.csproj",
+      "projectPath": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp.csproj",
       "packagesPath": "C:\\Users\\Bpink\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp\\obj\\",
+      "outputPath": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bpink\\AppData\\Roaming\\NuGet\\NuGet.Config",
