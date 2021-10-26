@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GeoApp.Sample">
+    <Position X="10.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAAAAgIgAAIAAQAEAIAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Sample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeoApp.Controller">
+    <Position X="5.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Controller.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GeoApp.Repository">
+    <Position X="8" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgCAAAAAAAAAAAAAAAQAAAAAAAAAAAABAACAAAAAAAA=</HashCode>
+      <FileName>Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.133" />
+  </Class>
+  <Class Name="GeoApp.Issue">
+    <Position X="12.5" Y="2.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="GeoApp.Issue.IssueType">
+        <TypeIdentifier>
+          <NewMemberFileName>Issue.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Issue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GeoApp.IRepository">
+    <Position X="8" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgCAAAAAAAAAAAAAAAQAAAAAAAAAAAABAACAAAAAAAA=</HashCode>
+      <FileName>IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GeoApp.IController">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>IController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
