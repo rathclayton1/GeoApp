@@ -9,7 +9,8 @@ namespace GeoApp
     {
         private IssueType Type { get; set; }
         private String IssueDescription { get; set; }
-
+        private DateTime DateSubmitted { get; set; }
+        private int SampleID { get; set; }
 
         private enum IssueType
         {

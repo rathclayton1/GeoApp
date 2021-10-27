@@ -1,30 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="NameAndType">
+  <Comment CommentText="1..1">
+    <Position X="8.742" Y="4.013" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="1..*">
+    <Position X="14.013" Y="1.701" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="1..*">
+    <Position X="13.975" Y="4.383" Height="0.291" Width="0.7" />
+  </Comment>
   <Class Name="GeoApp.Sample">
-    <Position X="10.25" Y="2.75" Width="2" />
+    <Position X="14.75" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAEAAAAgIgAAIAAQAEAIAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAEAAAAgIgAAIAAQAEAIAABAAAAAABAAAAAA=</HashCode>
       <FileName>Sample.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.Controller">
-    <Position X="5.5" Y="2.75" Width="2.25" />
+    <Position X="5.25" Y="3.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAIAAAAACAQAAAAAAAABAAAAAADQAAAAAAAAAAA=</HashCode>
       <FileName>Controller.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="GeoApp.Repository">
-    <Position X="8" Y="2.75" Width="2" />
+    <Position X="9.5" Y="3.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AgCAAAAAAAAAAAAAAAQAAAAAAAAAAAABAACAAAAAAAA=</HashCode>
+      <HashCode>AgEAAAAAAAAAAIAEAAQAAABAAAAAAQABAACAAAAAAAA=</HashCode>
       <FileName>Repository.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Issue" />
+      <Property Name="Sample" />
+    </ShowAsAssociation>
     <Lollipop Position="1.133" />
   </Class>
   <Class Name="GeoApp.Issue">
-    <Position X="12.5" Y="2.75" Width="2.5" />
+    <Position X="14.75" Y="0.5" Width="2.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -36,21 +52,21 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAQAAAAAAAAAAAAIAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Issue.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="GeoApp.IRepository">
-    <Position X="8" Y="0.5" Width="2" />
+    <Position X="9.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AgCAAAAAAAAAAAAAAAQAAAAAAAAAAAABAACAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAIAEAAQAAAAAAAAAAQABAACAAAAAAAA=</HashCode>
       <FileName>IRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="GeoApp.IController">
-    <Position X="5.5" Y="0.5" Width="2.25" />
+    <Position X="5.25" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAADQAAAAAAAAAAA=</HashCode>
       <FileName>IController.cs</FileName>
     </TypeIdentifier>
   </Interface>

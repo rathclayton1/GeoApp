@@ -17,5 +17,6 @@ namespace GeoApp
         private String Country { get; set; }
         private Double Latitude { get; set; }
         private Double Longitude { get; set; }
+        private List<List<Byte>> Images { get; set; }
     }
 }
