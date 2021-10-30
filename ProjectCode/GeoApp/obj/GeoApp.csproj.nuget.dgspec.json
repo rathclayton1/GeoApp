@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp.csproj": {}
+    "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp.csproj": {
+    "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp.csproj",
+        "projectUniqueName": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
         "projectName": "GeoApp",
-        "projectPath": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\GeoApp.csproj",
-        "packagesPath": "C:\\Users\\Bpink\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bpink\\source\\repos\\compsci341\\MainProject\\ProjectCode\\GeoApp\\obj\\",
+        "projectPath": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+        "packagesPath": "C:\\Users\\Dee\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Bpink\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dee\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
