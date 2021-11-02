@@ -12,7 +12,7 @@ namespace GeoApp
         public bool AddNewSample(Sample sample);
         public bool EditSampleById(Sample sample);
         public bool DeleteSampleById(int id);
-        public Issue RetrieveAllIssues();
+        public List<Issue> RetrieveAllIssues();
         public bool DeleteIssueById(int id);
     }
 }
