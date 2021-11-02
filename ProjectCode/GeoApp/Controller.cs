@@ -75,9 +75,61 @@ namespace GeoApp
             return true;
         }
 
-        public bool UpdateSample(Sample sample)
+        public bool UpdateSample(List<String> sampleInfo)
         {
-            return _repo.EditSampleById(sample.Id);
+            /* 
+            * TODO: TS-16 Update Edit Entry Logic and Handling
+            */
+            Sample sample = new Sample();
+            int id;
+            float lattitude;
+            float longitude;
+            if (!int.TryParse(sampleInfo[0], out id))
+            {
+                return false;
+            }
+            else
+            {
+                sample.Id = id;
+                for (int i = 1; i <= 6; i++)
+                {
+                    if (sampleInfo[i].Length > 50)
+                    {
+                        return false;
+                    }
+                }
+            }
+            sample.Name = sampleInfo[1];
+            sample.SampleType = sampleInfo[2];
+            sample.GeologicAge = sampleInfo[3];
+            sample.City = sampleInfo[4];
+            sample.State = sampleInfo[5];
+            sample.Country = sampleInfo[6];
+            if (sampleInfo[7] != "")
+            {
+                if (!float.TryParse(sampleInfo[7], out lattitude))
+                {
+                    return false;
+                }
+                else
+                {
+                    sample.Latitude = lattitude;
+                }
+
+            }
+            else if (sampleInfo[8] != "")
+            {
+                if (!float.TryParse(sampleInfo[8], out longitude))
+                {
+                    return false;
+                }
+                else
+                {
+                    sample.Longtitude = longitude;
+                }
+
+            }
+            return _repo.EditSampleById(id);
         }
 
         public bool DeleteSample(Sample sample)
