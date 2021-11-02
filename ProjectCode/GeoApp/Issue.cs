@@ -11,6 +11,16 @@ namespace GeoApp
         private String _issueDescription;
         private DateTime _dateSubmitted;
         private int _sampleID;
+        private int _issueID;
+
+        public Issue(int issueID, string description, DateTime date, int sampleID, string type)
+        {
+            //this.Type = type; gotta sortout the enum yet
+            this._issueID = issueID;
+            this._issueDescription = description;
+            this._dateSubmitted = date;
+            this.SampleId = sampleID;
+        }
 
         public IssueType Type
         {
@@ -34,6 +44,12 @@ namespace GeoApp
         {
             get { return _sampleID; }
             set => _sampleID = value;
+        }
+
+        public int IssueId
+        {
+            get { return _issueID; }
+            set => _issueID = value;
         }
 
         public enum IssueType
