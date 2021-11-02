@@ -52,7 +52,7 @@ namespace GeoApp
             throw new NotImplementedException();
         }
 
-        public Issue RetrieveAllIssues()
+        public List<Issue> RetrieveAllIssues()
         {
             throw new NotImplementedException();
         }
