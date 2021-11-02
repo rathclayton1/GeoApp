@@ -77,7 +77,7 @@ namespace GeoApp
 
         public bool UpdateSample(Sample sample)
         {
-            return _repo.EditSampleById(sample);
+            return _repo.EditSampleById(sample.Id);
         }
 
         public bool DeleteSample(Sample sample)

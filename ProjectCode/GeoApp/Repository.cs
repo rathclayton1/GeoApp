@@ -47,7 +47,7 @@ namespace GeoApp
             throw new NotImplementedException();
         }
 
-        public bool EditSampleById(Sample sample)
+        public bool EditSampleById(int id)
         {
             throw new NotImplementedException();
         }
