@@ -1,0 +1,18 @@
+﻿<Window x:Class="GeoApp.AddEntryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeoApp"
+        mc:Ignorable="d"
+        Title="Window1" Height="500" Width="1000">
+    <Grid RenderTransformOrigin="1.584,2.107" Margin="1072,1032,-1072,-1032">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="388,496,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="1000" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>
