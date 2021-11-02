@@ -7,12 +7,36 @@ namespace GeoApp
 {
     public class Issue
     {
-        private IssueType Type { get; set; }
-        private String IssueDescription { get; set; }
-        private DateTime DateSubmitted { get; set; }
-        private int SampleID { get; set; }
+        private IssueType _type;
+        private String _issueDescription;
+        private DateTime _dateSubmitted;
+        private int _sampleID;
 
-        private enum IssueType
+        public IssueType Type
+        {
+            get { return _type; }
+            set => _type = value;
+        }
+
+        public String IssueDescription
+        {
+            get { return _issueDescription; }
+            set => _issueDescription = value;
+        }
+
+        public DateTime DateTimeSubmitted
+        {
+            get { return _dateSubmitted; }
+            set => _dateSubmitted = value;
+        }
+
+        public int SampleId
+        {
+            get { return _sampleID; }
+            set => _sampleID = value;
+        }
+
+        public enum IssueType
         {
             Misinformation, SystemIssue
         }

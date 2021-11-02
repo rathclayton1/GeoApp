@@ -1,42 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="NameAndType">
-  <Comment CommentText="1..1">
-    <Position X="8.742" Y="4.013" Height="0.291" Width="0.7" />
-  </Comment>
-  <Comment CommentText="1..*">
-    <Position X="14.013" Y="1.701" Height="0.291" Width="0.7" />
-  </Comment>
-  <Comment CommentText="1..*">
-    <Position X="13.975" Y="4.383" Height="0.291" Width="0.7" />
-  </Comment>
   <Class Name="GeoApp.Sample">
     <Position X="14.75" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAEAAAAgIgAAIAAQAEAIAABAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAACIAAgIAACAAgIgMRICAQAEAYAABAAAAAABAACEAA=</HashCode>
       <FileName>Sample.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.Controller">
     <Position X="5.25" Y="3.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAIAAAAACAQAAAAAAAABAAAAAADQAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAADQAAAAAAAAAAA=</HashCode>
       <FileName>Controller.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Repository" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="GeoApp.Repository">
     <Position X="9.5" Y="3.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AgEAAAAAAAAAAIAEAAQAAABAAAAAAQABAACAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAIAEAAQAAAAAAAQAAQABAACAgAAAAAA=</HashCode>
       <FileName>Repository.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Issue" />
-      <Property Name="Sample" />
-    </ShowAsAssociation>
     <Lollipop Position="1.133" />
   </Class>
   <Class Name="GeoApp.Issue">
@@ -52,7 +36,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAQAAAAAAAAAAAAIAAAAAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAgEAAAAAQICAAAAAAAAAAAAAAAAQgAAAAAAAA=</HashCode>
       <FileName>Issue.cs</FileName>
     </TypeIdentifier>
   </Class>
