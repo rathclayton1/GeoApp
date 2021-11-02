@@ -6,13 +6,20 @@
         xmlns:local="clr-namespace:GeoApp"
         mc:Ignorable="d"
         Title="Window1" Height="500" Width="1000">
-    <Grid RenderTransformOrigin="1.584,2.107" Margin="1072,1032,-1072,-1032">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="219*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="31*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="388,496,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="1000" Grid.Column="1" Grid.ColumnSpan="2"/>
+    <Grid>
+        <TextBlock x:Name="Header" FontSize="25"  Foreground="#FFFFFF" TextAlignment="Center" Background="#000000" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="1000" Text="Add a Sample" FontFamily="Segoe UI"/>
+
+        <TextBox x:Name="SampleID"  TextWrapping="Wrap" Height="26" Width="522" Margin="240,109,224,353"/>
+        <TextBox x:Name="Name" TextWrapping="Wrap" Height="26" Width="522" Margin="240,142,224,353"/>
+        <TextBox x:Name="SampleType" TextWrapping="Wrap" Height="26" Width="522" Margin="240,175,224,353"/>
+        <TextBox x:Name="GeologicAge"  TextWrapping="Wrap" Height="26" Width="522" Margin="240,208,224,353"/>
+        <TextBox x:Name="City"  TextWrapping="Wrap" Height="26" Width="522" Margin="240,241,224,353"/>
+        <TextBox x:Name="State"  TextWrapping="Wrap" Height="26" Width="522" Margin="240,274,224,353"/>
+        <TextBox x:Name="Country"  TextWrapping="Wrap" Height="26" Width="522" Margin="240,307,224,353"/>
+        <TextBox x:Name="Latitude"  TextWrapping="Wrap" Height="26" Width="522" Margin="240,340,224,353"/>
+        <TextBox x:Name="Longitude"  TextWrapping="Wrap" Height="26" Width="522" Margin="240,373,224,353"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="779,328,0,0" Height="59" Width="205" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
+    
