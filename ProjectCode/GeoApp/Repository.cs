@@ -2,30 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MySqlConnector;
+
 
 namespace GeoApp
 {
     public class Repository : IRepository
     {
-        public Issue Issue
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        List<Sample> dataList = new List<Sample>();
+        MySqlConnection conn = new MySqlConnection();
 
-        public Sample Sample
+        public Repository(MySqlConnection conn)
         {
-            get => default;
-            set
-            {
-            }
-        }
+            this.conn = conn;
+            dataList = RetrieveAllSamples();
+        }//end constructor
 
         public bool AddNewSample(Sample sample)
         {
-            throw new NotImplementedException();
+            Boolean result = true;
+            MySqlCommand command = conn.CreateCommand();
+            int test = sample.Id;
+            command.Parameters.AddWithValue("@clue", sample.Id);
+
+            command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, city, " +
+                                    "state, country, latitude, longitude) VALUES(@sample_id, @name, @type, " +
+                                    "@geolic_age, @city, @state, @country, @latitude, @longitude)";
+
+            if (command.ExecuteNonQuery() < 1)
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         public bool DeleteIssueById(int id)

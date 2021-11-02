@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GeoApp
 {
     public class Controller : IController
     {
-        public Repository Repository
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         public List<Sample> GetAllSamples()
         {
+
             return new List<Sample>();
         }
 

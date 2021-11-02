@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj": {}
+    "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj": {
+    "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+        "projectUniqueName": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
         "projectName": "GeoApp",
-        "projectPath": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
-        "packagesPath": "C:\\Users\\Dee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\obj\\",
+        "projectPath": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Dee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,6 +39,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[1.3.14, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
