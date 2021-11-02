@@ -16,7 +16,7 @@ namespace GeoApp
         {
             this.conn = conn;
             dataList = RetrieveAllSamples();
-        }//end constructor
+        }
 
         public bool AddNewSample(Sample sample)
         {

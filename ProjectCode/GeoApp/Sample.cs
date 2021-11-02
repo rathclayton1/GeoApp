@@ -48,7 +48,7 @@ namespace GeoApp
             get { return _geologicAge; }
             set => _geologicAge = value;
         }
-        
+ 
         public String City
         {
             get { return _city; }
