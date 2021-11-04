@@ -52,30 +52,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vegted63\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\helen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vegted63\\Source\\Repos\\greend40\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+      "projectUniqueName": "C:\\Users\\helen\\Documents\\David_School\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
       "projectName": "GeoApp",
-      "projectPath": "C:\\Users\\vegted63\\Source\\Repos\\greend40\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
-      "packagesPath": "C:\\Users\\vegted63\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vegted63\\Source\\Repos\\greend40\\CS341\\ProjectCode\\GeoApp\\obj\\",
+      "projectPath": "C:\\Users\\helen\\Documents\\David_School\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+      "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\helen\\Documents\\David_School\\GeoApp\\CS341\\ProjectCode\\GeoApp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\vegted63\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"

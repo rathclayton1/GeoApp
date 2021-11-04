@@ -32,9 +32,9 @@ namespace GeoApp
             return true;
         }
 
-        public Issue GetAllIssues()
+        public List<Issue> GetAllIssues()
         {
-            return new Issue();
+            return new List<Issue>();
         }
 
         public bool DeleteIssue(Issue issue)

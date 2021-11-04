@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GeoApp
 {
@@ -13,9 +10,9 @@ namespace GeoApp
         private int _sampleID;
         private int _issueID;
 
-        public Issue(int issueID, string description, DateTime date, int sampleID, string type)
+        public Issue(int issueID, string description, DateTime date, int sampleID, int type)
         {
-            //this.Type = type; gotta sortout the enum yet
+            this.Type = (IssueType)type;
             this._issueID = issueID;
             this._issueDescription = description;
             this._dateSubmitted = date;

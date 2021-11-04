@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GeoApp
 {
@@ -85,7 +83,7 @@ namespace GeoApp
             set => _images = value;
         }
 
-        public Sample(int id, String name, String sampleType, String locationDescription, String geologic_age, 
+        public Sample(int id, String name, String sampleType, String locationDescription, String geologic_age,
                            String city, String state, String country, Double latitude, Double longitude)
         {
             this.Id = id;
