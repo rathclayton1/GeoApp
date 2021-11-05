@@ -15,18 +15,27 @@ using System.Windows.Shapes;
 namespace GeoApp
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for AddEntryWindow.xaml
     /// </summary>
     public partial class AddEntryWindow : Window
     {
         IController controller;
+        IRepository repository;
+
+        /**
+         * Window constructor
+         */
         public AddEntryWindow()
         {
             InitializeComponent();
-            this.controller = new Controller();
+            //this.repository = new Repository();
+            //this.controller = new Controller(repository);
         }
 
-        public void Submit()
+        /**
+         * Submit a new sample
+         */
+        private void Submit(object sender, RoutedEventArgs e)
         {
             List<string> sampleInfo = new List<string>();
             sampleInfo.Add(SampleID.Text);
@@ -42,19 +51,18 @@ namespace GeoApp
             System.Environment.Exit(0);
         }
 
-        public void AddImage()
+        /**
+         * Add an image to a sample
+         */
+        private void AddImage(object sender, RoutedEventArgs e)
         {
-
-        }
-        public void Cancel()
-        {
-
+            //TODO
         }
 
-        public List<string> CleanInput(List<string>)
-        {
-            return new List<string>();
-        }
+        /**
+         * Cancel add, return to main view
+         */
+        private void Cancel(object sender, RoutedEventArgs e) => this.Close();
 
     }
 }
