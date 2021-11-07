@@ -47,7 +47,17 @@ namespace GeoApp
             sampleInfo.Add(Country.Text);
             sampleInfo.Add(Latitude.Text);
             sampleInfo.Add(Longitude.Text);
-            controller.CreateNewSample(sampleInfo);
+            if (controller.CreateNewSample(sampleInfo))
+            {
+                SuccessfulAddWindow confirmation = new();
+                confirmation.Show();
+                this.Close();
+            }
+            else
+            {
+                UnsuccessfulAddWindow error = new();
+                error.Show();
+            }
             System.Environment.Exit(0);
         }
 
