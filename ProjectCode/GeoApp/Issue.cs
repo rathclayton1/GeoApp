@@ -34,7 +34,7 @@ namespace GeoApp
         public int SampleId
         {
             get { return _sampleId; }
-            set => _sampleId= value;
+            set => _sampleId = value;
         }
 
         public bool Resolved

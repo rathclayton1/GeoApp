@@ -7,7 +7,8 @@ namespace GeoApp
     {
         private Repository _repo;
         
-        public Controller (Repository repository){
+        public Controller (Repository repository)
+        {
             _repo = repository;
         }
 
@@ -24,16 +25,13 @@ namespace GeoApp
         public bool CreateNewSample(List<String> sampleInfo)
         {
             Sample sample = new Sample();
-            int id;
-            float lattitude;
-            float longitude;
-            if (!int.TryParse(sampleInfo[0], out id))
+            if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
                 return false;
             }
             else
             {
-                sample.Id = id;
+                sample.Id = sampleId;
                 for (int i = 1; i <= 6; i++)
                 {
                     if (sampleInfo[i].Length > 50)
@@ -50,19 +48,19 @@ namespace GeoApp
             sample.Country = sampleInfo[6];
             if (sampleInfo[7] != "")
             {
-                if (!float.TryParse(sampleInfo[7], out lattitude))
+                if (!double.TryParse(sampleInfo[7], out double latitude))
                 {
                     return false;
                 }
                 else
                 {
-                    sample.Latitude = lattitude;
+                    sample.Latitude = latitude;
                 }
 
             }
             else if (sampleInfo[8] != "")
             {
-                if (!float.TryParse(sampleInfo[8], out longitude))
+                if (!double.TryParse(sampleInfo[8], out double longitude))
                 {
                     return false;
                 }
@@ -77,20 +75,15 @@ namespace GeoApp
 
         public bool UpdateSample(List<String> sampleInfo)
         {
-            /* 
-            * TODO: TS-16 Update Edit Entry Logic and Handling
-            */
+            //TODO: TS-16 Update Edit Entry Logic and Handling
             Sample sample = new Sample();
-            int id;
-            float lattitude;
-            float longitude;
-            if (!int.TryParse(sampleInfo[0], out id))
+            if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
                 return false;
             }
             else
             {
-                sample.Id = id;
+                sample.Id = sampleId;
                 for (int i = 1; i <= 6; i++)
                 {
                     if (sampleInfo[i].Length > 50)
@@ -107,19 +100,19 @@ namespace GeoApp
             sample.Country = sampleInfo[6];
             if (sampleInfo[7] != "")
             {
-                if (!float.TryParse(sampleInfo[7], out lattitude))
+                if (!double.TryParse(sampleInfo[7], out double latitude))
                 {
                     return false;
                 }
                 else
                 {
-                    sample.Latitude = lattitude;
+                    sample.Latitude = latitude;
                 }
 
             }
-            else if (sampleInfo[8] != "")
+            else if (sampleInfo[8] != String.Empty)
             {
-                if (!float.TryParse(sampleInfo[8], out longitude))
+                if (!double.TryParse(sampleInfo[8], out double longitude))
                 {
                     return false;
                 }
@@ -129,7 +122,7 @@ namespace GeoApp
                 }
 
             }
-            return _repo.EditSampleById(id);
+            return _repo.EditSampleById(sampleId);
         }
 
         public bool DeleteSample(Sample sample)
@@ -145,22 +138,29 @@ namespace GeoApp
         public bool CreateIssues(List<String> issueInfo)
         {
             Issue issue = new Issue();
-            int id;
-            if (!int.TryParse(issueInfo[0], out id))
+            if (!int.TryParse(issueInfo[0], out int sampleId))
             {
                 return false;
             }
             else
             {
-                issue.SampleId = id;
+                issue.SampleId = sampleId;
             }
-            if (issueInfo[1].Length > 500)
+            if (issueInfo[1].Equals("0"))
+            {
+                issue.Type = Issue.IssueType.Misinformation;
+            }
+            else
+            { 
+                issue.Type = Issue.IssueType.SystemIssue;
+            }
+            if (issueInfo[2].Length > 500)
             {
                 return false;
             }
             else
             {
-                issue.IssueDescription = issueInfo[1];
+                issue.IssueDescription = issueInfo[2];
             }
             issue.DateTimeSubmitted = DateTime.Now;
             issue.Resolved = false;
