@@ -19,11 +19,17 @@ namespace GeoApp
     /// </summary>
     public partial class UnsuccessfulAddWindow : Window
     {
+        /**
+         * Window constructor
+         */
         public UnsuccessfulAddWindow()
         {
             InitializeComponent();
         }
 
+        /*
+         * Close the window
+         */
         private void Exit(object sender, RoutedEventArgs e) => this.Close();
     }
 }

@@ -19,17 +19,17 @@ namespace GeoApp
     /// </summary>
     public partial class AddEntryWindow : Window
     {
-        IController controller;
-        IRepository repository;
+        private Repository _repo;
+        private IController _controller;
 
         /**
          * Window constructor
          */
-        public AddEntryWindow()
+        public AddEntryWindow(Repository repository)
         {
             InitializeComponent();
-            //this.repository = new Repository();
-            //this.controller = new Controller(repository);
+            _repo = repository;
+            _controller = new Controller();
         }
 
         /**
@@ -47,18 +47,18 @@ namespace GeoApp
             sampleInfo.Add(Country.Text);
             sampleInfo.Add(Latitude.Text);
             sampleInfo.Add(Longitude.Text);
-            if (controller.CreateNewSample(sampleInfo))
+            if (_controller.CreateNewSample(sampleInfo))
             {
                 SuccessfulAddWindow confirmation = new();
                 confirmation.Show();
-                this.Close();
+
             }
             else
             {
                 UnsuccessfulAddWindow error = new();
                 error.Show();
             }
-            System.Environment.Exit(0);
+            this.Close();
         }
 
         /**
@@ -73,6 +73,5 @@ namespace GeoApp
          * Cancel add, return to main view
          */
         private void Cancel(object sender, RoutedEventArgs e) => this.Close();
-
     }
 }

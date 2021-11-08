@@ -31,6 +31,5 @@ namespace GeoApp
          * Close the window
          */
         private void Exit(object sender, RoutedEventArgs e) => this.Close();
-        
     }
 }

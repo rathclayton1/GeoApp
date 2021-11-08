@@ -7,32 +7,188 @@
         mc:Ignorable="d"
         Title="Add a Sample" Height="500" Width="1000">
     <Grid RenderTransformOrigin="0.481,-0.172">
-
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,108,0,0" Text="Sample ID:" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"/>
-        <TextBox x:Name="SampleID"  TextWrapping="Wrap" Height="26" Width="522" Margin="220,109,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Name" TextWrapping="Wrap" Height="26" Width="522" Margin="220,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="SampleType" TextWrapping="Wrap" Height="26" Width="522" Margin="220,175,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="GeologicAge"  TextWrapping="Wrap" Height="26" Width="522" Margin="220,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="City"  TextWrapping="Wrap" Height="26" Width="522" Margin="220,241,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="State"  TextWrapping="Wrap" Height="26" Width="522" Margin="220,274,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Country"  TextWrapping="Wrap" Height="26" Width="522" Margin="220,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Latitude"  TextWrapping="Wrap" Height="26" Width="522" Margin="220,340,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Longitude"  TextWrapping="Wrap" Height="26" Width="522" Margin="220,373,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button FontWeight="Medium" Content="Submit" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="759,266,0,0" Height="59" Width="205" VerticalAlignment="Top" Click="Submit"/>
-        <Rectangle HorizontalAlignment="Left" Height="80" Fill="Black" Width="1000" Stroke="Black" VerticalAlignment="Top" />
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Add a Sample" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button FontWeight="Medium" Content="Cancel" Background="#A8A6A0" FontSize="25" HorizontalAlignment="Left" Margin="759,344,0,0" Height="59" Width="205" Click="Cancel" VerticalAlignment="Top"/>
-        <TextBlock FontSize="25" HorizontalAlignment="Left" Foreground="Black" Margin="822,110,0,0" Text="Image:" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="80"/>
-        <Button Content="+" FontWeight="Bold" Background="#FFCC00" FontSize="50" HorizontalAlignment="Left" Margin="820,146,0,0" Height="75" Width="80" VerticalAlignment="Top" Click="AddImage"/>
-       
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,140,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"/>
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,173,0,0" Text="Sample Type:" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,206,0,0" Text="Geologic Age:" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,239,0,0" Text="Town/City:" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"/>
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,272,0,0" Text="State/Province:" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,305,0,0" Text="Country:" TextWrapping="Wrap" VerticalAlignment="Top" Width="94"/>
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,338,0,0" Text="Latitude:" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"/>
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="88,372,0,0" Text="Longitude:" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"/>
+        <Rectangle HorizontalAlignment="Left"
+                   Height="80"
+                   Fill="Black"
+                   Width="1000"
+                   Stroke="Black"
+                   VerticalAlignment="Top" />
+        <Grid>
+            <TextBlock FontSize="30"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Margin="0,20,0,0"
+                       Text="Add a Sample"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,108,0,0"
+                       Text="Sample ID:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="107" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,140,0,0"
+                       Text="Name:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="107" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,173,0,0"
+                       Text="Sample Type:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="120" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,206,0,0"
+                       Text="Geologic Age:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="134" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,239,0,0"
+                       Text="Town/City:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="107" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,272,0,0"
+                       Text="State/Province:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="134" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,305,0,0"
+                       Text="Country:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="94" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,338,0,0"
+                       Text="Latitude:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="107" />
+            <TextBlock FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="88,372,0,0"
+                       Text="Longitude:"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Width="107" />
+            <TextBox x:Name="SampleID"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,109,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+        </Grid>
+        <Grid>
+            <TextBox x:Name="Name"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,142,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="SampleType"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,175,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="GeologicAge"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,208,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="City"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,241,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="State"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,274,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="Country"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,307,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="Latitude"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,340,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="Longitude"
+                     TextWrapping="Wrap"
+                     Height="26"
+                     Width="522"
+                     Margin="220,373,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+        </Grid>
+        <TextBlock FontSize="25"
+                   HorizontalAlignment="Left"
+                   Foreground="Black"
+                   Margin="822,110,0,0"
+                   Text="Image:"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top"
+                   Height="45"
+                   Width="80" />
+        <Button Content="+"
+                FontWeight="Bold"
+                Background="#FFCC00"
+                FontSize="50"
+                HorizontalAlignment="Left"
+                Margin="820,146,0,0"
+                Height="75"
+                Width="80"
+                VerticalAlignment="Top"
+                Click="AddImage" />
+        <Button FontWeight="Medium"
+                Content="Submit"
+                Background="#FFCC00"
+                FontSize="25"
+                HorizontalAlignment="Left"
+                Margin="759,266,0,0"
+                Height="59"
+                Width="205"
+                VerticalAlignment="Top"
+                Click="Submit" />
+        <Button FontWeight="Medium"
+                Content="Cancel"
+                Background="#A8A6A0"
+                FontSize="25"
+                HorizontalAlignment="Left"
+                Margin="759,344,0,0"
+                Height="59"
+                Width="205"
+                Click="Cancel"
+                VerticalAlignment="Top" />
     </Grid>
 </Window>
     

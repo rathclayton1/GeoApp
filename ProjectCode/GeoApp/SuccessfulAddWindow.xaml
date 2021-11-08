@@ -7,9 +7,36 @@
         mc:Ignorable="d"
         Title="SuccessfulAddWindow" Height="500" Width="800">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="80" Fill="Black" Width="800" Stroke="Black" VerticalAlignment="Top" />
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Add a Sample" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="130,242,0,0" FontSize="26" Text="Sample was successfully added to the catalogue." TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="572"/>
-        <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="308,354,0,0" Height="60" Width="204" VerticalAlignment="Top" Click="Exit"/>
+        <Rectangle HorizontalAlignment="Left"
+                   Height="80"
+                   Fill="Black"
+                   Width="800"
+                   Stroke="Black"
+                   VerticalAlignment="Top" />
+        <TextBlock FontSize="30"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   Margin="0,20,0,0"
+                   Text="Add a Sample"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top" />
+        <TextBlock HorizontalAlignment="Left"
+                   Margin="130,242,0,0"
+                   FontSize="26"
+                   Text="Sample was successfully added to the catalogue."
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top"
+                   Height="43"
+                   Width="572" />
+        <Button FontWeight="Medium"
+                Content="OK"
+                Background="#FFCC00"
+                FontSize="25"
+                HorizontalAlignment="Left"
+                Margin="308,354,0,0"
+                Height="60"
+                Width="204"
+                VerticalAlignment="Top"
+                Click="Exit" />
     </Grid>
 </Window>
