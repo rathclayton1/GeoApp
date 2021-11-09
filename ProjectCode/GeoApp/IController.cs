@@ -10,6 +10,7 @@ namespace GeoApp
         Sample GetSampleById(int id);
         bool UpdateSample(List<string> sampleInfo);
         List<Issue> GetAllIssues();
+        bool CreateIssue(List<string> issue);
         bool DeleteIssue(Issue issue);
     }
 }

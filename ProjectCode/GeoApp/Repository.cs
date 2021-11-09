@@ -2,19 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Configuration;
-
 
 namespace GeoApp
 {
     public class Repository : IRepository
     {
-        List<Sample> _dataList = new List<Sample>();
-        MySqlConnection _conn = new MySqlConnection();
+        List<Sample> _dataList = new();
+        MySqlConnection _conn = new();
 
         public Repository(MySqlConnection conn)
         {
-            this._conn = conn;
+            _conn = conn;
             _dataList = RetrieveAllSamples();
         }
 
@@ -86,25 +84,6 @@ namespace GeoApp
         }
 
         /// <summary>
-        /// This method deletes an issue from the database with the passed in id. 
-        /// </summary>
-        /// <param name="id">The id of the issue to be deleted</param>
-        /// <returns>True if successful, false if not</returns>
-        public bool DeleteIssueById(int id)
-        {
-            MySqlCommand command = _conn.CreateCommand();
-            command.Parameters.AddWithValue("@id", id);
-
-            command.CommandText = "DELETE FROM Issues " +
-                                  "WHERE issue_id = @id";
-
-            if (command.ExecuteNonQuery() < 1)
-                return false;
-            
-           return true;
-        }
-
-        /// <summary>
         /// This deletes a sample in the database with the matching sample id passed 
         /// in by the user. 
         /// </summary>
@@ -155,39 +134,6 @@ namespace GeoApp
         }
 
         /// <summary>
-        /// This method gets issues from the database and converts them into
-        /// a list of returned issues.
-        /// </summary>
-        /// <returns>List of all issues, empty list if no issues in DB</returns>
-        public List<Issue> RetrieveAllIssues()
-        {
-            List<Issue> result = new List<Issue>();
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = _conn;
-            command.CommandText = "Select * " +
-                                  "From Issues";
-            DataTable data = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            adapter.Fill(data);
-
-            for (int i = 0; i < data.Rows.Count; i++)
-            {
-                Issue issue = new Issue();
-                issue.IssueId = data.Rows[i].Field<int>("issue_id");
-                issue.IssueDescription = data.Rows[i].Field<String>("description");
-                issue.DateTimeSubmitted = data.Rows[i].Field<DateTime>("date");
-                issue.SampleId = data.Rows[i].Field<int>("sample_id");
-                issue.Type = data.Rows[i].Field<int>("issue_type") == 0 ? 
-                    Issue.IssueType.Misinformation : Issue.IssueType.SystemIssue;
-
-                result.Add(issue);
-            }               
-
-            return result;
-        }
-
-        /// <summary>
         /// This method queries the database and converts samples from database into
         /// the a List of Sample classes.
         /// </summary>
@@ -221,6 +167,79 @@ namespace GeoApp
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// This method adds an issue to the database. 
+        /// </summary>
+        /// <param name="issue">Issue to be added to the database.</param>
+        /// <returns>True if database was changed, else false.</returns>
+        public bool CreateIssue(Issue issue)
+        {
+            MySqlCommand command = _conn.CreateCommand();
+            command.Parameters.AddWithValue("@type", issue.Type);
+            command.Parameters.AddWithValue("@issue_description", issue.IssueDescription);
+            command.Parameters.AddWithValue("@date_submitted", issue.DateTimeSubmitted);
+            command.Parameters.AddWithValue("@resolved", issue.Resolved);
+
+            command.CommandText = "INSERT INTO Issue(description, date, issue_type, resolved)" +
+                                  "VALUES(@issue_description, @date_submitted, @type, @resolved)";
+
+            if (command.ExecuteNonQuery() < 1)
+                return false;
+
+            return true;
+        }
+
+        /// <summary>
+        /// This method gets issues from the database and converts them into
+        /// a list of returned issues.
+        /// </summary>
+        /// <returns>List of all issues, empty list if no issues in DB</returns>
+        public List<Issue> RetrieveAllIssues()
+        {
+            List<Issue> result = new List<Issue>();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = _conn;
+            command.CommandText = "Select * " +
+                                  "From Issues";
+            DataTable data = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            adapter.Fill(data);
+
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                Issue issue = new Issue();
+                issue.referenceId = data.Rows[i].Field<int>("issue_id");
+                issue.IssueDescription = data.Rows[i].Field<String>("description");
+                issue.DateTimeSubmitted = data.Rows[i].Field<DateTime>("date");
+                issue.Type = data.Rows[i].Field<int>("issue_type") == 0 ?
+                    Issue.IssueType.Misinformation : Issue.IssueType.SystemIssue;
+
+                result.Add(issue);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// This method deletes an issue from the database with the passed in id. 
+        /// </summary>
+        /// <param name="id">The id of the issue to be deleted</param>
+        /// <returns>True if successful, false if not</returns>
+        public bool DeleteIssueById(int id)
+        {
+            MySqlCommand command = _conn.CreateCommand();
+            command.Parameters.AddWithValue("@id", id);
+
+            command.CommandText = "DELETE FROM Issues " +
+                                  "WHERE issue_id = @id";
+
+            if (command.ExecuteNonQuery() < 1)
+                return false;
+
+            return true;
         }
     }
 }
