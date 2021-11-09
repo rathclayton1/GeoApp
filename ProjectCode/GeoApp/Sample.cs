@@ -15,7 +15,6 @@ namespace GeoApp
         private String _country;
         private Double _latitude;
         private Double _longitude;
-        private List<List<Byte>> _images;
 
         public int Id
         {
@@ -46,7 +45,7 @@ namespace GeoApp
             get { return _geologicAge; }
             set => _geologicAge = value;
         }
-
+ 
         public String City
         {
             get { return _city; }
@@ -75,17 +74,6 @@ namespace GeoApp
         {
             get { return _longitude; }
             set => _longitude = value;
-        }
-
-        public List<List<Byte>> Images
-        {
-            get { return _images; }
-            set => _images = value;
-        }
-
-        public Sample()
-        {
-            this.Id = -1;
         }
     }
 }
