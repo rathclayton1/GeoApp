@@ -10,7 +10,7 @@ namespace GeoApp
         List<Sample> _dataList = new();
         MySqlConnection _conn = new();
 
-        public Repository(MySqlConnection conn)
+        public Repository(MySqlConnection conn) 
         {
             _conn = conn;
             _dataList = RetrieveAllSamples();
@@ -217,7 +217,8 @@ namespace GeoApp
                 issue.DateTimeSubmitted = data.Rows[i].Field<DateTime>("date");
                 issue.Type = data.Rows[i].Field<int>("issue_type") == 0 ?
                     Issue.IssueType.Misinformation : Issue.IssueType.SystemIssue;
-
+                /* TO DO:
+                 * resolved boolean needs to be got from the database */
                 result.Add(issue);
             }
 
