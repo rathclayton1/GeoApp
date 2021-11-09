@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace GeoApp
 {
@@ -12,7 +9,8 @@ namespace GeoApp
         public bool AddNewSample(Sample sample);
         public bool EditSampleById(Sample sample);
         public bool DeleteSampleById(int id);
-        public Issue RetrieveAllIssues();
+        public List<Issue> RetrieveAllIssues();
+        public bool CreateIssue(Issue issue);
         public bool DeleteIssueById(int id);
     }
 }

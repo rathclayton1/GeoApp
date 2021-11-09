@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GeoApp
 {
     public class Sample
     {
-        private int _id;
+        private int _sampleId;
         private String _name;
         private String _sampleType;
         private String _locationDescription;
@@ -17,12 +15,11 @@ namespace GeoApp
         private String _country;
         private Double _latitude;
         private Double _longitude;
-        private List<List<Byte>> _images;
 
-        public int Id
+        public int SampleId
         {
-            get { return _id;}
-            set => _id = value;
+            get { return _sampleId; }
+            set => _sampleId = value;
         }
 
         public String Name
@@ -48,7 +45,7 @@ namespace GeoApp
             get { return _geologicAge; }
             set => _geologicAge = value;
         }
-        
+ 
         public String City
         {
             get { return _city; }
@@ -77,12 +74,6 @@ namespace GeoApp
         {
             get { return _longitude; }
             set => _longitude = value;
-        }
-
-        public List<List<Byte>> Images
-        {
-            get { return _images; }
-            set => _images = value;
         }
     }
 }
