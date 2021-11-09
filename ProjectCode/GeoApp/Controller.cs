@@ -138,14 +138,6 @@ namespace GeoApp
         public bool CreateIssues(List<String> issueInfo)
         {
             Issue issue = new Issue();
-            if (!int.TryParse(issueInfo[0], out int sampleId))
-            {
-                return false;
-            }
-            else
-            {
-                issue.SampleId = sampleId;
-            }
             if (issueInfo[1].Equals("0"))
             {
                 issue.Type = Issue.IssueType.Misinformation;
@@ -169,7 +161,7 @@ namespace GeoApp
 
         public bool DeleteIssue(Issue issue)
         {
-            return _repo.DeleteIssueById(issue.SampleId);
+            return _repo.DeleteIssueById(issue.referenceId);
         }
     }
 }
