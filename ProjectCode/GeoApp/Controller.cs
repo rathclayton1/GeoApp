@@ -70,7 +70,7 @@ namespace GeoApp
                 }
 
             }
-            return true;
+            return _repo.AddNewSample(sample);
         }
 
         public bool UpdateSample(List<String> sampleInfo)
@@ -122,7 +122,7 @@ namespace GeoApp
                 }
 
             }
-            return _repo.EditSampleById(sampleId);
+            return _repo.EditSampleById(sample);
         }
 
         public bool DeleteSample(Sample sample)
@@ -135,7 +135,7 @@ namespace GeoApp
             return _repo.RetrieveAllIssues();
         }
 
-        public bool CreateIssues(List<String> issueInfo)
+        public bool CreateIssue(List<String> issueInfo)
         {
             Issue issue = new Issue();
             if (issueInfo[1].Equals("0"))
@@ -156,7 +156,8 @@ namespace GeoApp
             }
             issue.DateTimeSubmitted = DateTime.Now;
             issue.Resolved = false;
-            return true;
+
+            return _repo.CreateIssue(issue);
         }
 
         public bool DeleteIssue(Issue issue)

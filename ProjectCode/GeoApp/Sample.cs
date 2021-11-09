@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GeoApp
 {
@@ -20,7 +18,7 @@ namespace GeoApp
 
         public int Id
         {
-            get { return _id;}
+            get { return _id; }
             set => _id = value;
         }
 
