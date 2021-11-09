@@ -83,21 +83,6 @@ namespace GeoApp
             set => _images = value;
         }
 
-        public Sample(int id, String name, String sampleType, String locationDescription, String geologic_age,
-                           String city, String state, String country, Double latitude, Double longitude)
-        {
-            this.Id = id;
-            this.Name = name;
-            this.SampleType = sampleType;
-            this.LocationDescription = locationDescription;
-            this.GeologicAge = geologic_age;
-            this.City = city;
-            this.State = state;
-            this.Country = country;
-            this.Latitude = latitude;
-            this.Longtitude = longitude;
-        }
-
         public Sample()
         {
             this.Id = -1;

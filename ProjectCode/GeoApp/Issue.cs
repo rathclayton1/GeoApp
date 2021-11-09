@@ -7,17 +7,8 @@ namespace GeoApp
         private IssueType _type;
         private String _issueDescription;
         private DateTime _dateSubmitted;
-        private int _sampleID;
-        private int _issueID;
-
-        public Issue(int issueID, string description, DateTime date, int sampleID, int type)
-        {
-            this.Type = (IssueType)type;
-            this._issueID = issueID;
-            this._issueDescription = description;
-            this._dateSubmitted = date;
-            this.SampleId = sampleID;
-        }
+        private int _sampleId;
+        private int _isueId;
 
         public IssueType Type
         {
@@ -39,14 +30,14 @@ namespace GeoApp
 
         public int SampleId
         {
-            get { return _sampleID; }
-            set => _sampleID = value;
+            get { return _sampleId; }
+            set => _sampleId = value;
         }
 
         public int IssueId
         {
-            get { return _issueID; }
-            set => _issueID = value;
+            get { return _isueId; }
+            set => _isueId = value;
         }
 
         public enum IssueType

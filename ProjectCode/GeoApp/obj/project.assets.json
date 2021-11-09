@@ -52,19 +52,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\helen\\.nuget\\packages\\": {}
+    "C:\\Users\\david\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\helen\\Documents\\David_School\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+      "projectUniqueName": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
       "projectName": "GeoApp",
-      "projectPath": "C:\\Users\\helen\\Documents\\David_School\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
-      "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\helen\\Documents\\David_School\\GeoApp\\CS341\\ProjectCode\\GeoApp\\obj\\",
+      "projectPath": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+      "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -113,7 +113,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
