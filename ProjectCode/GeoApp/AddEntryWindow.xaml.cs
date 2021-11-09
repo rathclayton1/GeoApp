@@ -22,9 +22,10 @@ namespace GeoApp
         private Repository _repo;
         private IController _controller;
 
-        /**
-         * Window constructor
-         */
+        /// <summary>
+        /// Initialize AddEntryWindow
+        /// </summary>
+        /// <param name="repository"></param>
         public AddEntryWindow(Repository repository)
         {
             InitializeComponent();
@@ -32,9 +33,11 @@ namespace GeoApp
             _controller = new Controller();
         }
 
-        /**
-         * Submit a new sample
-         */
+        /// <summary>
+        /// Submit a new sample
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Submit(object sender, RoutedEventArgs e)
         {
             List<string> sampleInfo = new List<string>();
@@ -51,7 +54,6 @@ namespace GeoApp
             {
                 SuccessfulAddWindow confirmation = new();
                 confirmation.Show();
-
             }
             else
             {
@@ -61,17 +63,22 @@ namespace GeoApp
             this.Close();
         }
 
-        /**
-         * Add an image to a sample
-         */
+        /// <summary>
+        /// Add an image to a sample
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddImage(object sender, RoutedEventArgs e)
         {
-            //TODO
+            //TODO implement image adding through controller
         }
 
-        /**
-         * Cancel add, return to main view
-         */
+
+        /// <summary>
+        /// Cancel add, return to main view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel(object sender, RoutedEventArgs e) => this.Close();
     }
 }
