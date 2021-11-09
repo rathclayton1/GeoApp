@@ -31,7 +31,7 @@ namespace GeoApp
             }
             else
             {
-                sample.Id = sampleId;
+                sample.SampleId = sampleId;
                 for (int i = 1; i <= 6; i++)
                 {
                     if (sampleInfo[i].Length > 50)
@@ -83,7 +83,7 @@ namespace GeoApp
             }
             else
             {
-                sample.Id = sampleId;
+                sample.SampleId = sampleId;
                 for (int i = 1; i <= 6; i++)
                 {
                     if (sampleInfo[i].Length > 50)
@@ -127,7 +127,7 @@ namespace GeoApp
 
         public bool DeleteSample(Sample sample)
         {
-            return _repo.DeleteSampleById(sample.Id);
+            return _repo.DeleteSampleById(sample.SampleId);
         }
 
         public List<Issue> GetAllIssues()
