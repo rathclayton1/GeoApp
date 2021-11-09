@@ -49,7 +49,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="SearchButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,25,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="Searchbutton_Click" Grid.Column="1">
+        <Button x:Name="SearchButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,25,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="SearchButton_Click" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="4"/>

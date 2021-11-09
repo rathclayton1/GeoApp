@@ -93,7 +93,6 @@ namespace GeoApp
         /// <returns>A list of all samples</returns>
         private List<Sample> LoadCollectionData()
         {
-
             return _controller.GetAllSamples();
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -111,7 +110,7 @@ namespace GeoApp
             //TODO: Link ViewIssue window
         }
 
-        private void Searchbutton_Click(object sender, RoutedEventArgs e)
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             //TODO: Link to contoroller search function _searchText and pass to controller.
         }
