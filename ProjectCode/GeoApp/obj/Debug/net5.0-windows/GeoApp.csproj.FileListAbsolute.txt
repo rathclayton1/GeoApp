@@ -20,3 +20,11 @@ C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\Ge
 C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\ref\GeoApp.dll
 C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\GeoApp.pdb
 C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\GeoApp.genruntimeconfig.cache
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\AddEntryWindow.g.cs
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\SuccessfulAddWindow.g.cs
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\UnsuccessfulAddWindow.g.cs
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\bin\Debug\net5.0-windows\GeoApp.dll.config
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\bin\Debug\net5.0-windows\MySqlConnector.dll
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\AddEntryWindow.baml
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\SuccessfulAddWindow.baml
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\UnsuccessfulAddWindow.baml

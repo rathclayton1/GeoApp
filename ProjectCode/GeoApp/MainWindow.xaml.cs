@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Configuration;
+using MySqlConnector;
 
 namespace GeoApp
 {
@@ -13,17 +15,23 @@ namespace GeoApp
         private List<Sample> _samples;
         private string _searchText;
         private Controller _controller;
+        private Repository _repo;
+        private MySqlConnection _conn;
+        private string _connectionStringToDB = ConfigurationManager.ConnectionStrings["TeamProjectDB"].ConnectionString;
 
-        public MainWindow(Controller controller)
+        public MainWindow()
         {
             InitializeComponent();
 
-            _controller = controller;
+            _conn = new MySqlConnection(_connectionStringToDB);
+            _conn.Open();
+            _repo = new(_conn);
+            _controller = new Controller(_repo);
 
             DataGridTextColumn sampleIdColumn = new()
             {
                 Header = "Sample ID",
-                Binding = new Binding("Id")
+                Binding = new Binding("SampleId")
             };
 
             SampleTable.Columns.Add(sampleIdColumn);
@@ -95,9 +103,15 @@ namespace GeoApp
         {
             return _controller.GetAllSamples();
         }
+
+        public void UpdateCollectionData()
+        {
+            _samples = _controller.GetAllSamples();
+        }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Link to AddEntryWindow
+            AddEntryWindow addEntryWindow = new(_controller);
+            addEntryWindow.Show();
         }
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)

@@ -26,6 +26,8 @@ namespace GeoApp
         {
             //Send sample to db
             MySqlCommand command = _conn.CreateCommand();
+            command.Connection = _conn;
+
             command.Parameters.AddWithValue("@sample_id", sample.SampleId);
             command.Parameters.AddWithValue("@name", sample.Name);
             command.Parameters.AddWithValue("@type", sample.SampleType);
@@ -34,10 +36,10 @@ namespace GeoApp
             command.Parameters.AddWithValue("@state", sample.State);
             command.Parameters.AddWithValue("@country", sample.Country);
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
-            command.Parameters.AddWithValue("@longitude", sample.Longtitude);
+            command.Parameters.AddWithValue("@longitude", sample.Longitude);
 
-            command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, city" +
-                                    "state, country, latitude, longitude, ) " +
+            command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, city, " +
+                                    "state, country, latitude, longitude) " +
                                    "VALUES(@sample_id, @name, @type, @geologic_age, @city, @state, @country, " +
                                     "@latitude, @longitude)";
 
@@ -78,7 +80,7 @@ namespace GeoApp
                 sample.State = data.Rows[0].Field<String>("state");
                 sample.Country = data.Rows[0].Field<String>("country");
                 sample.Latitude = data.Rows[0].Field<Double>("latitude");
-                sample.Longtitude = data.Rows[0].Field<Double>("longitude");
+                sample.Longitude = data.Rows[0].Field<Double>("longitude");
             }
 
             return sample;
@@ -121,7 +123,7 @@ namespace GeoApp
             command.Parameters.AddWithValue("@state", sample.State);
             command.Parameters.AddWithValue("@country", sample.Country);
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
-            command.Parameters.AddWithValue("@longitude", sample.Longtitude);
+            command.Parameters.AddWithValue("@longitude", sample.Longitude);
 
             command.CommandText = "UPDATE Samples " +
                                   "SET name=@name, type=@type, geologic_age=@geologic_age, city=@city, state=@state, " +
@@ -154,15 +156,16 @@ namespace GeoApp
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 Sample sample = new Sample();
-                sample.SampleId = data.Rows[0].Field<int>("sample_id");
-                sample.Name = data.Rows[0].Field<String>("name");
-                sample.SampleType = data.Rows[0].Field<String>("type");
-                sample.GeologicAge = data.Rows[0].Field<String>("geologic_age");
-                sample.City = data.Rows[0].Field<String>("city");
-                sample.State = data.Rows[0].Field<String>("state");
-                sample.Country = data.Rows[0].Field<String>("country");
-                sample.Latitude = data.Rows[0].Field<Double>("latitude");
-                sample.Longtitude = data.Rows[0].Field<Double>("longitude");
+                sample.SampleId = data.Rows[i].Field<int>("sample_id");
+                sample.Name = data.Rows[i].Field<String>("name");
+                sample.SampleType = data.Rows[i].Field<String>("type");
+                sample.GeologicAge = data.Rows[i].Field<String>("geologic_age");
+                sample.City = data.Rows[i].Field<String>("city");
+                sample.State = data.Rows[i].Field<String>("state");
+                sample.Country = data.Rows[i].Field<String>("country");
+                sample.Latitude = data.Rows[i].Field<Double>("latitude");
+                sample.Longitude = data.Rows[i].Field<Double>("longitude");
+                sample.LocationDescription = data.Rows[i].Field<String>("location_description");
 
                 result.Add(sample);
             }

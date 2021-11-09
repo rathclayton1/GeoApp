@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\david\OneDrive\Desktop\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\obj\Debug\net5.0-windows\
 GeoApp
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\david\OneDrive\Desktop\CS341\ProjectCode\GeoApp\App.xaml
+C:\Users\Dee\Desktop\GeoApp\CS341\ProjectCode\GeoApp\App.xaml
 4448417825
 
 14-1498414739
-194611936437
+19433729020
 AddEntryWindow.xaml;MainWindow.xaml;SuccessfulAddWindow.xaml;UnsuccessfulAddWindow.xaml;
 
-True
+False
 

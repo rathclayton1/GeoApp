@@ -52,19 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\david\\.nuget\\packages\\": {}
+    "C:\\Users\\Dee\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+      "projectUniqueName": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
       "projectName": "GeoApp",
-      "projectPath": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
-      "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david\\OneDrive\\Desktop\\CS341\\ProjectCode\\GeoApp\\obj\\",
+      "projectPath": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\GeoApp.csproj",
+      "packagesPath": "C:\\Users\\Dee\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dee\\Desktop\\GeoApp\\CS341\\ProjectCode\\GeoApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dee\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

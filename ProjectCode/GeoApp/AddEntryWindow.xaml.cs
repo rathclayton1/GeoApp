@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GeoApp
 {
@@ -19,18 +8,16 @@ namespace GeoApp
     /// </summary>
     public partial class AddEntryWindow : Window
     {
-        private Repository _repo;
         private IController _controller;
 
         /// <summary>
         /// Initialize AddEntryWindow
         /// </summary>
         /// <param name="repository"></param>
-        public AddEntryWindow(Repository repository)
+        public AddEntryWindow(Controller controller)
         {
             InitializeComponent();
-            _repo = repository;
-            _controller = new Controller();
+            _controller = controller;
         }
 
         /// <summary>

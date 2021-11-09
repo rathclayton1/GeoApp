@@ -6,7 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "MySqlConnector/1.3.14": {}
+      "MySqlConnector/1.3.14": {
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.3.14.0"
+          }
+        }
+      }
     }
   },
   "libraries": {

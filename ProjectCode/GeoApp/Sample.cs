@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace GeoApp
 {
@@ -70,7 +69,7 @@ namespace GeoApp
             set => _latitude = value;
         }
 
-        public Double Longtitude
+        public Double Longitude
         {
             get { return _longitude; }
             set => _longitude = value;
