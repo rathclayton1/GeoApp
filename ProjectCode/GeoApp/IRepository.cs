@@ -10,9 +10,9 @@ namespace GeoApp
         public List<Sample> RetrieveAllSamples();
         public Sample RetrieveSampleById(int id);
         public bool AddNewSample(Sample sample);
-        public bool EditSampleById(Sample sample);
+        public bool EditSampleById(int id);
         public bool DeleteSampleById(int id);
-        public Issue RetrieveAllIssues();
+        public List<Issue> RetrieveAllIssues();
         public bool DeleteIssueById(int id);
     }
 }

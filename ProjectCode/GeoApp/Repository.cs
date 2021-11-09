@@ -16,7 +16,7 @@ namespace GeoApp
         {
             this.conn = conn;
             dataList = RetrieveAllSamples();
-        }//end constructor
+        }
 
         public bool AddNewSample(Sample sample)
         {
@@ -47,12 +47,12 @@ namespace GeoApp
             throw new NotImplementedException();
         }
 
-        public bool EditSampleById(Sample sample)
+        public bool EditSampleById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Issue RetrieveAllIssues()
+        public List<Issue> RetrieveAllIssues()
         {
             throw new NotImplementedException();
         }

@@ -10,7 +10,8 @@ namespace GeoApp
         private IssueType _type;
         private String _issueDescription;
         private DateTime _dateSubmitted;
-        private int _sampleID;
+        private int _referenceId;
+        private bool _resolved;
 
         public IssueType Type
         {
@@ -30,10 +31,16 @@ namespace GeoApp
             set => _dateSubmitted = value;
         }
 
-        public int SampleId
+        public int referenceId
         {
-            get { return _sampleID; }
-            set => _sampleID = value;
+            get { return _referenceId; }
+            set => _referenceId = value;
+        }
+
+        public bool Resolved
+        {
+            get { return _resolved; }
+            set => _resolved = value;
         }
 
         public enum IssueType
