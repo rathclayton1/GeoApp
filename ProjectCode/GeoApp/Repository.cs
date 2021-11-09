@@ -26,6 +26,7 @@ namespace GeoApp
         {
             //Send sample to db
             MySqlCommand command = _conn.CreateCommand();
+            command.Parameters.AddWithValue("@sample_id", sample.SampleId);
             command.Parameters.AddWithValue("@name", sample.Name);
             command.Parameters.AddWithValue("@type", sample.SampleType);
             command.Parameters.AddWithValue("@geologic_age", sample.GeologicAge);
@@ -35,9 +36,9 @@ namespace GeoApp
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longtitude);
 
-            command.CommandText = "INSERT INTO Samples(name, type, geologic_age, city" +
+            command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, city" +
                                     "state, country, latitude, longitude, ) " +
-                                   "VALUES(@name, @type, @geologic_age, @city, @state, @country, " +
+                                   "VALUES(@sample_id, @name, @type, @geologic_age, @city, @state, @country, " +
                                     "@latitude, @longitude)";
 
             if (command.ExecuteNonQuery() < 1)
@@ -69,7 +70,7 @@ namespace GeoApp
 
             if (data != null)
             {
-                sample.Id = data.Rows[0].Field<int>("sample_id");
+                sample.SampleId = data.Rows[0].Field<int>("sample_id");
                 sample.Name = data.Rows[0].Field<String>("name");
                 sample.SampleType = data.Rows[0].Field<String>("type");
                 sample.GeologicAge = data.Rows[0].Field<String>("geologic_age");
@@ -112,7 +113,7 @@ namespace GeoApp
         {
             //Update sample in db
             MySqlCommand command = _conn.CreateCommand();
-            command.Parameters.AddWithValue("@sample_id", sample.Id);
+            command.Parameters.AddWithValue("@sample_id", sample.SampleId);
             command.Parameters.AddWithValue("@name", sample.Name);
             command.Parameters.AddWithValue("@type", sample.SampleType);
             command.Parameters.AddWithValue("@geologic_age", sample.GeologicAge);
@@ -153,7 +154,7 @@ namespace GeoApp
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 Sample sample = new Sample();
-                sample.Id = data.Rows[0].Field<int>("sample_id");
+                sample.SampleId = data.Rows[0].Field<int>("sample_id");
                 sample.Name = data.Rows[0].Field<String>("name");
                 sample.SampleType = data.Rows[0].Field<String>("type");
                 sample.GeologicAge = data.Rows[0].Field<String>("geologic_age");
