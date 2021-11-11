@@ -110,8 +110,8 @@ namespace GeoApp
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddEntryWindow addEntryWindow = new(_controller);
-            addEntryWindow.Show();
+            AddSampleWindow addSampleWindow = new(_controller);
+            addSampleWindow.Show();
         }
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)

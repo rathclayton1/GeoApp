@@ -4,17 +4,17 @@ using System.Windows;
 namespace GeoApp
 {
     /// <summary>
-    /// Interaction logic for AddEntryWindow.xaml
+    /// Interaction logic for AddSampleWindow.xaml
     /// </summary>
-    public partial class AddEntryWindow : Window
+    public partial class AddSampleWindow : Window
     {
         private IController _controller;
 
         /// <summary>
-        /// Initialize AddEntryWindow
+        /// Initialize AddSampleWindow
         /// </summary>
         /// <param name="repository"></param>
-        public AddEntryWindow(Controller controller)
+        public AddSampleWindow(Controller controller)
         {
             InitializeComponent();
             _controller = controller;
@@ -32,6 +32,7 @@ namespace GeoApp
             sampleInfo.Add(Name.Text);
             sampleInfo.Add(SampleType.Text);
             sampleInfo.Add(GeologicAge.Text);
+            sampleInfo.Add(LocationDescription.Text);
             sampleInfo.Add(City.Text);
             sampleInfo.Add(State.Text);
             sampleInfo.Add(Country.Text);
