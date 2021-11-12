@@ -3,7 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Configuration;
-using MySqlConnector;
+using MySql.Data.MySqlClient;
+
 
 namespace GeoApp
 {
