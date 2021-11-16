@@ -99,7 +99,7 @@ namespace GeoApp
             sample.City = sampleInfo[4];
             sample.State = sampleInfo[5];
             sample.Country = sampleInfo[6];
-            if (sampleInfo[7] != "")
+            if (sampleInfo[7] != string.Empty)
             {
                 if (!double.TryParse(sampleInfo[7], out double latitude))
                 {
@@ -111,7 +111,7 @@ namespace GeoApp
                 }
 
             }
-            else if (sampleInfo[8] != String.Empty)
+            else if (sampleInfo[8] != string.Empty)
             {
                 if (!double.TryParse(sampleInfo[8], out double longitude))
                 {
