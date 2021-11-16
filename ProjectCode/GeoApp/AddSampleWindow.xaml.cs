@@ -58,9 +58,8 @@ namespace GeoApp
         /// <param name="e"></param>
         private void AddImage(object sender, RoutedEventArgs e)
         {
-            //TODO implement image adding through controller
+            //TODO: implement image adding through controller
         }
-
 
         /// <summary>
         /// Cancel add, return to main view
