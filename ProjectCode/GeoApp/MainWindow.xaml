@@ -31,7 +31,7 @@
                 </Button>
             </StackPanel>
         </DockPanel>
-        <DataGrid x:Name="SampleTable" HorizontalAlignment="Center" Height="780" Width="1390" Margin="0,203,0,0" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" ColumnWidth="Auto" VerticalAlignment="Top" AutoGenerateColumns="False"/>
+        <DataGrid x:Name="SampleTable" HorizontalAlignment="Center" Height="780" Width="1390" Margin="0,203,0,0" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" ColumnWidth="Auto" VerticalAlignment="Top" AutoGenerateColumns="False" />
         <TextBox  x:Name="SearchBox" Text="Search " TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1196" Height="74" Margin="0,103,0,0" TextAlignment="Right" FontSize="48" BorderThickness="0" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="2">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">

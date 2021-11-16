@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Configuration;
 using MySqlConnector;
+using System.Collections.ObjectModel;
 
 namespace GeoApp
 {
@@ -12,7 +13,7 @@ namespace GeoApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Sample> _samples;
+        public static ObservableCollection<Sample> Samples { get; set; }
         private string _searchText;
         private Controller _controller;
         private Repository _repo;
@@ -90,28 +91,25 @@ namespace GeoApp
 
             SampleTable.Columns.Add(actionsColumn);
 
-            _samples = LoadCollectionData();
+            Samples = LoadCollectionData();
 
-            SampleTable.ItemsSource = _samples;
+            SampleTable.ItemsSource = Samples;
         }
 
         /// <summary>
         /// Method for loading initial table data of all samples
         /// </summary>
         /// <returns>A list of all samples</returns>
-        private List<Sample> LoadCollectionData()
+        private ObservableCollection<Sample> LoadCollectionData()
         {
-            return _controller.GetAllSamples();
+            return new ObservableCollection<Sample>(_controller.GetAllSamples());
         }
 
-        public void UpdateCollectionData()
-        {
-            _samples = _controller.GetAllSamples();
-        }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddEntryWindow addEntryWindow = new(_controller);
             addEntryWindow.Show();
+            
         }
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
@@ -133,6 +131,5 @@ namespace GeoApp
         {
             _searchText = SearchBox.Text;
         }
-
     }
 }

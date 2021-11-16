@@ -22,12 +22,12 @@ namespace GeoApp
             return _repo.RetrieveSampleById(id);
         }
 
-        public bool CreateNewSample(List<String> sampleInfo)
+        public Sample CreateNewSample(List<String> sampleInfo)
         {
             Sample sample = new Sample();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
-                return false;
+                return null;
             }
             else
             {
@@ -36,7 +36,7 @@ namespace GeoApp
                 {
                     if (sampleInfo[i].Length > 50)
                     {
-                        return false;
+                        return null;
                     }
                 }
             }
@@ -50,7 +50,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[7], out double latitude))
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[8], out double longitude))
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
@@ -70,7 +70,8 @@ namespace GeoApp
                 }
 
             }
-            return _repo.AddNewSample(sample);
+            var added = _repo.AddNewSample(sample);
+            return added ? sample : null;
         }
 
         public bool UpdateSample(List<String> sampleInfo)
