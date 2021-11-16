@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,15 +32,16 @@ namespace GeoApp
             command.Parameters.AddWithValue("@name", sample.Name);
             command.Parameters.AddWithValue("@type", sample.SampleType);
             command.Parameters.AddWithValue("@geologic_age", sample.GeologicAge);
+            command.Parameters.AddWithValue("@location_description", sample.LocationDescription);
             command.Parameters.AddWithValue("@city", sample.City);
             command.Parameters.AddWithValue("@state", sample.State);
             command.Parameters.AddWithValue("@country", sample.Country);
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longitude);
 
-            command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, city, " +
-                                    "state, country, latitude, longitude) " +
-                                   "VALUES(@sample_id, @name, @type, @geologic_age, @city, @state, @country, " +
+            command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, location_description," +
+                                    " city, state, country, latitude, longitude) " +
+                                   "VALUES(@sample_id, @name, @type, @geologic_age, @location_description, @city, @state, @country, " +
                                     "@latitude, @longitude)";
 
             if (command.ExecuteNonQuery() < 1)

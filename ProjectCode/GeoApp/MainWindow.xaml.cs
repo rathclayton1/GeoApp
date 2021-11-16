@@ -3,7 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Configuration;
-using MySqlConnector;
+using MySql.Data.MySqlClient;
+
 
 namespace GeoApp
 {
@@ -110,8 +111,8 @@ namespace GeoApp
         }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddEntryWindow addEntryWindow = new(_controller);
-            addEntryWindow.Show();
+            AddSampleWindow addSampleWindow = new(_controller);
+            addSampleWindow.Show();
         }
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
