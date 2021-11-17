@@ -37,7 +37,6 @@ namespace GeoApp
 
             SampleTable.Columns.Add(sampleIdColumn);
 
-
             DataGridTextColumn nameColumn = new()
             {
                 Header = "Name",
@@ -45,7 +44,6 @@ namespace GeoApp
             };
 
             SampleTable.Columns.Add(nameColumn);
-
 
             DataGridTextColumn sampleTypeColumn = new()
             {
@@ -55,7 +53,6 @@ namespace GeoApp
 
             SampleTable.Columns.Add(sampleTypeColumn);
 
-
             DataGridTextColumn locationDescriptionColumn = new()
             {
                 Header = "Location Description",
@@ -63,7 +60,6 @@ namespace GeoApp
             };
 
             SampleTable.Columns.Add(locationDescriptionColumn);
-
 
             DataGridTextColumn geologicAgeColumn = new()
             {
@@ -73,7 +69,6 @@ namespace GeoApp
 
             SampleTable.Columns.Add(geologicAgeColumn);
 
-
             DataGridTextColumn imageColumn = new()
             {
                 Header = "Image",
@@ -81,7 +76,6 @@ namespace GeoApp
             };
 
             SampleTable.Columns.Add(imageColumn);
-
 
             DataGridTextColumn actionsColumn = new()
             {
