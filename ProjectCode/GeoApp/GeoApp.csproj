@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\eye-icon.png" />
     <None Remove="Assets\lettermark-fox.jpg" />
     <None Remove="Assets\magnifying-glass.png" />
+    <None Remove="Assets\pencil-icon.png" />
+    <None Remove="Assets\trashcan-icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,8 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\eye-icon.png" />
     <Resource Include="Assets\lettermark-fox.jpg" />
     <Resource Include="Assets\magnifying-glass.png" />
+    <Resource Include="Assets\pencil-icon.png" />
+    <Resource Include="Assets\trashcan-icon.png" />
     <Resource Include="Resource Dictionaries\ScrollBarDictionary.xaml" />
   </ItemGroup>
 

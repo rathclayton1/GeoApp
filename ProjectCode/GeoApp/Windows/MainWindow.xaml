@@ -110,13 +110,18 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Image" Binding="{Binding Path='Image'}" IsReadOnly="True" Width="*">
-                    <DataGridTextColumn.HeaderStyle>
+                <DataGridTemplateColumn Header="Image" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                </DataGridTextColumn>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Actions" IsReadOnly="True" Width="150">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
@@ -126,26 +131,29 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5">
-                                <Button Name="ViewButton" Content="View" Click="ViewButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Left" Padding="5,5,5,5" Margin="5,0,5,0">
+                                <Button Name="ViewButton" Click="ViewButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Left" Padding="5,5,5,5" Margin="5,0,5,0">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="4"/>
                                         </Style>
                                     </Button.Resources>
+                                    <Image x:Name="EyeImage" Source="/Assets/eye-icon.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
-                                <Button Name="EditButton" Content="Edit" Click="EditButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Center" Padding="5,5,5,5" Margin="5,0,5,0">
+                                <Button Name="EditButton" Click="EditButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Center" Padding="5,5,5,5" Margin="5,0,5,0">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="4"/>
                                         </Style>
                                     </Button.Resources>
+                                    <Image x:Name="PencilImage" Source="/Assets/pencil-icon.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
-                                <Button Name="DeleteButton" Content="Delete" Click="DeleteButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Right" Padding="5,5,5,5" Margin="5,0,5,0">
+                                <Button Name="DeleteButton" Click="DeleteButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Right" Padding="5,5,5,5" Margin="5,0,5,0">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="4"/>
                                         </Style>
                                     </Button.Resources>
+                                    <Image x:Name="TrashCanImage" Source="/Assets/trashcan-icon.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
