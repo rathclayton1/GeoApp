@@ -10,7 +10,7 @@ namespace GeoApp
         List<Sample> _dataList = new();
         MySqlConnection _conn = new();
 
-        public Repository(MySqlConnection conn) 
+        public Repository(MySqlConnection conn)
         {
             _conn = conn;
             _dataList = RetrieveAllSamples();
@@ -45,7 +45,7 @@ namespace GeoApp
 
             if (command.ExecuteNonQuery() < 1)
                 return false;
-            
+
             return true;
         }
 
@@ -101,7 +101,7 @@ namespace GeoApp
 
             if (command.ExecuteNonQuery() < 1)
                 return false;
-            
+
             return true;
         }
 

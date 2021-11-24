@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using MySqlConnector;
+using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Configuration;
-using MySqlConnector;
-using System.Collections.ObjectModel;
 
 namespace GeoApp
 {
@@ -14,7 +12,7 @@ namespace GeoApp
     public partial class MainWindow : Window
     {
         public static ObservableCollection<Sample> Samples { get; set; }
-        private string _searchText;
+        public string _searchText;
         private Controller _controller;
         private Repository _repo;
         private MySqlConnection _conn;
@@ -22,68 +20,13 @@ namespace GeoApp
 
         public MainWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
             _conn = new MySqlConnection(_connectionStringToDB);
             _conn.Open();
             _repo = new(_conn);
             _controller = new Controller(_repo);
-
-            DataGridTextColumn sampleIdColumn = new()
-            {
-                Header = "Sample ID",
-                Binding = new Binding("SampleId")
-            };
-
-            SampleTable.Columns.Add(sampleIdColumn);
-
-            DataGridTextColumn nameColumn = new()
-            {
-                Header = "Name",
-                Binding = new Binding("Name")
-            };
-
-            SampleTable.Columns.Add(nameColumn);
-
-            DataGridTextColumn sampleTypeColumn = new()
-            {
-                Header = "Sample Type",
-                Binding = new Binding("SampleType")
-            };
-
-            SampleTable.Columns.Add(sampleTypeColumn);
-
-            DataGridTextColumn locationDescriptionColumn = new()
-            {
-                Header = "Location Description",
-                Binding = new Binding("LocationDescription")
-            };
-
-            SampleTable.Columns.Add(locationDescriptionColumn);
-
-            DataGridTextColumn geologicAgeColumn = new()
-            {
-                Header = "Geologic Age",
-                Binding = new Binding("GeologicAge")
-            };
-
-            SampleTable.Columns.Add(geologicAgeColumn);
-
-            DataGridTextColumn imageColumn = new()
-            {
-                Header = "Image",
-                Binding = new Binding("Image")
-            };
-
-            SampleTable.Columns.Add(imageColumn);
-
-            DataGridTextColumn actionsColumn = new()
-            {
-                Header = "Actions",
-                Binding = new Binding("Actions")
-            };
-
-            SampleTable.Columns.Add(actionsColumn);
 
             Samples = LoadCollectionData();
 
@@ -103,7 +46,7 @@ namespace GeoApp
         {
             AddEntryWindow addEntryWindow = new(_controller);
             addEntryWindow.Show();
-            
+
         }
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
@@ -124,6 +67,21 @@ namespace GeoApp
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             _searchText = SearchBox.Text;
+        }
+
+        private void ViewButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
