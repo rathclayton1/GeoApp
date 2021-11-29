@@ -4,17 +4,17 @@ using System.Windows;
 namespace GeoApp
 {
     /// <summary>
-    /// Interaction logic for AddEntryWindow.xaml
+    /// Interaction logic for AddSampleWindow.xaml
     /// </summary>
-    public partial class AddEntryWindow : Window
+    public partial class AddSampleWindow : Window
     {
         private IController _controller;
 
         /// <summary>
-        /// Initialize AddEntryWindow
+        /// Initialize AddSampleWindow
         /// </summary>
         /// <param name="repository"></param>
-        public AddEntryWindow(Controller controller)
+        public AddSampleWindow(Controller controller)
         {
             InitializeComponent();
             _controller = controller;
@@ -32,18 +32,16 @@ namespace GeoApp
             sampleInfo.Add(Name.Text);
             sampleInfo.Add(SampleType.Text);
             sampleInfo.Add(GeologicAge.Text);
+            sampleInfo.Add(LocationDescription.Text);
             sampleInfo.Add(City.Text);
             sampleInfo.Add(State.Text);
             sampleInfo.Add(Country.Text);
             sampleInfo.Add(Latitude.Text);
             sampleInfo.Add(Longitude.Text);
-
-            var createdSample = _controller.CreateNewSample(sampleInfo);
-            if (createdSample != null)
+            if (_controller.CreateNewSample(sampleInfo))
             {
                 SuccessfulAddWindow confirmation = new();
                 confirmation.Show();
-                MainWindow.Samples.Add(createdSample);
             }
             else
             {
@@ -60,9 +58,8 @@ namespace GeoApp
         /// <param name="e"></param>
         private void AddImage(object sender, RoutedEventArgs e)
         {
-            //TODO implement image adding through controller
+            //TODO: implement image adding through controller
         }
-
 
         /// <summary>
         /// Cancel add, return to main view

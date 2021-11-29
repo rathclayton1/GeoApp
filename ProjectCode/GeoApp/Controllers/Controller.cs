@@ -43,12 +43,13 @@ namespace GeoApp
             sample.Name = sampleInfo[1];
             sample.SampleType = sampleInfo[2];
             sample.GeologicAge = sampleInfo[3];
-            sample.City = sampleInfo[4];
-            sample.State = sampleInfo[5];
-            sample.Country = sampleInfo[6];
-            if (sampleInfo[7] != string.Empty)
+            sample.LocationDescription = sampleInfo[4];
+            sample.City = sampleInfo[5];
+            sample.State = sampleInfo[6];
+            sample.Country = sampleInfo[7];
+            if (sampleInfo[8] != string.Empty)
             {
-                if (!double.TryParse(sampleInfo[7], out double latitude))
+                if (!double.TryParse(sampleInfo[8], out double latitude))
                 {
                     return null;
                 }
@@ -58,9 +59,9 @@ namespace GeoApp
                 }
 
             }
-            if (sampleInfo[8] != string.Empty)
+            if (sampleInfo[9] != string.Empty)
             {
-                if (!double.TryParse(sampleInfo[8], out double longitude))
+                if (!double.TryParse(sampleInfo[9], out double longitude))
                 {
                     return null;
                 }
@@ -99,7 +100,7 @@ namespace GeoApp
             sample.City = sampleInfo[4];
             sample.State = sampleInfo[5];
             sample.Country = sampleInfo[6];
-            if (sampleInfo[7] != "")
+            if (sampleInfo[7] != string.Empty)
             {
                 if (!double.TryParse(sampleInfo[7], out double latitude))
                 {
