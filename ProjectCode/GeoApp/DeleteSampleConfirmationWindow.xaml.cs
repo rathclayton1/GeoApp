@@ -41,6 +41,7 @@ namespace GeoApp
         private void Delete(object sender, RoutedEventArgs e)
         {
             _controller.DeleteSample(_sample);
+            this.Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)

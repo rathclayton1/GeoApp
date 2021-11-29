@@ -127,6 +127,15 @@ namespace GeoApp
                 MessageBox.Show("Please choose a row to edit");
             }
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.SampleTable.SelectedItem != null)
+            {
+                DeleteSampleConfirmationWindow window = new((Sample)this.SampleTable.SelectedItem, _controller);
+                window.Show();
+            }
+        }
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
         {
             
