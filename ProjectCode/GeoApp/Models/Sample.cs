@@ -4,6 +4,7 @@ namespace GeoApp
 {
     public class Sample
     {
+        private int _dbId;
         private int _sampleId;
         private String _name;
         private String _sampleType;
@@ -14,6 +15,12 @@ namespace GeoApp
         private String _country;
         private Double _latitude;
         private Double _longitude;
+
+        public int DbId
+        {
+            get { return _dbId; }
+            set => _dbId = value;
+        }
 
         public int SampleId
         {

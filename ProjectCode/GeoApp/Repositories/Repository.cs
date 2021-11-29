@@ -66,13 +66,14 @@ namespace GeoApp
             //Get the sample id, if exists create sample instance and return
             command.CommandText = "SELECT * " +
                                   "FROM Samples " +
-                                  "WHERE sample_id = @id";
+                                  "WHERE id = @id";
             DataTable data = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             adapter.Fill(data);
 
-            if (data != null)
+            if (data.Rows.Count != 0)
             {
+                sample.DbId = data.Rows[0].Field<int>("id");
                 sample.SampleId = data.Rows[0].Field<int>("sample_id");
                 sample.Name = data.Rows[0].Field<String>("name");
                 sample.SampleType = data.Rows[0].Field<String>("type");
@@ -82,6 +83,7 @@ namespace GeoApp
                 sample.Country = data.Rows[0].Field<String>("country");
                 sample.Latitude = data.Rows[0].Field<Double>("latitude");
                 sample.Longitude = data.Rows[0].Field<Double>("longitude");
+                sample.LocationDescription = data.Rows[0].Field<String>("location_description");
             }
 
             return sample;
@@ -153,7 +155,7 @@ namespace GeoApp
             MySqlCommand command = _conn.CreateCommand();
             command.Parameters.AddWithValue("@id", id);
             command.CommandText = "DELETE FROM Samples " +
-                                  "WHERE sample_id = @id";
+                                  "WHERE id = @id";
 
             if (command.ExecuteNonQuery() < 1)
                 return false;
@@ -171,6 +173,7 @@ namespace GeoApp
         {
             //Update sample in db
             MySqlCommand command = _conn.CreateCommand();
+            command.Parameters.AddWithValue("@id", sample.DbId);
             command.Parameters.AddWithValue("@sample_id", sample.SampleId);
             command.Parameters.AddWithValue("@name", sample.Name);
             command.Parameters.AddWithValue("@type", sample.SampleType);
@@ -180,11 +183,12 @@ namespace GeoApp
             command.Parameters.AddWithValue("@country", sample.Country);
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longitude);
+            command.Parameters.AddWithValue("@location_description", sample.LocationDescription);
 
             command.CommandText = "UPDATE Samples " +
-                                  "SET name=@name, type=@type, geologic_age=@geologic_age, city=@city, state=@state, " +
-                                    "country=@country, latitude=@latitude, longitude=@longitude" +
-                                  "WHERE sample_id = @sample_id";
+                                  "SET sample_id=@sample_id, name=@name, type=@type, geologic_age=@geologic_age, city=@city, state=@state, " +
+                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description" +
+                                  "WHERE id = @id";
 
             if (command.ExecuteNonQuery() < 1)
                 return false;
@@ -203,7 +207,8 @@ namespace GeoApp
             MySqlCommand command = new MySqlCommand();
             command.Connection = _conn;
             command.CommandText = "Select * " +
-                                  "From Samples";
+                                  "From Samples " +
+                                  "ORDER BY sample_id";
             DataTable data = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -212,6 +217,7 @@ namespace GeoApp
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 Sample sample = new Sample();
+                sample.DbId = data.Rows[i].Field<int>("id");
                 sample.SampleId = data.Rows[i].Field<int>("sample_id");
                 sample.Name = data.Rows[i].Field<String>("name");
                 sample.SampleType = data.Rows[i].Field<String>("type");
