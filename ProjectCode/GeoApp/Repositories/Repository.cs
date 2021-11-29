@@ -130,6 +130,7 @@ namespace GeoApp
 
             if (data != null)
             {
+                newSample.DbId = data.Rows[0].Field<int>("id");
                 newSample.SampleId = data.Rows[0].Field<int>("sample_id");
                 newSample.Name = data.Rows[0].Field<string>("name");
                 newSample.SampleType = data.Rows[0].Field<string>("type");
