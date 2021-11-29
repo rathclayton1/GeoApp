@@ -15,6 +15,7 @@ namespace GeoApp
         private String _country;
         private Double _latitude;
         private Double _longitude;
+        private byte[] _image;
 
         public int DbId
         {
@@ -80,6 +81,12 @@ namespace GeoApp
         {
             get { return _longitude; }
             set => _longitude = value;
+        }
+
+        public byte[] Image
+        {
+            get { return _image; }
+            set => _image = value;
         }
     }
 }

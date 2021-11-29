@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GeoApp
 {
-    public class Controller : IController
+    public class Controller : IController 
     {
         private Repository _repo;
         
@@ -22,7 +22,7 @@ namespace GeoApp
             return _repo.RetrieveSampleById(id);
         }
 
-        public bool CreateNewSample(List<String> sampleInfo)
+        public bool CreateNewSample(List<string> sampleInfo, byte[] image)
         {
             Sample sample = new Sample();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
@@ -71,6 +71,7 @@ namespace GeoApp
                 }
 
             }
+            sample.Image = image;
             return _repo.AddNewSample(sample);
         }
 

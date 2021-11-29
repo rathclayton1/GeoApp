@@ -1,5 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.IO;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
+using System;
 
 namespace GeoApp
 {
@@ -15,16 +19,16 @@ namespace GeoApp
 
         private IController _controller;
         private int id;
+        private Sample _sample;
 
         /// <summary>
         /// Initialize EditSampleWindow
         /// </summary>
         /// <param name="repository"></param>
-        public EditSampleWindow(Controller controller, int id)
+        public EditSampleWindow(Sample sample)
         {
             InitializeComponent();
-            _controller = controller;
-            this.id = id;
+            _sample = sample;
             FillProperties();
         }
 
@@ -33,7 +37,7 @@ namespace GeoApp
         /// </summary>
         private void FillProperties()
         {
-            Sample sample = _controller.GetSampleById(id);
+            Sample sample = _sample;
             SampleID.Text = sample.SampleId.ToString();
             Name.Text = sample.Name;
             SampleType.Text = sample.SampleType;
@@ -44,6 +48,20 @@ namespace GeoApp
             Country.Text = sample.Country;
             Latitude.Text = sample.Latitude.ToString();
             Longitude.Text = sample.Longitude.ToString();
+            SampleImage.Source = ToImage(sample.Image);
+        }
+
+        private BitmapImage ToImage(byte[] array)
+        {
+            using (var ms = new MemoryStream(array))
+            {
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad; // here
+                image.StreamSource = ms;
+                image.EndInit();
+                return image;
+            }
         }
 
         /// <summary>
@@ -84,7 +102,22 @@ namespace GeoApp
         /// <param name="e"></param>
         private void EditImage(object sender, RoutedEventArgs e)
         {
-            //TODO: Add edit image(s) functionality
+            try
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                openFileDialog1.Filter = "Image files | *.jpg";
+                openFileDialog1.ShowDialog();
+                if (!string.IsNullOrEmpty(openFileDialog1.FileName))
+                {
+                    PathSampleImage.Text = openFileDialog1.FileName;
+                    SampleImage.Source = new BitmapImage(new Uri(openFileDialog1.FileName));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -93,5 +126,6 @@ namespace GeoApp
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Cancel(object sender, RoutedEventArgs e) => this.Close();
+
     }
 }

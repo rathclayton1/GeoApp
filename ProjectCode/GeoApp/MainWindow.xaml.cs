@@ -117,7 +117,15 @@ namespace GeoApp
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Link report issue window
+            if (this.SampleTable.SelectedItem != null)
+            {
+                EditSampleWindow window = new((Sample)this.SampleTable.SelectedItem);
+                window.Show();
+            } else
+            {
+                MessageBox.Show("Please choose a row to edit");
+            }
+
         }
 
         private void ViewIssuesButton_Click(object sender, RoutedEventArgs e)

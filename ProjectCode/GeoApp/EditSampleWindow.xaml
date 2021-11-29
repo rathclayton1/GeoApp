@@ -26,16 +26,10 @@
             <TextBox x:Name="Latitude" TextWrapping="Wrap" Height="26" Width="522" Margin="220,373,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <TextBox x:Name="Longitude" TextWrapping="Wrap" Height="26" Width="522" Margin="220,406,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
         </Grid>
-        <TextBlock FontSize="25" HorizontalAlignment="Left" Foreground="Black" Margin="822,110,0,0" Text="Image:" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="80" />
-        <Button x:Name="EditButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,148,103,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="EditImage">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="4" />
-                </Style>
-            </Button.Resources>
-            <Image x:Name="PenImage" Source="/Assets/pen.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </Button>
+        <Image x:Name="SampleImage" Margin="770,106,34,222" Stretch="UniformToFill"/>
+        <TextBlock x:Name="PathSampleImage" TextWrapping="Wrap" Height="19" Width="132" Margin="760,271,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextTrimming="CharacterEllipsis" />
         <Button FontWeight="Medium" Content="Submit" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="760,295,0,0" Height="58" Width="204" VerticalAlignment="Top" Click="Submit" />
         <Button FontWeight="Medium" Content="Cancel" Background="#A8A6A0" FontSize="25" HorizontalAlignment="Left" Margin="760,374,0,0" Height="58" Width="204" Click="Cancel" VerticalAlignment="Top" />
+        <Button x:Name="EditImageButton" Content="Change Image" HorizontalAlignment="Left" Margin="897,271,0,0" VerticalAlignment="Top" Height="18" Width="71" FontSize="10" Click="EditImage"/>
     </Grid>
 </Window>

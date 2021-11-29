@@ -4,7 +4,7 @@ namespace GeoApp
 {
     public interface IController
     {
-        bool CreateNewSample(List<string> sampleInfo);
+        bool CreateNewSample(List<string> sampleInfo, byte[] image);
         bool DeleteSample(Sample sample);
         List<Sample> GetAllSamples();
         Sample GetSampleById(int id);
