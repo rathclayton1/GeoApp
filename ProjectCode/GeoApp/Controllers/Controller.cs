@@ -71,8 +71,11 @@ namespace GeoApp
                 }
 
             }
-            var added = _repo.AddNewSample(sample);
-            return added ? sample : null;
+
+            bool added = _repo.AddNewSample(sample);
+            Sample newSample = _repo.RetrieveSampleByFields(sample);
+
+            return added ? newSample : null;
         }
 
         public bool UpdateSample(List<string> sampleInfo)

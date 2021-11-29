@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Windows;
@@ -44,7 +44,7 @@ namespace GeoApp
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddEntryWindow addEntryWindow = new(_controller);
+            AddSampleWindow addEntryWindow = new(_controller);
             addEntryWindow.Show();
 
         }
