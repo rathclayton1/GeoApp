@@ -31,5 +31,6 @@
         <Button FontWeight="Medium" Content="Submit" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="760,295,0,0" Height="58" Width="204" VerticalAlignment="Top" Click="Submit" />
         <Button FontWeight="Medium" Content="Cancel" Background="#A8A6A0" FontSize="25" HorizontalAlignment="Left" Margin="760,374,0,0" Height="58" Width="204" Click="Cancel" VerticalAlignment="Top" />
         <Button x:Name="EditImageButton" Content="Change Image" HorizontalAlignment="Left" Margin="897,271,0,0" VerticalAlignment="Top" Height="18" Width="71" FontSize="10" Click="EditImage"/>
+        <TextBlock x:Name="NoImageText" HorizontalAlignment="Left" Margin="840,189,0,0" Text="No Image" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Visibility="Hidden"/>
     </Grid>
 </Window>

@@ -25,10 +25,11 @@ namespace GeoApp
         /// Initialize EditSampleWindow
         /// </summary>
         /// <param name="repository"></param>
-        public EditSampleWindow(Sample sample)
+        public EditSampleWindow(Sample sample, Controller controller)
         {
             InitializeComponent();
             _sample = sample;
+            _controller = controller;
             FillProperties();
         }
 
@@ -48,7 +49,14 @@ namespace GeoApp
             Country.Text = sample.Country;
             Latitude.Text = sample.Latitude.ToString();
             Longitude.Text = sample.Longitude.ToString();
-            SampleImage.Source = ToImage(sample.Image);
+            if (sample.Image != null)
+            {
+                SampleImage.Source = ToImage(sample.Image);
+            }
+            else
+            {
+                NoImageText.Visibility = Visibility.Visible;
+            }
         }
 
         private BitmapImage ToImage(byte[] array)
@@ -72,6 +80,7 @@ namespace GeoApp
         private void Submit(object sender, RoutedEventArgs e)
         {
             List<string> sampleInfo = new List<string>();
+            sampleInfo.Add(_sample.DbId.ToString());
             sampleInfo.Add(SampleID.Text);
             sampleInfo.Add(Name.Text);
             sampleInfo.Add(SampleType.Text);
@@ -82,7 +91,20 @@ namespace GeoApp
             sampleInfo.Add(Country.Text);
             sampleInfo.Add(Latitude.Text);
             sampleInfo.Add(Longitude.Text);
-            if (_controller.UpdateSample(sampleInfo))
+
+            if (!string.IsNullOrEmpty(PathSampleImage.Text))
+            {
+                FileStream fs;
+                BinaryReader br;
+                string fileName = PathSampleImage.Text;
+                fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fs);
+                _sample.Image = br.ReadBytes((int)fs.Length);
+                br.Close();
+                fs.Close();
+            }
+
+            if (_controller.UpdateSample(sampleInfo, _sample.Image))
             {
                 SuccessfulEditWindow confirmation = new();
                 confirmation.Show();
@@ -111,6 +133,7 @@ namespace GeoApp
                 {
                     PathSampleImage.Text = openFileDialog1.FileName;
                     SampleImage.Source = new BitmapImage(new Uri(openFileDialog1.FileName));
+                    NoImageText.Visibility = Visibility.Hidden;
                 }
 
             }

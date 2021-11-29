@@ -115,16 +115,21 @@ namespace GeoApp
             addSampleWindow.Show();
         }
 
-        private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.SampleTable.SelectedItem != null)
             {
-                EditSampleWindow window = new((Sample)this.SampleTable.SelectedItem);
+                EditSampleWindow window = new((Sample)this.SampleTable.SelectedItem, _controller);
                 window.Show();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Please choose a row to edit");
             }
+        }
+        private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
+        {
+            
 
         }
 

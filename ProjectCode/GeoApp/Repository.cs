@@ -132,10 +132,12 @@ namespace GeoApp
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longitude);
             command.Parameters.AddWithValue("@location_description", sample.LocationDescription);
+            command.Parameters.AddWithValue("image", sample.Image);
 
             command.CommandText = "UPDATE Samples " +
                                   "SET sample_id=@sample_id, name=@name, type=@type, geologic_age=@geologic_age, city=@city, state=@state, " +
-                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description" +
+                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description, " +
+                                    "image=@image " +
                                   "WHERE id = @id";
 
             if (command.ExecuteNonQuery() < 1)
