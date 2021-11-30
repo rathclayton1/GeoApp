@@ -38,10 +38,13 @@ namespace GeoApp
             sampleInfo.Add(Country.Text);
             sampleInfo.Add(Latitude.Text);
             sampleInfo.Add(Longitude.Text);
-            if (_controller.CreateNewSample(sampleInfo))
+
+            var createdSample = _controller.CreateNewSample(sampleInfo);
+            if (createdSample != null)
             {
                 SuccessfulAddWindow confirmation = new();
                 confirmation.Show();
+                MainWindow.Samples.Add(createdSample);
             }
             else
             {

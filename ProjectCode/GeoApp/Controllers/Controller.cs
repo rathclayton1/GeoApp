@@ -6,8 +6,8 @@ namespace GeoApp
     public class Controller : IController
     {
         private Repository _repo;
-        
-        public Controller (Repository repository)
+
+        public Controller(Repository repository)
         {
             _repo = repository;
         }
@@ -22,12 +22,12 @@ namespace GeoApp
             return _repo.RetrieveSampleById(id);
         }
 
-        public bool CreateNewSample(List<String> sampleInfo)
+        public Sample CreateNewSample(List<string> sampleInfo)
         {
-            Sample sample = new Sample();
+            Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
-                return false;
+                return null;
             }
             else
             {
@@ -36,7 +36,7 @@ namespace GeoApp
                 {
                     if (sampleInfo[i].Length > 50)
                     {
-                        return false;
+                        return null;
                     }
                 }
             }
@@ -51,7 +51,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[8], out double latitude))
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[9], out double longitude))
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
@@ -71,13 +71,17 @@ namespace GeoApp
                 }
 
             }
-            return _repo.AddNewSample(sample);
+
+            bool added = _repo.AddNewSample(sample);
+            Sample newSample = _repo.RetrieveSampleByFields(sample);
+
+            return added ? newSample : null;
         }
 
-        public bool UpdateSample(List<String> sampleInfo)
+        public bool UpdateSample(List<string> sampleInfo)
         {
-            //TODO: TS-16 Update Edit Entry Logic and Handling 
-            Sample sample = new Sample();
+            //TODO: TS-16 Update Edit Entry Logic and Handling
+            Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
                 return false;
@@ -136,7 +140,7 @@ namespace GeoApp
             return _repo.RetrieveAllIssues();
         }
 
-        public bool CreateIssue(List<String> issueInfo)
+        public bool CreateIssue(List<string> issueInfo)
         {
             Issue issue = new Issue();
             if (issueInfo[1].Equals("0"))
@@ -144,7 +148,7 @@ namespace GeoApp
                 issue.Type = Issue.IssueType.Misinformation;
             }
             else
-            { 
+            {
                 issue.Type = Issue.IssueType.SystemIssue;
             }
             if (issueInfo[2].Length > 500)
