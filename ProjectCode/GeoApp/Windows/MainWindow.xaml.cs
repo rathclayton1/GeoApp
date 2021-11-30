@@ -71,7 +71,10 @@ namespace GeoApp
 
         private void ViewButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var sampleData = (Button)e.OriginalSource;
+            var sample = (Sample)sampleData.DataContext;
+            SampleViewWindow window = new(sample);
+            window.Show();
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
