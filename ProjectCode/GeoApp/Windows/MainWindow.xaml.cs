@@ -51,7 +51,8 @@ namespace GeoApp
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Link report issue window
+            ReportIssueWindow reportIssueWindow = new(_controller);
+            reportIssueWindow.Show();
         }
 
         private void ViewIssuesButton_Click(object sender, RoutedEventArgs e)

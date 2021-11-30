@@ -28,16 +28,16 @@ namespace GeoApp
 
         private void Submit(object sender, RoutedEventArgs e)
         {
-            List<String> issue = new();
-            issue.Add(Type.SelectedItem.ToString() == "Misinformation" ? "0" : "1");
-            issue.Add(Description.Text);
-            _controller.CreateIssue(issue);
-            this.Close();
+            List<string> issueData = new();
+            issueData.Add(Type.SelectedItem.ToString() == "Misinformation" ? "0" : "1");
+            issueData.Add(Description.Text);
+            _controller.CreateIssue(issueData);
+            Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
