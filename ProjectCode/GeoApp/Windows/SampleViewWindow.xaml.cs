@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using GeoApp.Windows;
+using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace GeoApp
@@ -24,20 +26,19 @@ namespace GeoApp
         /// </summary>
         private void FillProperties()
         {
-            Sample sample = _sample;
-            SampleID.Text = sample.SampleId.ToString();
-            Name.Text = sample.Name;
-            SampleType.Text = sample.SampleType;
-            GeologicAge.Text = sample.GeologicAge;
-            LocationDescription.Text = sample.LocationDescription;
-            City.Text = sample.City;
-            State.Text = sample.State;
-            Country.Text = sample.Country;
-            Latitude.Text = sample.Latitude.ToString();
-            Longitude.Text = sample.Longitude.ToString();
-            if (sample.Image != null)
+            SampleID.Text = _sample.SampleId.ToString();
+            Name.Text = _sample.Name;
+            SampleType.Text = _sample.SampleType;
+            GeologicAge.Text = _sample.GeologicAge;
+            LocationDescription.Text = _sample.LocationDescription;
+            City.Text = _sample.City;
+            State.Text = _sample.State;
+            Country.Text = _sample.Country;
+            Latitude.Text = _sample.Latitude.ToString();
+            Longitude.Text = _sample.Longitude.ToString();
+            if (_sample.Image != null)
             {
-                SampleImage.Source = ToImage(sample.Image);
+                SampleImage.Source = ToImage(_sample.Image);
             }
             else
             {
@@ -54,6 +55,12 @@ namespace GeoApp
             image.StreamSource = ms;
             image.EndInit();
             return image;
+        }
+
+        private void ViewImage_Click(object sender, RoutedEventArgs e)
+        {
+            ImageViewWindow window = new(_sample);
+            window.Show();
         }
 
         /// <summary>

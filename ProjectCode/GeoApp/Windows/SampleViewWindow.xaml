@@ -36,7 +36,9 @@
         <StackPanel Orientation="Vertical" Margin="756,103,10,0">
             <TextBlock x:Name="ImageTextBlock" FontSize="25"  Foreground="Black"  Text="Image:" TextWrapping="Wrap" Height="45" Width="80" />
             <Border BorderThickness="1" BorderBrush="Black">
-                <Image x:Name="SampleImage" Stretch="UniformToFill" Height="150" Width="200"/>
+                <Button Background="Transparent" Click="ViewImage_Click">
+                    <Image x:Name="SampleImage" Stretch="UniformToFill" Height="150" Width="200"/>
+                </Button>
             </Border>
             <TextBlock x:Name="NoImageText" HorizontalAlignment="Left" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden"/>
             <TextBlock x:Name="PathSampleImage" TextWrapping="Wrap" Height="1" Width="1" TextTrimming="CharacterEllipsis" Visibility="Hidden"/>
