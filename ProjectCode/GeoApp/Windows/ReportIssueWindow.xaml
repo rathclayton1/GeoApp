@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ReportIssueWindow" Height="500" Width="1000">
+        Title="ReportIssueWindow" Height="500" Width="1000" ResizeMode="NoResize">
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="80" Fill="Black" Width="1000" Stroke="Black" VerticalAlignment="Top" />
         <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Report an Issue" TextWrapping="Wrap" VerticalAlignment="Top" />

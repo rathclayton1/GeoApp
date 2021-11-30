@@ -257,7 +257,7 @@ namespace GeoApp
             command.Parameters.AddWithValue("@date_submitted", issue.DateTimeSubmitted);
             command.Parameters.AddWithValue("@resolved", issue.Resolved);
 
-            command.CommandText = "INSERT INTO Issue(description, date, issue_type, resolved)" +
+            command.CommandText = "INSERT INTO Issues(description, date, issue_type, resolved) " +
                                   "VALUES(@issue_description, @date_submitted, @type, @resolved)";
 
             if (command.ExecuteNonQuery() < 1)

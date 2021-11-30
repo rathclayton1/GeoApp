@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GeoApp
 {
@@ -22,6 +11,7 @@ namespace GeoApp
         private IController _controller;
         public ReportIssueWindow(Controller controller)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
             _controller = controller;
         }
@@ -29,15 +19,21 @@ namespace GeoApp
         private void Submit(object sender, RoutedEventArgs e)
         {
             List<string> issueData = new();
-            issueData.Add(Type.SelectedItem.ToString() == "Misinformation" ? "0" : "1");
+            string typeSelected = Type.Text;
+            issueData.Add(typeSelected.Equals(Issue.IssueType.Misinformation.ToString()) ? "0" : "1");
             issueData.Add(Description.Text);
-            _controller.CreateIssue(issueData);
+            if(_controller.CreateIssue(issueData))
+            {
+                MessageBox.Show("Added successfully", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+            } else
+            {
+                MessageBox.Show("Please make sure issue is less that 500 characters", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                Submit(sender, e);
+            }
+            MainWindow.Issues = new(_controller.GetAllIssues());
             Close();
         }
 
-        private void Cancel(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void Cancel(object sender, RoutedEventArgs e) => Close();
     }
 }

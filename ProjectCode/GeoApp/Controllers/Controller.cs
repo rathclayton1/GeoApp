@@ -158,7 +158,7 @@ namespace GeoApp
         public bool CreateIssue(List<string> issueInfo)
         {
             Issue issue = new Issue();
-            if (issueInfo[1].Equals("0"))
+            if (issueInfo[0].Equals("0"))
             {
                 issue.Type = Issue.IssueType.Misinformation;
             }
@@ -166,13 +166,13 @@ namespace GeoApp
             {
                 issue.Type = Issue.IssueType.SystemIssue;
             }
-            if (issueInfo[2].Length > 500)
+            if (issueInfo[1].Length > 500)
             {
                 return false;
             }
             else
             {
-                issue.IssueDescription = issueInfo[2];
+                issue.IssueDescription = issueInfo[1];
             }
             issue.DateTimeSubmitted = DateTime.Now;
             issue.Resolved = false;

@@ -12,6 +12,7 @@ namespace GeoApp
     public partial class MainWindow : Window
     {
         public static ObservableCollection<Sample> Samples { get; set; }
+        public static ObservableCollection<Issue> Issues { get; set; }
         public string _searchText;
         private Controller _controller;
         private Repository _repo;
