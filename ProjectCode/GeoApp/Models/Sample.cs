@@ -6,15 +6,16 @@ namespace GeoApp
     {
         private int _dbId;
         private int _sampleId;
-        private String _name;
-        private String _sampleType;
-        private String _locationDescription;
-        private String _geologicAge;
-        private String _city;
-        private String _state;
-        private String _country;
-        private Double _latitude;
-        private Double _longitude;
+        private string _name;
+        private string _sampleType;
+        private string _locationDescription;
+        private string _geologicAge;
+        private string _city;
+        private string _state;
+        private string _country;
+        private double _latitude;
+        private double _longitude;
+        private byte[] _image;
 
         public int DbId
         {
@@ -80,6 +81,12 @@ namespace GeoApp
         {
             get { return _longitude; }
             set => _longitude = value;
+        }
+
+        public byte[] Image
+        {
+            get { return _image; }
+            set => _image = value;
         }
     }
 }

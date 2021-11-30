@@ -38,12 +38,13 @@ namespace GeoApp
             command.Parameters.AddWithValue("@country", sample.Country);
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longitude);
+            command.Parameters.AddWithValue("image", sample.Image);
 
             command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, location_description," +
-                                    " city, state, country, latitude, longitude) " +
+                                    " city, state, country, latitude, longitude, image) " +
                                    "VALUES(@sample_id, @name, @type, @geologic_age, @location_description, @city, @state, @country, " +
-                                    "@latitude, @longitude)";
-
+                                    "@latitude, @longitude, @image)";
+           
             if (command.ExecuteNonQuery() < 1)
                 return false;
 
@@ -84,6 +85,8 @@ namespace GeoApp
                 sample.Latitude = data.Rows[0].Field<Double>("latitude");
                 sample.Longitude = data.Rows[0].Field<Double>("longitude");
                 sample.LocationDescription = data.Rows[0].Field<String>("location_description");
+                sample.Image = data.Rows[0].Field<byte[]>("image");
+
             }
 
             return sample;
@@ -186,10 +189,12 @@ namespace GeoApp
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longitude);
             command.Parameters.AddWithValue("@location_description", sample.LocationDescription);
+            command.Parameters.AddWithValue("image", sample.Image);
 
             command.CommandText = "UPDATE Samples " +
                                   "SET sample_id=@sample_id, name=@name, type=@type, geologic_age=@geologic_age, city=@city, state=@state, " +
-                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description " +
+                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description, " +
+                                    "image=@image " +
                                   "WHERE id = @id";
 
             if (command.ExecuteNonQuery() < 1)
@@ -208,8 +213,9 @@ namespace GeoApp
             List<Sample> result = new List<Sample>();
             MySqlCommand command = new MySqlCommand();
             command.Connection = _conn;
-            command.CommandText = "Select * " +
-                                  "From Samples " +
+            command.CommandText = "SELECT * " +
+                                  "FROM Samples " +
+                                  "WHERE id IS NOT NULL AND name<> '' " +
                                   "ORDER BY sample_id";
             DataTable data = new DataTable();
 
@@ -230,6 +236,7 @@ namespace GeoApp
                 sample.Latitude = data.Rows[i].Field<Double>("latitude");
                 sample.Longitude = data.Rows[i].Field<Double>("longitude");
                 sample.LocationDescription = data.Rows[i].Field<String>("location_description");
+                sample.Image = data.Rows[i].Field<byte[]>("image");
 
                 result.Add(sample);
             }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GeoApp
 {
-    public class Controller : IController
+    public class Controller : IController 
     {
         private Repository _repo;
 
@@ -76,24 +76,33 @@ namespace GeoApp
                 }
 
             }
-
+            sample.Image = image;
             bool added = _repo.AddNewSample(sample);
             Sample newSample = _repo.RetrieveSampleByFields(sample);
 
             return added ? newSample : null;
         }
 
-        public bool UpdateSample(List<string> sampleInfo)
+        public bool UpdateSample(List<string> sampleInfo, byte[] image)
         {
             Sample sample = new();
-            if (!int.TryParse(sampleInfo[0], out int sampleId))
+            if (!int.TryParse(sampleInfo[0], out int dbId))
+            {
+                return false;
+            }
+            else
+            {
+                sample.DbId = dbId;
+            }
+
+            if (!int.TryParse(sampleInfo[1], out int sampleId))
             {
                 return false;
             }
             else
             {
                 sample.SampleId = sampleId;
-                for (int i = 1; i <= 6; i++)
+                for (int i = 2; i <= 8; i++)
                 {
                     if (sampleInfo[i].Length > 50)
                     {
@@ -101,15 +110,16 @@ namespace GeoApp
                     }
                 }
             }
-            sample.Name = sampleInfo[1];
-            sample.SampleType = sampleInfo[2];
-            sample.GeologicAge = sampleInfo[3];
-            sample.City = sampleInfo[4];
-            sample.State = sampleInfo[5];
-            sample.Country = sampleInfo[6];
-            if (sampleInfo[7] != string.Empty)
+            sample.Name = sampleInfo[2];
+            sample.SampleType = sampleInfo[3];
+            sample.GeologicAge = sampleInfo[4];
+            sample.LocationDescription = sampleInfo[5];
+            sample.City = sampleInfo[6];
+            sample.State = sampleInfo[7];
+            sample.Country = sampleInfo[8];
+            if (sampleInfo[9] != string.Empty)
             {
-                if (!double.TryParse(sampleInfo[7], out double latitude))
+                if (!double.TryParse(sampleInfo[9], out double latitude))
                 {
                     return false;
                 }
@@ -119,9 +129,10 @@ namespace GeoApp
                 }
 
             }
-            else if (sampleInfo[8] != string.Empty)
+            
+            if (sampleInfo[10] != string.Empty)
             {
-                if (!double.TryParse(sampleInfo[8], out double longitude))
+                if (!double.TryParse(sampleInfo[10], out double longitude))
                 {
                     return false;
                 }
@@ -131,12 +142,17 @@ namespace GeoApp
                 }
 
             }
+            if (image != null)
+            {
+                sample.Image = image;
+            }
+
             return _repo.EditSampleById(sample);
         }
 
         public bool DeleteSample(Sample sample)
         {
-            return _repo.DeleteSampleById(sample.SampleId);
+            return _repo.DeleteSampleById(sample.DbId);
         }
 
         public List<Issue> GetAllIssues()
