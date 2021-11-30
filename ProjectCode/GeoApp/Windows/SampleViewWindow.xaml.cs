@@ -47,17 +47,20 @@ namespace GeoApp
 
         private static BitmapImage ToImage(byte[] array)
         {
-            using (var ms = new MemoryStream(array))
-            {
-                BitmapImage image = new();
-                image.BeginInit();
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.StreamSource = ms;
-                image.EndInit();
-                return image;
-            }
+            using MemoryStream ms = new(array);
+            BitmapImage image = new();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.StreamSource = ms;
+            image.EndInit();
+            return image;
         }
 
+        /// <summary>
+        /// Event handler for OK button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
             Close();
