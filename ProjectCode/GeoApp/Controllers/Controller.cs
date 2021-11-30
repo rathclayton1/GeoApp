@@ -25,7 +25,7 @@ namespace GeoApp
         public List<Sample> GetSamplesByKeyword(string keyword)
         {
             List<Sample> currentList = _repo.RetrieveAllSamples();
-            List<Sample> returnList = new List<Sample>(); ;
+            List<Sample> returnList = new List<Sample>();
             for (int i = 0; i < currentList.Count; i++)
             {
                 Sample currentSample = currentList[i];
