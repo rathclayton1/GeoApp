@@ -43,8 +43,8 @@ namespace GeoApp
             sampleInfo.Add(Latitude.Text);
             sampleInfo.Add(Longitude.Text);
             byte[] imageData = null;
-            if (!string.IsNullOrEmpty(PathSampleImage.Text))
-            {
+            if (!string.IsNullOrEmpty(PathSampleImage.Text)) 
+            { 
                 FileStream fs;
                 BinaryReader br;
                 string fileName = PathSampleImage.Text;
@@ -54,11 +54,15 @@ namespace GeoApp
                 br.Close();
                 fs.Close();
             }
+
+            var createdSample = _controller.CreateNewSample(sampleInfo, imageData);
             //TO DO: work on refactoring controller to take image byte array, then repo.
-            if (_controller.CreateNewSample(sampleInfo, imageData)) 
+            if (createdSample != null)
             {
                 SuccessfulAddWindow confirmation = new();
                 confirmation.Show();
+                createdSample.Image = imageData;
+                MainWindow.Samples.Add(createdSample);
             }
             else
             {

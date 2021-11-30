@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GeoApp
 {
@@ -30,7 +19,9 @@ namespace GeoApp
         /// <summary>
         /// Initialize DeleteSampleConfirmationWindow
         /// </summary>
-        /// <param name="repository"></param>
+        /// <param name="sample">Sample to be deleted</param>
+        /// <param name="controller">Main UI Controller</param>
+
         public DeleteSampleConfirmationWindow(Sample sample, Controller controller)
         {
             InitializeComponent();
@@ -38,12 +29,24 @@ namespace GeoApp
             _controller = controller;
         }
 
+
+        /// <summary>
+        /// Method for deleted a sample.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Delete(object sender, RoutedEventArgs e)
         {
             _controller.DeleteSample(_sample);
-            this.Close();
+            MainWindow.Samples.Remove(_sample);
+            Close();
         }
 
+        /// <summary>
+        /// Method to cancel sample deletion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
