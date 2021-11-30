@@ -44,7 +44,7 @@ namespace GeoApp
                                     " city, state, country, latitude, longitude, image) " +
                                    "VALUES(@sample_id, @name, @type, @geologic_age, @location_description, @city, @state, @country, " +
                                     "@latitude, @longitude, @image)";
-           
+
             if (command.ExecuteNonQuery() < 1)
                 return false;
 

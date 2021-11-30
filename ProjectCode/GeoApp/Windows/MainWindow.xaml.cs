@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using GeoApp.Windows;
+using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Windows;
@@ -20,7 +21,7 @@ namespace GeoApp
         private MySqlConnection _conn;
         private string _connectionStringToDB = ConfigurationManager.ConnectionStrings["TeamProjectDB"].ConnectionString;
 
-        public MainWindow() 
+        public MainWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
@@ -59,7 +60,8 @@ namespace GeoApp
 
         private void ViewIssuesButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Link ViewIssue window
+            ViewIssuesWindow issuesWindow = new(_controller);
+            issuesWindow.Show();
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
