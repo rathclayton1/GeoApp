@@ -42,7 +42,5 @@
             <Button FontWeight="Medium" Content="Submit" Background="#FFCC00" FontSize="25" Margin="0,5,0,5" Height="58" Width="200" VerticalAlignment="Top" Click="Submit" />
             <Button FontWeight="Medium" Content="Cancel" Background="#A8A6A0" FontSize="25"  Height="58" Width="200" Click="Cancel" />
         </StackPanel>
-
-
     </Grid>
 </Window>
