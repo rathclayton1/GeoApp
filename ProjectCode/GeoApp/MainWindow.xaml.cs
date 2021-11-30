@@ -117,15 +117,18 @@ namespace GeoApp
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            if (this.SampleTable.SelectedItem != null)
-            {
-                EditSampleWindow window = new((Sample)this.SampleTable.SelectedItem, _controller);
-                window.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please choose a row to edit");
-            }
+            var sampleData = (Button)e.OriginalSource;
+            var sample = (Sample)sampleData.DataContext;
+            EditSampleWindow window = new(sample, _controller);
+            window.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var sampleData = (Button)e.OriginalSource;
+            var sample = (Sample)sampleData.DataContext;
+            DeleteSampleConfirmationWindow window = new(sample, _controller);
+            window.Show();
         }
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
         {
