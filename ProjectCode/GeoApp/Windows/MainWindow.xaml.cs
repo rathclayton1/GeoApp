@@ -18,7 +18,7 @@ namespace GeoApp
         private MySqlConnection _conn;
         private string _connectionStringToDB = ConfigurationManager.ConnectionStrings["TeamProjectDB"].ConnectionString;
 
-        public MainWindow()
+        public MainWindow() 
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
@@ -76,12 +76,18 @@ namespace GeoApp
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var sampleData = (Button)e.OriginalSource;
+            var sample = (Sample)sampleData.DataContext;
+            EditSampleWindow window = new(sample, _controller);
+            window.Show();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var sampleData = (Button)e.OriginalSource;
+            var sample = (Sample)sampleData.DataContext;
+            DeleteSampleConfirmationWindow window = new(sample, _controller);
+            window.Show();
         }
     }
 }
