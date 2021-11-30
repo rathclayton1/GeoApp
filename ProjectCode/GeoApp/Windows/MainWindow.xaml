@@ -188,6 +188,13 @@
             </Button.Resources>
             <Image x:Name="MagnifyingGlassImage" Source="/Assets/magnifying-glass.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1756,156,0,0" VerticalAlignment="Top" Width="0"/>
+        <Button x:Name="ClearButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,33,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="75" Width="74" Background="#FFFFCC00" BorderThickness="0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <Image x:Name="CrossIcon" Source="/Assets/cross-icon.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Button>
     </Grid>
 </Window>
