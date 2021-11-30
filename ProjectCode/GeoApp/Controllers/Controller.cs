@@ -24,7 +24,33 @@ namespace GeoApp
 
         public List<Sample> GetSamplesByKeyword(string keyword)
         {
-            return null;
+            List<Sample> currentList = _repo.RetrieveAllSamples();
+            List<Sample> returnList = new List<Sample>(); ;
+            for (int i = 0; i < currentList.Count; i++)
+            {
+                Sample currentSample = currentList[i];
+                if (currentSample.SampleId.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.Name.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.SampleType.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.LocationDescription.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.GeologicAge.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+            }
+            return returnList;
         }
 
         public Sample CreateNewSample(List<string> sampleInfo, byte[] image)
