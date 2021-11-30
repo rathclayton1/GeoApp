@@ -22,6 +22,37 @@ namespace GeoApp
             return _repo.RetrieveSampleById(id);
         }
 
+        public List<Sample> GetSamplesByKeyword(string keyword)
+        {
+            List<Sample> currentList = _repo.RetrieveAllSamples();
+            List<Sample> returnList = new List<Sample>();
+            for (int i = 0; i < currentList.Count; i++)
+            {
+                Sample currentSample = currentList[i];
+                if (currentSample.SampleId.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.Name.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.SampleType.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.LocationDescription.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+                else if (currentSample.GeologicAge.ToString().Contains(keyword))
+                {
+                    returnList.Add(currentSample);
+                }
+            }
+            return returnList;
+        }
+
         public Sample CreateNewSample(List<string> sampleInfo, byte[] image)
         {
             Sample sample = new();
@@ -80,7 +111,6 @@ namespace GeoApp
 
         public bool UpdateSample(List<string> sampleInfo, byte[] image)
         {
-            //TODO: TS-16 Update Edit Entry Logic and Handling 
             Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int dbId))
             {

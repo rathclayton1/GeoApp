@@ -7,6 +7,7 @@ namespace GeoApp
         Sample CreateNewSample(List<string> sampleInfo, byte[] image);
         bool DeleteSample(Sample sample);
         List<Sample> GetAllSamples();
+        List<Sample> GetSamplesByKeyword(string keyword);
         Sample GetSampleById(int id);
         bool UpdateSample(List<string> sampleInfo, byte[] image);
         List<Issue> GetAllIssues();
