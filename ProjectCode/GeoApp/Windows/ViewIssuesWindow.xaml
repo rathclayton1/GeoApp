@@ -78,7 +78,7 @@
                                             <Setter Property="CornerRadius" Value="4"/>
                                         </Style>
                                     </Button.Resources>
-                                    <Image x:Name="TrashCanImage" Source="/Assets/trashcan-icon.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <Image x:Name="TrashCanImage" Source="/Assets/trashcan-icon.png" RenderOptions.BitmapScalingMode="Fant" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

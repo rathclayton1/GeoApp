@@ -8,7 +8,7 @@
         Title="MainWindow" Height="1024" Width="1455" ResizeMode="NoResize">
     <Grid>
         <DockPanel HorizontalAlignment="Left" FlowDirection="LeftToRight" VerticalAlignment="Top" Height="80" Background="Black" Width="1440" Grid.ColumnSpan="2">
-            <Image x:Name="lettermark_fox" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
+            <Image x:Name="lettermark_fox" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
             <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,5,0">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Button}">
@@ -139,7 +139,7 @@
                                             <Setter Property="CornerRadius" Value="4"/>
                                         </Style>
                                     </Button.Resources>
-                                    <Image x:Name="EyeImage" Source="/Assets/eye-icon.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <Image x:Name="EyeImage" Source="/Assets/eye-icon.png" RenderOptions.BitmapScalingMode="Fant" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
                                 <Button Name="EditButton" Click="EditButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Center" Padding="5,5,5,5" Margin="5,0,5,0">
                                     <Button.Resources>
@@ -147,7 +147,7 @@
                                             <Setter Property="CornerRadius" Value="4"/>
                                         </Style>
                                     </Button.Resources>
-                                    <Image x:Name="PencilImage" Source="/Assets/pencil-icon.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <Image x:Name="PencilImage" Source="/Assets/pencil-icon.png"  RenderOptions.BitmapScalingMode="Fant" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
                                 <Button Name="DeleteButton" Click="DeleteButton_Click" Background="#FFFFCC00" BorderThickness="0" HorizontalAlignment="Right" Padding="5,5,5,5" Margin="5,0,5,0">
                                     <Button.Resources>
@@ -155,7 +155,7 @@
                                             <Setter Property="CornerRadius" Value="4"/>
                                         </Style>
                                     </Button.Resources>
-                                    <Image x:Name="TrashCanImage" Source="/Assets/trashcan-icon.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <Image x:Name="TrashCanImage" Source="/Assets/trashcan-icon.png" RenderOptions.BitmapScalingMode="Fant" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
@@ -186,9 +186,9 @@
                     <Setter Property="CornerRadius" Value="4"/>
                 </Style>
             </Button.Resources>
-            <Image x:Name="MagnifyingGlassImage" Source="/Assets/magnifying-glass.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image x:Name="MagnifyingGlassImage" Source="/Assets/magnifying-glass.png" RenderOptions.BitmapScalingMode="Fant" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Button>
-        <Button x:Name="ClearButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,33,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="75" Width="74" Background="#FFFFCC00" BorderThickness="0" Click="ClearButton_Click">
+        <Button x:Name="ClearButton" HorizontalContentAlignment="Center" RenderOptions.BitmapScalingMode="Fant" VerticalContentAlignment="Center" Margin="0,102,33,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="75" Width="74" Background="#FFFFCC00" BorderThickness="0" Click="ClearButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="4"/>

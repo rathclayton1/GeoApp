@@ -28,7 +28,7 @@
         </Grid>
         <StackPanel Orientation="Vertical" Margin="756,103,10,0">
             <TextBlock x:Name="ImageTextBlock" FontSize="25"  Foreground="Black"  Text="Image:" TextWrapping="Wrap" Height="45" Width="80" />
-            <Image x:Name="SampleImage" Stretch="UniformToFill" Width="200" Height="125"/>
+            <Image x:Name="SampleImage" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Width="200" Height="125"/>
             <TextBlock x:Name="NoImageText" HorizontalAlignment="Left" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden"/>
             <Button x:Name="EditImageButton" Click="EditImage" Background="#FFFFCC00" BorderThickness="0" Margin="5,5,5,5" Padding="5,5,5,5" Width="32" Height="32" >
                 <Button.Resources>
@@ -36,7 +36,7 @@
                         <Setter Property="CornerRadius" Value="4"/>
                     </Style>
                 </Button.Resources>
-                <Image x:Name="PencilImage" Source="/Assets/pencil-icon.png" Height="20" Width="20" />
+                <Image x:Name="PencilImage" Source="/Assets/pencil-icon.png" RenderOptions.BitmapScalingMode="Fant" Height="20" Width="20" />
             </Button>
             <TextBlock x:Name="PathSampleImage" TextWrapping="Wrap" Height="1" Width="1" TextTrimming="CharacterEllipsis" Visibility="Hidden"/>
             <Button FontWeight="Medium" Content="Submit" Background="#FFCC00" FontSize="25" Margin="0,5,0,5" Height="58" Width="200" VerticalAlignment="Top" Click="Submit" />
