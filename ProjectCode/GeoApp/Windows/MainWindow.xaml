@@ -161,7 +161,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox  x:Name="SearchBox" Text="Search " TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1196" Height="74" Margin="0,103,0,0" TextAlignment="Right" FontSize="48" BorderThickness="0" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="2">
+        <TextBox  x:Name="SearchBox" Text="Search" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1098" Height="74" Margin="133,103,0,0" TextAlignment="Right" FontSize="48" BorderThickness="0" TextChanged="SearchBox_TextChanged" Foreground="Black" GotFocus="SearchBox_GotFocus" KeyDown="SearchBox_KeyDown">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -178,7 +178,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="SearchButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,25,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="SearchButton_Click" Grid.Column="1">
+        <Button x:Name="SearchButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,124,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="SearchButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="4"/>
@@ -186,5 +186,6 @@
             </Button.Resources>
             <Image x:Name="MagnifyingGlassImage" Source="/Assets/magnifying-glass.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1756,156,0,0" VerticalAlignment="Top" Width="0"/>
     </Grid>
 </Window>

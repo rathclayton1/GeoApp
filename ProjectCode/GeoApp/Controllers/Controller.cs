@@ -22,6 +22,11 @@ namespace GeoApp
             return _repo.RetrieveSampleById(id);
         }
 
+        public List<Sample> GetSamplesByKeyword(string keyword)
+        {
+            return null;
+        }
+
         public Sample CreateNewSample(List<string> sampleInfo)
         {
             Sample sample = new();

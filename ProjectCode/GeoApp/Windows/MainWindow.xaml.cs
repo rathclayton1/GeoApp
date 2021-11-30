@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace GeoApp
 {
@@ -61,12 +62,28 @@ namespace GeoApp
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Link to contoroller search function _searchText and pass to controller.
+            SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
+            }
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             _searchText = SearchBox.Text;
+        }
+
+        private void SearchBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (SearchBox.Text.Equals("Search"))
+            {
+                SearchBox.Text = "";
+            }
         }
 
         private void ViewButton_Click(object sender, RoutedEventArgs e)
