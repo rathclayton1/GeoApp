@@ -27,7 +27,7 @@ namespace GeoApp
             return null;
         }
 
-        public Sample CreateNewSample(List<string> sampleInfo)
+        public Sample CreateNewSample(List<string> sampleInfo, byte[] image)
         {
             Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
