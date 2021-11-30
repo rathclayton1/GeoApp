@@ -10,7 +10,7 @@ namespace GeoApp
         List<Sample> _dataList = new();
         MySqlConnection _conn = new();
 
-        public Repository(MySqlConnection conn) 
+        public Repository(MySqlConnection conn)
         {
             _conn = conn;
             _dataList = RetrieveAllSamples();
@@ -38,15 +38,16 @@ namespace GeoApp
             command.Parameters.AddWithValue("@country", sample.Country);
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longitude);
+            command.Parameters.AddWithValue("image", sample.Image);
 
             command.CommandText = "INSERT INTO Samples(sample_id, name, type, geologic_age, location_description," +
-                                    " city, state, country, latitude, longitude) " +
+                                    " city, state, country, latitude, longitude, image) " +
                                    "VALUES(@sample_id, @name, @type, @geologic_age, @location_description, @city, @state, @country, " +
-                                    "@latitude, @longitude)";
-
+                                    "@latitude, @longitude, @image)";
+           
             if (command.ExecuteNonQuery() < 1)
                 return false;
-            
+
             return true;
         }
 
@@ -84,9 +85,68 @@ namespace GeoApp
                 sample.Latitude = data.Rows[0].Field<Double>("latitude");
                 sample.Longitude = data.Rows[0].Field<Double>("longitude");
                 sample.LocationDescription = data.Rows[0].Field<String>("location_description");
+                sample.Image = data.Rows[0].Field<byte[]>("image");
+
             }
 
             return sample;
+        }
+
+        /// <summary>
+        /// Method for retrieving a sample with the database ID using user supplied input
+        /// </summary>
+        /// <param name="sampleNoDbId"></param>
+        /// <returns>The sample from the database</returns>
+        public Sample RetrieveSampleByFields(Sample sampleNoDbId)
+        {
+            Sample newSample = new Sample();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = _conn;
+
+            command.Parameters.AddWithValue("@sample_id", sampleNoDbId.SampleId);
+            command.Parameters.AddWithValue("@name", sampleNoDbId.Name);
+            command.Parameters.AddWithValue("@type", sampleNoDbId.SampleType);
+            command.Parameters.AddWithValue("@geologic_age", sampleNoDbId.GeologicAge);
+            command.Parameters.AddWithValue("@location_description", sampleNoDbId.LocationDescription);
+            command.Parameters.AddWithValue("@city", sampleNoDbId.City);
+            command.Parameters.AddWithValue("@state", sampleNoDbId.State);
+            command.Parameters.AddWithValue("@country", sampleNoDbId.Country);
+            command.Parameters.AddWithValue("@latitude", sampleNoDbId.Latitude);
+            command.Parameters.AddWithValue("@longitude", sampleNoDbId.Longitude);
+
+            //Get the sample id, if exists create sample instance and return
+            command.CommandText = "SELECT * " +
+                                  "FROM Samples " +
+                                  "WHERE (sample_id = @sample_id AND " +
+                                  "name = @name AND " +
+                                  "type = @type AND " +
+                                  "geologic_age = @geologic_age AND " +
+                                  "location_description = @location_description AND " +
+                                  "city = @city AND " +
+                                  "state = @state AND " +
+                                  "country = @country AND " +
+                                  "latitude = @latitude AND " +
+                                  "longitude = @longitude)";
+            DataTable data = new DataTable();
+            MySqlDataAdapter adapter = new(command);
+            adapter.Fill(data);
+
+            if (data != null)
+            {
+                newSample.DbId = data.Rows[0].Field<int>("id");
+                newSample.SampleId = data.Rows[0].Field<int>("sample_id");
+                newSample.Name = data.Rows[0].Field<string>("name");
+                newSample.SampleType = data.Rows[0].Field<string>("type");
+                newSample.GeologicAge = data.Rows[0].Field<string>("geologic_age");
+                newSample.City = data.Rows[0].Field<string>("city");
+                newSample.State = data.Rows[0].Field<string>("state");
+                newSample.Country = data.Rows[0].Field<string>("country");
+                newSample.Latitude = data.Rows[0].Field<double>("latitude");
+                newSample.Longitude = data.Rows[0].Field<double>("longitude");
+                newSample.LocationDescription = data.Rows[0].Field<string>("location_description");
+            }
+
+            return newSample;
         }
 
         /// <summary>
@@ -104,7 +164,7 @@ namespace GeoApp
 
             if (command.ExecuteNonQuery() < 1)
                 return false;
-            
+
             return true;
         }
 
@@ -129,10 +189,12 @@ namespace GeoApp
             command.Parameters.AddWithValue("@latitude", sample.Latitude);
             command.Parameters.AddWithValue("@longitude", sample.Longitude);
             command.Parameters.AddWithValue("@location_description", sample.LocationDescription);
+            command.Parameters.AddWithValue("image", sample.Image);
 
             command.CommandText = "UPDATE Samples " +
                                   "SET sample_id=@sample_id, name=@name, type=@type, geologic_age=@geologic_age, city=@city, state=@state, " +
-                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description" +
+                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description, " +
+                                    "image=@image " +
                                   "WHERE id = @id";
 
             if (command.ExecuteNonQuery() < 1)
@@ -151,8 +213,9 @@ namespace GeoApp
             List<Sample> result = new List<Sample>();
             MySqlCommand command = new MySqlCommand();
             command.Connection = _conn;
-            command.CommandText = "Select * " +
-                                  "From Samples " +
+            command.CommandText = "SELECT * " +
+                                  "FROM Samples " +
+                                  "WHERE id IS NOT NULL AND name<> '' " +
                                   "ORDER BY sample_id";
             DataTable data = new DataTable();
 
@@ -173,6 +236,7 @@ namespace GeoApp
                 sample.Latitude = data.Rows[i].Field<Double>("latitude");
                 sample.Longitude = data.Rows[i].Field<Double>("longitude");
                 sample.LocationDescription = data.Rows[i].Field<String>("location_description");
+                sample.Image = data.Rows[i].Field<byte[]>("image");
 
                 result.Add(sample);
             }

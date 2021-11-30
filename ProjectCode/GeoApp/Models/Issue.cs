@@ -5,7 +5,7 @@ namespace GeoApp
     public class Issue
     {
         private IssueType _type;
-        private String _issueDescription;
+        private string _issueDescription;
         private DateTime _dateSubmitted;
         private int _referenceId;
         private bool _resolved;

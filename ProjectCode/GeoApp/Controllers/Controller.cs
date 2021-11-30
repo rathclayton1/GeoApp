@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace GeoApp
 {
-    public class Controller : IController
+    public class Controller : IController 
     {
         private Repository _repo;
-        
-        public Controller (Repository repository)
+
+        public Controller(Repository repository)
         {
             _repo = repository;
         }
@@ -22,12 +22,12 @@ namespace GeoApp
             return _repo.RetrieveSampleById(id);
         }
 
-        public bool CreateNewSample(List<String> sampleInfo)
+        public Sample CreateNewSample(List<string> sampleInfo, byte[] image)
         {
-            Sample sample = new Sample();
+            Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
-                return false;
+                return null;
             }
             else
             {
@@ -36,7 +36,7 @@ namespace GeoApp
                 {
                     if (sampleInfo[i].Length > 50)
                     {
-                        return false;
+                        return null;
                     }
                 }
             }
@@ -51,7 +51,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[8], out double latitude))
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[9], out double longitude))
                 {
-                    return false;
+                    return null;
                 }
                 else
                 {
@@ -71,21 +71,34 @@ namespace GeoApp
                 }
 
             }
-            return _repo.AddNewSample(sample);
+            sample.Image = image;
+            bool added = _repo.AddNewSample(sample);
+            Sample newSample = _repo.RetrieveSampleByFields(sample);
+
+            return added ? newSample : null;
         }
 
-        public bool UpdateSample(List<String> sampleInfo)
+        public bool UpdateSample(List<string> sampleInfo, byte[] image)
         {
             //TODO: TS-16 Update Edit Entry Logic and Handling 
-            Sample sample = new Sample();
-            if (!int.TryParse(sampleInfo[0], out int sampleId))
+            Sample sample = new();
+            if (!int.TryParse(sampleInfo[0], out int dbId))
+            {
+                return false;
+            }
+            else
+            {
+                sample.DbId = dbId;
+            }
+
+            if (!int.TryParse(sampleInfo[1], out int sampleId))
             {
                 return false;
             }
             else
             {
                 sample.SampleId = sampleId;
-                for (int i = 1; i <= 6; i++)
+                for (int i = 2; i <= 8; i++)
                 {
                     if (sampleInfo[i].Length > 50)
                     {
@@ -93,15 +106,16 @@ namespace GeoApp
                     }
                 }
             }
-            sample.Name = sampleInfo[1];
-            sample.SampleType = sampleInfo[2];
-            sample.GeologicAge = sampleInfo[3];
-            sample.City = sampleInfo[4];
-            sample.State = sampleInfo[5];
-            sample.Country = sampleInfo[6];
-            if (sampleInfo[7] != string.Empty)
+            sample.Name = sampleInfo[2];
+            sample.SampleType = sampleInfo[3];
+            sample.GeologicAge = sampleInfo[4];
+            sample.LocationDescription = sampleInfo[5];
+            sample.City = sampleInfo[6];
+            sample.State = sampleInfo[7];
+            sample.Country = sampleInfo[8];
+            if (sampleInfo[9] != string.Empty)
             {
-                if (!double.TryParse(sampleInfo[7], out double latitude))
+                if (!double.TryParse(sampleInfo[9], out double latitude))
                 {
                     return false;
                 }
@@ -111,9 +125,10 @@ namespace GeoApp
                 }
 
             }
-            else if (sampleInfo[8] != string.Empty)
+            
+            if (sampleInfo[10] != string.Empty)
             {
-                if (!double.TryParse(sampleInfo[8], out double longitude))
+                if (!double.TryParse(sampleInfo[10], out double longitude))
                 {
                     return false;
                 }
@@ -123,12 +138,17 @@ namespace GeoApp
                 }
 
             }
+            if (image != null)
+            {
+                sample.Image = image;
+            }
+
             return _repo.EditSampleById(sample);
         }
 
         public bool DeleteSample(Sample sample)
         {
-            return _repo.DeleteSampleById(sample.SampleId);
+            return _repo.DeleteSampleById(sample.DbId);
         }
 
         public List<Issue> GetAllIssues()
@@ -136,7 +156,7 @@ namespace GeoApp
             return _repo.RetrieveAllIssues();
         }
 
-        public bool CreateIssue(List<String> issueInfo)
+        public bool CreateIssue(List<string> issueInfo)
         {
             Issue issue = new Issue();
             if (issueInfo[1].Equals("0"))
@@ -144,7 +164,7 @@ namespace GeoApp
                 issue.Type = Issue.IssueType.Misinformation;
             }
             else
-            { 
+            {
                 issue.Type = Issue.IssueType.SystemIssue;
             }
             if (issueInfo[2].Length > 500)
