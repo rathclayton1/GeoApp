@@ -7,18 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\eye-icon.png" />
     <None Remove="Assets\lettermark-fox.jpg" />
     <None Remove="Assets\magnifying-glass.png" />
+    <None Remove="Assets\pencil-icon.png" />
+    <None Remove="Assets\trashcan-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Resource Dictionaries\ScrollBarDictionary.xaml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.27" />
-    <PackageReference Include="MySqlConnector" Version="1.3.14" />
+    <PackageReference Include="MySqlConnector" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\eye-icon.png" />
     <Resource Include="Assets\lettermark-fox.jpg" />
     <Resource Include="Assets\magnifying-glass.png" />
+    <Resource Include="Assets\pencil-icon.png" />
+    <Resource Include="Assets\trashcan-icon.png" />
+    <Resource Include="Resource Dictionaries\ScrollBarDictionary.xaml" />
   </ItemGroup>
 
 </Project>
