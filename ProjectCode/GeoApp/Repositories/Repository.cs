@@ -140,6 +140,7 @@ namespace GeoApp
                 newSample.Country = data.Rows[0].Field<string>("country");
                 newSample.Latitude = data.Rows[0].Field<double>("latitude");
                 newSample.Longitude = data.Rows[0].Field<double>("longitude");
+                newSample.LocationDescription = data.Rows[0].Field<string>("location_description");
             }
 
             return newSample;
@@ -188,7 +189,7 @@ namespace GeoApp
 
             command.CommandText = "UPDATE Samples " +
                                   "SET sample_id=@sample_id, name=@name, type=@type, geologic_age=@geologic_age, city=@city, state=@state, " +
-                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description" +
+                                    "country=@country, latitude=@latitude, longitude=@longitude, location_description=@location_description " +
                                   "WHERE id = @id";
 
             if (command.ExecuteNonQuery() < 1)
