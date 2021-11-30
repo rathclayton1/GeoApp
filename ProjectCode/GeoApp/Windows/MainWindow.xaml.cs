@@ -13,6 +13,7 @@ namespace GeoApp
     public partial class MainWindow : Window
     {
         public static ObservableCollection<Sample> Samples { get; set; }
+        public static ObservableCollection<Issue> Issues { get; set; }
         public string _searchText;
         private Controller _controller;
         private Repository _repo;
@@ -52,7 +53,8 @@ namespace GeoApp
 
         private void ReportIssueButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Link report issue window
+            ReportIssueWindow reportIssueWindow = new(_controller);
+            reportIssueWindow.Show();
         }
 
         private void ViewIssuesButton_Click(object sender, RoutedEventArgs e)
