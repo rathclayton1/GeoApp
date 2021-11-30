@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GeoApp
 {
-    public class Controller : IController 
+    public class Controller : IController
     {
         private Repository _repo;
 
@@ -125,7 +125,7 @@ namespace GeoApp
                 }
 
             }
-            
+
             if (sampleInfo[10] != string.Empty)
             {
                 if (!double.TryParse(sampleInfo[10], out double longitude))

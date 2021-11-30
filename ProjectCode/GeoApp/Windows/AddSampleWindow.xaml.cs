@@ -1,8 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Windows;
 using System.IO;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace GeoApp
@@ -43,8 +43,8 @@ namespace GeoApp
             sampleInfo.Add(Latitude.Text);
             sampleInfo.Add(Longitude.Text);
             byte[] imageData = null;
-            if (!string.IsNullOrEmpty(PathSampleImage.Text)) 
-            { 
+            if (!string.IsNullOrEmpty(PathSampleImage.Text))
+            {
                 FileStream fs;
                 BinaryReader br;
                 string fileName = PathSampleImage.Text;
@@ -84,7 +84,7 @@ namespace GeoApp
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
                 openFileDialog1.Filter = "Image files | *.jpg";
-                openFileDialog1.ShowDialog();             
+                openFileDialog1.ShowDialog();
                 if (!string.IsNullOrEmpty(openFileDialog1.FileName))
                 {
                     PathSampleImage.Text = openFileDialog1.FileName;
