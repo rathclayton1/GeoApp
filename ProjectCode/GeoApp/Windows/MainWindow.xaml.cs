@@ -106,5 +106,11 @@ namespace GeoApp
             DeleteSampleConfirmationWindow window = new(sample, _controller);
             window.Show();
         }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchBox.Text = "Search";
+            SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetAllSamples());
+        }
     }
 }
