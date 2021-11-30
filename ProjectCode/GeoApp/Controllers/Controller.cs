@@ -80,7 +80,6 @@ namespace GeoApp
 
         public bool UpdateSample(List<string> sampleInfo)
         {
-            //TODO: TS-16 Update Edit Entry Logic and Handling
             Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
