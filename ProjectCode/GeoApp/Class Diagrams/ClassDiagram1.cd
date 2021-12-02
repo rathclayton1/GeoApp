@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="NameAndType">
   <Class Name="GeoApp.Sample">
-    <Position X="14.75" Y="4" Width="2.25" />
+    <Position X="16.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAACIAAgIAACAAgIgMRICAQAEAYAABAAAAAABAACEAA=</HashCode>
-      <FileName>Sample.cs</FileName>
+      <HashCode>AAAQIAAgIEAAAAgIiMAICAQAEAYAQBAAAAgABAADEAA=</HashCode>
+      <FileName>Models\Sample.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.Controller">
-    <Position X="5.25" Y="3.25" Width="2.5" />
+    <Position X="5.25" Y="4.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAADQAAAAAAAAAAA=</HashCode>
-      <FileName>Controller.cs</FileName>
+      <HashCode>AAAAgAAAABAACAQAAAAAQAABACAAAADQAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Controller.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="GeoApp.Repository">
-    <Position X="9.5" Y="3.25" Width="2.75" />
+    <Position X="9.5" Y="4.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAIAEAAQAAAAAAAQAAQABAACAgAAAAAA=</HashCode>
-      <FileName>Repository.cs</FileName>
+      <HashCode>AgAAAAAAABAAAIAEAAQAAAACAAAAAQAFAACAEAAAAAA=</HashCode>
+      <FileName>Repositories\Repository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.133" />
   </Class>
   <Class Name="GeoApp.Issue">
-    <Position X="14.75" Y="0.5" Width="2.25" />
+    <Position X="13.25" Y="0.5" Width="2.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -36,22 +36,22 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAgEAAAAAQICAAAAAAAAAAAAAAAAQgAAAAAAAA=</HashCode>
-      <FileName>Issue.cs</FileName>
+      <HashCode>AAAAACAgEAAkAAUIAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Models\Issue.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="GeoApp.IRepository">
     <Position X="9.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAIAEAAQAAAAAAAAAAQABAACAAAAAAAA=</HashCode>
-      <FileName>IRepository.cs</FileName>
+      <HashCode>AgAAAAAAABAAAIAEAAQAAAAAAAAAAQABAACAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="GeoApp.IController">
     <Position X="5.25" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAACAQAAAAAAAABAAAAAADQAAAAAAAAAAA=</HashCode>
-      <FileName>IController.cs</FileName>
+      <HashCode>AAAAgAAAABAACAQAAAAAAAABACAAAADQAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\IController.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
