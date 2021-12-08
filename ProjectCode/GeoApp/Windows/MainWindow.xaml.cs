@@ -27,7 +27,6 @@ namespace GeoApp
             InitializeComponent();
 
             _conn = new MySqlConnection(_connectionStringToDB);
-            _conn.Open();
             _repo = new(_conn);
             _controller = new Controller(_repo);
 

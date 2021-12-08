@@ -29,7 +29,7 @@
         <StackPanel Orientation="Vertical" Margin="756,103,10,0">
             <TextBlock x:Name="ImageTextBlock" FontSize="25"  Foreground="Black"  Text="Image:" TextWrapping="Wrap" Height="45" Width="80" />
             <Image x:Name="SampleImage" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Width="200" Height="125"/>
-            <TextBlock x:Name="NoImageText" HorizontalAlignment="Left" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden"/>
+            <TextBlock x:Name="NoImageText" HorizontalAlignment="Left" Text="No Image" TextWrapping="Wrap"  Width="77" FontSize="16" Visibility="Hidden" />
             <Button x:Name="EditImageButton" Click="EditImage" Background="#FFFFCC00" BorderThickness="0" Margin="5,5,5,5" Padding="5,5,5,5" Width="32" Height="32" >
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
