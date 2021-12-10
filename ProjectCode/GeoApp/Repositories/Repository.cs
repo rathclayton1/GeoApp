@@ -28,7 +28,7 @@ namespace GeoApp
             {
                 //Send sample to db
                 MySqlCommand command = _conn.CreateCommand();
-                _conn.Open(); 
+                _conn.Open();
                 command.Connection = _conn;
 
                 command.Parameters.AddWithValue("@sample_id", sample.SampleId);
@@ -57,16 +57,16 @@ namespace GeoApp
                 _conn.Close();
                 return true;
 
-            } catch (Exception e)
+            }
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return false;
             }
-
         }
 
         /// <summary>
@@ -113,16 +113,16 @@ namespace GeoApp
                 _conn.Close();
                 return sample;
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return sample;
             }
-            
+
         }
 
         /// <summary>
@@ -134,63 +134,63 @@ namespace GeoApp
         {
             Sample newSample = new();
             try
-            { 
-            MySqlCommand command = new MySqlCommand();
-            _conn.Open();
-            command.Connection = _conn;
-
-            command.Parameters.AddWithValue("@sample_id", sampleNoDbId.SampleId);
-            command.Parameters.AddWithValue("@name", sampleNoDbId.Name);
-            command.Parameters.AddWithValue("@type", sampleNoDbId.SampleType);
-            command.Parameters.AddWithValue("@geologic_age", sampleNoDbId.GeologicAge);
-            command.Parameters.AddWithValue("@location_description", sampleNoDbId.LocationDescription);
-            command.Parameters.AddWithValue("@city", sampleNoDbId.City);
-            command.Parameters.AddWithValue("@state", sampleNoDbId.State);
-            command.Parameters.AddWithValue("@country", sampleNoDbId.Country);
-            command.Parameters.AddWithValue("@latitude", sampleNoDbId.Latitude);
-            command.Parameters.AddWithValue("@longitude", sampleNoDbId.Longitude);
-
-            //Get the sample id, if exists create sample instance and return
-            command.CommandText = "SELECT * " +
-                                  "FROM Samples " +
-                                  "WHERE (sample_id = @sample_id AND " +
-                                  "name = @name AND " +
-                                  "type = @type AND " +
-                                  "geologic_age = @geologic_age AND " +
-                                  "location_description = @location_description AND " +
-                                  "city = @city AND " +
-                                  "state = @state AND " +
-                                  "country = @country AND " +
-                                  "latitude = @latitude AND " +
-                                  "longitude = @longitude)";
-            DataTable data = new DataTable();
-            MySqlDataAdapter adapter = new(command);
-            adapter.Fill(data);
-
-            if (data != null)
             {
-                newSample.DbId = data.Rows[0].Field<int>("id");
-                newSample.SampleId = data.Rows[0].Field<int>("sample_id");
-                newSample.Name = data.Rows[0].Field<string>("name");
-                newSample.SampleType = data.Rows[0].Field<string>("type");
-                newSample.GeologicAge = data.Rows[0].Field<string>("geologic_age");
-                newSample.City = data.Rows[0].Field<string>("city");
-                newSample.State = data.Rows[0].Field<string>("state");
-                newSample.Country = data.Rows[0].Field<string>("country");
-                newSample.Latitude = data.Rows[0].Field<double>("latitude");
-                newSample.Longitude = data.Rows[0].Field<double>("longitude");
-                newSample.LocationDescription = data.Rows[0].Field<string>("location_description");
+                MySqlCommand command = new MySqlCommand();
+                _conn.Open();
+                command.Connection = _conn;
+
+                command.Parameters.AddWithValue("@sample_id", sampleNoDbId.SampleId);
+                command.Parameters.AddWithValue("@name", sampleNoDbId.Name);
+                command.Parameters.AddWithValue("@type", sampleNoDbId.SampleType);
+                command.Parameters.AddWithValue("@geologic_age", sampleNoDbId.GeologicAge);
+                command.Parameters.AddWithValue("@location_description", sampleNoDbId.LocationDescription);
+                command.Parameters.AddWithValue("@city", sampleNoDbId.City);
+                command.Parameters.AddWithValue("@state", sampleNoDbId.State);
+                command.Parameters.AddWithValue("@country", sampleNoDbId.Country);
+                command.Parameters.AddWithValue("@latitude", sampleNoDbId.Latitude);
+                command.Parameters.AddWithValue("@longitude", sampleNoDbId.Longitude);
+
+                //Get the sample id, if exists create sample instance and return
+                command.CommandText = "SELECT * " +
+                                      "FROM Samples " +
+                                      "WHERE (sample_id = @sample_id AND " +
+                                      "name = @name AND " +
+                                      "type = @type AND " +
+                                      "geologic_age = @geologic_age AND " +
+                                      "location_description = @location_description AND " +
+                                      "city = @city AND " +
+                                      "state = @state AND " +
+                                      "country = @country AND " +
+                                      "latitude = @latitude AND " +
+                                      "longitude = @longitude)";
+                DataTable data = new DataTable();
+                MySqlDataAdapter adapter = new(command);
+                adapter.Fill(data);
+
+                if (data != null)
+                {
+                    newSample.DbId = data.Rows[0].Field<int>("id");
+                    newSample.SampleId = data.Rows[0].Field<int>("sample_id");
+                    newSample.Name = data.Rows[0].Field<string>("name");
+                    newSample.SampleType = data.Rows[0].Field<string>("type");
+                    newSample.GeologicAge = data.Rows[0].Field<string>("geologic_age");
+                    newSample.City = data.Rows[0].Field<string>("city");
+                    newSample.State = data.Rows[0].Field<string>("state");
+                    newSample.Country = data.Rows[0].Field<string>("country");
+                    newSample.Latitude = data.Rows[0].Field<double>("latitude");
+                    newSample.Longitude = data.Rows[0].Field<double>("longitude");
+                    newSample.LocationDescription = data.Rows[0].Field<string>("location_description");
+                }
+                _conn.Close();
+                return newSample;
             }
-            _conn.Close();
-            return newSample;
-        }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return newSample;
             }
         }
@@ -220,13 +220,14 @@ namespace GeoApp
                 _conn.Close();
                 return true;
 
-            } catch (Exception e)
+            }
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return false;
             }
         }
@@ -240,7 +241,7 @@ namespace GeoApp
         public bool EditSampleById(Sample sample)
         {
             try
-            { 
+            {
                 //Update sample in db
                 _conn.Open();
                 MySqlCommand command = _conn.CreateCommand();
@@ -271,14 +272,14 @@ namespace GeoApp
                 _conn.Close();
                 return true;
 
-            } 
-            catch (Exception e)
+            }
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return false;
             }
         }
@@ -326,23 +327,23 @@ namespace GeoApp
                 _conn.Close();
                 return result;
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return result;
             }
         }
 
-/// <summary>
-/// This method adds an issue to the database. 
-/// </summary>
-/// <param name="issue">Issue to be added to the database.</param>
-/// <returns>True if database was changed, else false.</returns>
-public bool CreateIssue(Issue issue)
+        /// <summary>
+        /// This method adds an issue to the database. 
+        /// </summary>
+        /// <param name="issue">Issue to be added to the database.</param>
+        /// <returns>True if database was changed, else false.</returns>
+        public bool CreateIssue(Issue issue)
         {
             try
             {
@@ -364,13 +365,13 @@ public bool CreateIssue(Issue issue)
                 _conn.Close();
                 return true;
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return false;
             }
         }
@@ -411,13 +412,13 @@ public bool CreateIssue(Issue issue)
                 _conn.Close();
                 return result;
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return result;
             }
         }
@@ -430,7 +431,7 @@ public bool CreateIssue(Issue issue)
         public bool DeleteIssueById(int id)
         {
             try
-            { 
+            {
                 _conn.Open();
                 MySqlCommand command = _conn.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
@@ -446,13 +447,13 @@ public bool CreateIssue(Issue issue)
                 _conn.Close();
                 return true;
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                Console.WriteLine(e);
                 if (_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
+                throw e;
                 return false;
             }
         }

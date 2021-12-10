@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,21 +56,37 @@ namespace GeoApp
                 fs.Close();
             }
 
-            var createdSample = _controller.CreateNewSample(sampleInfo, imageData);
-            //TO DO: work on refactoring controller to take image byte array, then repo.
-            if (createdSample != null)
+            try
             {
-                SuccessfulAddWindow confirmation = new();
-                confirmation.Show();
-                createdSample.Image = imageData;
-                MainWindow.Samples.Add(createdSample);
+                var createdSample = _controller.CreateNewSample(sampleInfo, imageData);
+                if (createdSample != null)
+                {
+                    SuccessfulAddWindow confirmation = new();
+                    confirmation.Show();
+                    createdSample.Image = imageData;
+                    MainWindow.Samples.Add(createdSample);
+                }
+                else
+                {
+                    UnsuccessfulAddWindow error = new();
+                    error.Show();
+                }
+                this.Close();
             }
-            else
+            catch (MySqlException ex)
             {
-                UnsuccessfulAddWindow error = new();
-                error.Show();
+                if (ex.Number == 0)
+                {
+                    MessageBox.Show("Couldn't connect to the server while adding the sample. Contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem in the database while adding entry, " +
+                        "please check your connection, try again or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
-            this.Close();
+
+            
         }
 
         /// <summary>
