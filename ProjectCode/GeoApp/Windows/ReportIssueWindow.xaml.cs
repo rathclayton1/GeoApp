@@ -22,10 +22,11 @@ namespace GeoApp
             string typeSelected = Type.Text;
             issueData.Add(typeSelected.Equals(Issue.IssueType.Misinformation.ToString()) ? "0" : "1");
             issueData.Add(Description.Text);
-            if(_controller.CreateIssue(issueData))
+            if (_controller.CreateIssue(issueData))
             {
                 MessageBox.Show("Added successfully", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-            } else
+            }
+            else
             {
                 MessageBox.Show("Please make sure issue is less that 500 characters", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
                 Submit(sender, e);

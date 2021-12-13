@@ -119,7 +119,10 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Border BorderThickness="1" BorderBrush="Black" MaxHeight="125" MaxWidth="200">
-                                <Image Source="{Binding Image}" />
+                                <StackPanel>
+                                    <Image Source="{Binding Image}" />
+                                    <TextBlock x:Name="NoImageText" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden" Foreground="Gray"/>
+                                </StackPanel>
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
