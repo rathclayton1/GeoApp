@@ -66,6 +66,7 @@ namespace GeoApp
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
+            //Change here
             SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
         }
 
@@ -73,6 +74,7 @@ namespace GeoApp
         {
             if (e.Key == Key.Enter)
             {
+                //Change here
                 SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
             }
         }
@@ -117,6 +119,7 @@ namespace GeoApp
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             SearchBox.Text = "Search";
+            // Change here
             SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetAllSamples());
         }
     }
