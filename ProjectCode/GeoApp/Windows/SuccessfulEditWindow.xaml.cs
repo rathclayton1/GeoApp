@@ -9,6 +9,7 @@ namespace GeoApp
     {
         public SuccessfulEditWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
