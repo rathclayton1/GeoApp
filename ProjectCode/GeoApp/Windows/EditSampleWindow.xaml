@@ -30,7 +30,7 @@
         </Grid>
         <StackPanel Orientation="Vertical" Margin="756,80,10,0">
             <TextBlock x:Name="ImageTextBlock" FontSize="25"  Foreground="Black"  Text="Image:" TextWrapping="Wrap" Height="45" Width="80" Margin="0,0,0,-10" />
-            <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,0,2">
+            <Border BorderBrush="Black" BorderThickness="0" Margin="0,0,0,2">
                 <StackPanel Orientation="Vertical" Width="200" Height="150">
                     <Image x:Name="SampleImage" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" />
                     <TextBlock x:Name="NoImageText" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden" Margin="0,70,0,0" Foreground="Gray"/>

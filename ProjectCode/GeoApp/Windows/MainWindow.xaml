@@ -110,7 +110,7 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTemplateColumn Header="Image" IsReadOnly="True" Width="*">
+                <DataGridTemplateColumn x:Name="ImageColumn" Header="Image" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -118,16 +118,16 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Border BorderThickness="1" BorderBrush="Black" MaxHeight="125" MaxWidth="200">
-                                <StackPanel>
+                            <Border BorderThickness="0" BorderBrush="Black" MaxHeight="125" MaxWidth="200">
+                                <StackPanel x:Name="ImagePanel">
                                     <Image Source="{Binding Image}" />
-                                    <TextBlock x:Name="NoImageText" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden" Foreground="Gray"/>
+                                    <TextBlock x:Name="NoImageText" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden" Foreground="Gray" />
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Actions" IsReadOnly="True" Width="150">
+                <DataGridTemplateColumn x:Name="ActionsColumn" Header="Actions" IsReadOnly="True" Width="150">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>

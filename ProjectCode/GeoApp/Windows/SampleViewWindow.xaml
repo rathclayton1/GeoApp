@@ -37,7 +37,7 @@
         </Grid>
         <StackPanel Orientation="Vertical" Margin="756,103,10,0">
             <TextBlock x:Name="ImageTextBlock" FontSize="25"  Foreground="Black"  Text="Image:" TextWrapping="Wrap" Height="45" Width="80" />
-            <Border BorderThickness="1" BorderBrush="Black">
+            <Border BorderThickness="0" BorderBrush="Black">
                 <Button Background="Transparent" Click="ViewImage_Click" BorderBrush="{x:Null}">
                     <StackPanel Height="150" Width="200" Orientation="Vertical">
                         <Image x:Name="SampleImage" Stretch="UniformToFill"/>
