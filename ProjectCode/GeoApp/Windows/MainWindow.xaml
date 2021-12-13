@@ -31,7 +31,7 @@
                 </Button>
             </StackPanel>
         </DockPanel>
-        <DataGrid x:Name="SampleTable" HorizontalAlignment="Center" Height="780" Width="1390" Margin="0,203,0,0" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" ColumnWidth="Auto" VerticalAlignment="Top" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+        <DataGrid x:Name="SampleTable" HorizontalAlignment="Center" Height="780" Width="1390" Margin="0,203,0,0" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" ColumnWidth="Auto" VerticalAlignment="Top" AutoGenerateColumns="False" HeadersVisibility="Column" EnableRowVirtualization="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
             <DataGrid.Resources>
                 <ResourceDictionary>
                     <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
