@@ -10,6 +10,7 @@ namespace GeoApp
     {
         public DeleteSampleConfirmationWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 

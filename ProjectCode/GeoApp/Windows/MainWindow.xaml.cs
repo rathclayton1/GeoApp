@@ -1,9 +1,11 @@
 ﻿using GeoApp.Windows;
 using MySql.Data.MySqlClient;
+using System;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace GeoApp
@@ -115,48 +117,43 @@ namespace GeoApp
             }
         }
 
+        /// <summary>
+        /// Method for performing a search using a ListCollectionView filter.
+        /// </summary>
+        /// <returns>A collection of the filtered list</returns>
+        private ListCollectionView PerformSearch()
+        {
+            ListCollectionView collectionView = new(Samples);
+            collectionView.Filter = (x) =>
+            {
+                Sample sample = x as Sample;
+                string normalizedSearchTerm = _searchText.ToLower();
+                return sample.SampleId.ToString().ToLower().Contains(normalizedSearchTerm) ||
+                sample.Name.ToLower().Contains(normalizedSearchTerm) ||
+                sample.SampleType.ToLower().Contains(normalizedSearchTerm) ||
+                sample.LocationDescription.ToLower().Contains(normalizedSearchTerm) ||
+                sample.GeologicAge.ToLower().Contains(normalizedSearchTerm);
+            };
+
+            return collectionView;
+        }
+
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (_searchText == "Search")
             {
-                SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
+                _searchText = string.Empty;
+                SearchBox.Text = string.Empty;
             }
-            catch (MySqlException ex)
-            {
-                if (ex.Number == 0)
-                {
-                    MessageBox.Show("Couldn't connect to the server. Please try search again, " +
-                        "or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("There was a problem in the database, please try search again " +
-                        "or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
+
+            SampleTable.ItemsSource = PerformSearch();
         }
 
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                try
-                {
-                    SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
-                }
-                catch (MySqlException ex)
-                {
-                    if (ex.Number == 0)
-                    {
-                        MessageBox.Show("Couldn't connect to the server. Try search again," +
-                            " or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("There was a problem in the database, please try to search again, check your connection," +
-                            " or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                }
+                SampleTable.ItemsSource = PerformSearch();
             }
         }
 
@@ -169,7 +166,7 @@ namespace GeoApp
         {
             if (SearchBox.Text.Equals("Search"))
             {
-                SearchBox.Text = "";
+                SearchBox.Text = string.Empty;
             }
         }
 
@@ -200,23 +197,7 @@ namespace GeoApp
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             SearchBox.Text = "Search";
-            try
-            {
-                SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetAllSamples());
-            }
-            catch (MySqlException ex)
-            {
-                if (ex.Number == 0)
-                {
-                    MessageBox.Show("Couldn't connect to the server, try to clear again, " +
-                        "or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("There was a problem in the database, please try again, check your connection, " +
-                        "or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
+            SampleTable.ItemsSource = Samples;
         }
     }
 }

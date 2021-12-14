@@ -7,7 +7,7 @@
         Title="ViewIssuesWindow" Height="1024" Width="1455" ResizeMode="NoResize">
     <Grid>
         <DockPanel HorizontalAlignment="Left" FlowDirection="LeftToRight" VerticalAlignment="Top" Height="80" Background="Black" Width="1440" Grid.ColumnSpan="2">
-            <Image x:Name="lettermark_fox" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
+            <Image x:Name="lettermark_fox" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
             <TextBlock Text="Current Issues" HorizontalAlignment="Center" FontSize="60" Margin="-153,0,0,0" Foreground="White"></TextBlock>
         </DockPanel>
         <DataGrid x:Name="IssuesTable" HorizontalAlignment="Center" Height="880" Width="1390" Margin="0,100,0,0" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" ColumnWidth="Auto" VerticalAlignment="Top" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
