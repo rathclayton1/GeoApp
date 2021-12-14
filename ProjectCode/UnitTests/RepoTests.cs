@@ -2,8 +2,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GeoApp;
 using Moq;
 using System.Collections.Generic;
-using System;
-using MySql.Data.MySqlClient;
 
 namespace UnitTests
 {
