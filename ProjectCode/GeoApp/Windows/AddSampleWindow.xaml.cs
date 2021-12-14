@@ -65,6 +65,7 @@ namespace GeoApp
                 confirmation.Show();
                 createdSample.Image = imageData;
                 MainWindow.Samples.Add(createdSample);
+                Close();
             }
             else
             {
@@ -72,7 +73,6 @@ namespace GeoApp
                 error.setErrorMessage(_controller.getErrorMessage());
                 error.Show();
             }
-            this.Close();
         }
 
         /// <summary>

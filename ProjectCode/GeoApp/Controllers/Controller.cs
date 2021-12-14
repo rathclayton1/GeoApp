@@ -67,7 +67,7 @@ namespace GeoApp
                 sample.SampleId = sampleId;
                 for (int i = 1; i <= 6; i++)
                 {
-                    if (sampleInfo[i].Length > 50)
+                    if (sampleInfo[i].Length >= 255)
                     {
                         switch (i)
                         {
@@ -168,7 +168,7 @@ namespace GeoApp
                 sample.SampleId = sampleId;
                 for (int i = 2; i <= 8; i++)
                 {
-                    if (sampleInfo[i].Length > 50)
+                    if (sampleInfo[i].Length >= 255)
                     {
                         switch (i)
                         {
