@@ -7,8 +7,10 @@
         Title="SampleViewWindow" Height="500" Width="1000" ResizeMode="NoResize">
 
     <Grid RenderTransformOrigin="0.481,-0.172">
-        <Rectangle HorizontalAlignment="Left" Height="80" Fill="Black" Width="1000" Stroke="Black" VerticalAlignment="Top" />
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Sample View" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <DockPanel HorizontalAlignment="Left" FlowDirection="LeftToRight" VerticalAlignment="Top" Height="80" Background="Black" Width="1000" Grid.ColumnSpan="2">
+            <Image x:Name="lettermark_fox" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
+            <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="-153,20,0,0" Text="Sample View" VerticalAlignment="Top" />
+        </DockPanel>
         <Grid>
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="119,108,0,0" Text="Sample ID:" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" />
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="156,140,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" />
@@ -22,27 +24,29 @@
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="120,405,0,0" Text="Longitude:" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" />
         </Grid>
         <Grid>
-            <TextBox x:Name="SampleID" TextWrapping="Wrap" Height="26" Width="522" Margin="220,109,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="Name" TextWrapping="Wrap" Height="26" Width="522" Margin="220,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="SampleType" TextWrapping="Wrap" Height="26" Width="522" Margin="220,175,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="LocationDescription" TextWrapping="Wrap" Height="26" Width="522" Margin="220,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="GeologicAge" TextWrapping="Wrap" Height="26" Width="522" Margin="220,241,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"/>
-            <TextBox x:Name="City" TextWrapping="Wrap" Height="26" Width="522" Margin="220,274,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="State" TextWrapping="Wrap" Height="26" Width="522" Margin="220,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="Country" TextWrapping="Wrap" Height="26" Width="522" Margin="220,340,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="Latitude" TextWrapping="Wrap" Height="26" Width="522" Margin="220,373,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
-            <TextBox x:Name="Longitude" TextWrapping="Wrap" Height="26" Width="522" Margin="220,406,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" />
+            <TextBox x:Name="SampleID" TextWrapping="Wrap" Height="26" Width="522" Margin="220,109,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="Name" TextWrapping="Wrap" Height="26" Width="522" Margin="220,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="SampleType" TextWrapping="Wrap" Height="26" Width="522" Margin="220,175,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="LocationDescription" TextWrapping="Wrap" Height="26" Width="522" Margin="220,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="GeologicAge" TextWrapping="Wrap" Height="26" Width="522" Margin="220,241,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True"/>
+            <TextBox x:Name="City" TextWrapping="Wrap" Height="26" Width="522" Margin="220,274,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="State" TextWrapping="Wrap" Height="26" Width="522" Margin="220,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="Country" TextWrapping="Wrap" Height="26" Width="522" Margin="220,340,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="Latitude" TextWrapping="Wrap" Height="26" Width="522" Margin="220,373,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
+            <TextBox x:Name="Longitude" TextWrapping="Wrap" Height="26" Width="522" Margin="220,406,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" IsReadOnly="True" />
         </Grid>
         <StackPanel Orientation="Vertical" Margin="756,103,10,0">
             <TextBlock x:Name="ImageTextBlock" FontSize="25"  Foreground="Black"  Text="Image:" TextWrapping="Wrap" Height="45" Width="80" />
-            <Border BorderThickness="1" BorderBrush="Black">
-                <Button Background="Transparent" Click="ViewImage_Click">
-                    <Image x:Name="SampleImage" Stretch="UniformToFill" Height="150" Width="200"/>
+            <Border BorderThickness="0" BorderBrush="Black">
+                <Button Background="Transparent" Click="ViewImage_Click" BorderBrush="{x:Null}">
+                    <StackPanel Height="150" Width="200" Orientation="Vertical">
+                        <Image x:Name="SampleImage" Stretch="UniformToFill"/>
+                        <TextBlock x:Name="NoImageText" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden" Margin="0,70,0,0" Foreground="Gray"/>
+                    </StackPanel>
                 </Button>
             </Border>
-            <TextBlock x:Name="NoImageText" HorizontalAlignment="Left" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden"/>
             <TextBlock x:Name="PathSampleImage" TextWrapping="Wrap" Height="1" Width="1" TextTrimming="CharacterEllipsis" Visibility="Hidden"/>
-            <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Center" Margin="0,58,0,5" Height="58" Width="204" VerticalAlignment="Top" Click="Ok_Click" BorderBrush="{x:Null}">
+            <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Center" Margin="0,70,0,5" Height="58" Width="204" VerticalAlignment="Top" Click="Ok_Click" BorderBrush="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="4"/>

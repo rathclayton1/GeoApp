@@ -6,6 +6,7 @@ namespace GeoApp
     public class Controller : IController
     {
         private Repository _repo;
+        private string errorMessage;
 
         public Controller(Repository repository)
         {
@@ -58,6 +59,7 @@ namespace GeoApp
             Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int sampleId))
             {
+                _setErrorMessage("Invalid Format: Sample ID");
                 return null;
             }
             else
@@ -65,8 +67,35 @@ namespace GeoApp
                 sample.SampleId = sampleId;
                 for (int i = 1; i <= 6; i++)
                 {
-                    if (sampleInfo[i].Length > 50)
+                    if (sampleInfo[i].Length >= 255)
                     {
+                        switch (i)
+                        {
+                            case 1:
+                                _setErrorMessage("Invalid Format: Sample Name");
+                                break;
+                            case 2:
+                                _setErrorMessage("Invalid Format: Sample Type");
+                                break;
+                            case 3:
+                                _setErrorMessage("Invalid Format: Sample Geologic Age");
+                                break;
+                            case 4:
+                                _setErrorMessage("Invalid Format: Sample Location Description");
+                                break;
+                            case 5:
+                                _setErrorMessage("Invalid Format: Sample City");
+                                break;
+                            case 6:
+                                _setErrorMessage("Invalid Format: Sample State");
+                                break;
+                            case 7:
+                                _setErrorMessage("Invalid Format: Sample Country");
+                                break;
+                            default:
+                                _setErrorMessage("Unknown Error: Please Contact Your System Admin");
+                                break;
+                        }
                         return null;
                     }
                 }
@@ -82,6 +111,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[8], out double latitude))
                 {
+                    _setErrorMessage("Invalid Format: Sample Latitude");
                     return null;
                 }
                 else
@@ -94,6 +124,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[9], out double longitude))
                 {
+                    _setErrorMessage("Invalid Format: Sample Longitude");
                     return null;
                 }
                 else
@@ -104,7 +135,12 @@ namespace GeoApp
             }
             sample.Image = image;
             bool added = _repo.AddNewSample(sample);
-            Sample newSample = _repo.RetrieveSampleByFields(sample);
+            Sample newSample = null;
+            if (added)
+            {
+                newSample = _repo.RetrieveSampleByFields(sample);
+            }
+
 
             return added ? newSample : null;
         }
@@ -114,6 +150,7 @@ namespace GeoApp
             Sample sample = new();
             if (!int.TryParse(sampleInfo[0], out int dbId))
             {
+                _setErrorMessage("Unknown Error: Please Contact Your System Admin");
                 return false;
             }
             else
@@ -123,6 +160,7 @@ namespace GeoApp
 
             if (!int.TryParse(sampleInfo[1], out int sampleId))
             {
+                _setErrorMessage("Invalid Format: Sample ID");
                 return false;
             }
             else
@@ -130,8 +168,35 @@ namespace GeoApp
                 sample.SampleId = sampleId;
                 for (int i = 2; i <= 8; i++)
                 {
-                    if (sampleInfo[i].Length > 50)
+                    if (sampleInfo[i].Length >= 255)
                     {
+                        switch (i)
+                        {
+                            case 2:
+                                _setErrorMessage("Invalid Format: Sample Name");
+                                break;
+                            case 3:
+                                _setErrorMessage("Invalid Format: Sample Type");
+                                break;
+                            case 4:
+                                _setErrorMessage("Invalid Format: Sample Geologic Age");
+                                break;
+                            case 5:
+                                _setErrorMessage("Invalid Format: Sample Location Description");
+                                break;
+                            case 6:
+                                _setErrorMessage("Invalid Format: Sample City");
+                                break;
+                            case 7:
+                                _setErrorMessage("Invalid Format: Sample State");
+                                break;
+                            case 8:
+                                _setErrorMessage("Invalid Format: Sample Country");
+                                break;
+                            default:
+                                _setErrorMessage("Unknown Error: Please Contact Your System Admin");
+                                break;
+                        }
                         return false;
                     }
                 }
@@ -147,6 +212,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[9], out double latitude))
                 {
+                    _setErrorMessage("Invalid Format: Sample Latitude");
                     return false;
                 }
                 else
@@ -160,6 +226,7 @@ namespace GeoApp
             {
                 if (!double.TryParse(sampleInfo[10], out double longitude))
                 {
+                    _setErrorMessage("Invalid Format: Sample Longitude");
                     return false;
                 }
                 else
@@ -214,6 +281,16 @@ namespace GeoApp
         public bool DeleteIssue(Issue issue)
         {
             return _repo.DeleteIssueById(issue.referenceId);
+        }
+
+        public string getErrorMessage()
+        {
+            return errorMessage;
+        }
+
+        private void _setErrorMessage(string errorMessage)
+        {
+            this.errorMessage = errorMessage;
         }
     }
 }

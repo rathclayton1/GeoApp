@@ -12,6 +12,7 @@ namespace GeoApp
         /// </summary>
         public UnsuccessfulAddWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
@@ -21,5 +22,10 @@ namespace GeoApp
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Exit(object sender, RoutedEventArgs e) => this.Close();
+
+        public void setErrorMessage(string message)
+        {
+            ErrorReasonTextBlock.Text = message;
+        }
     }
 }
