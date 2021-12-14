@@ -191,6 +191,7 @@ namespace GeoApp
             var sampleData = (Button)e.OriginalSource;
             var sample = (Sample)sampleData.DataContext;
             DeleteSampleConfirmationWindow window = new(sample, _controller);
+            window.Owner = this;
             window.Show();
         }
 
