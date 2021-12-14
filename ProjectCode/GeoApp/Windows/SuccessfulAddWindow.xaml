@@ -1,8 +1,16 @@
 ﻿<Window x:Class="GeoApp.SuccessfulAddWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:GeoApp" mc:Ignorable="d" Title="SuccessfulAddWindow" Height="500" Width="800">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="80" Fill="Black" Width="800" Stroke="Black" VerticalAlignment="Top" />
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Add a Sample" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <DockPanel HorizontalAlignment="Left" FlowDirection="LeftToRight" VerticalAlignment="Top" Height="80" Background="Black" Width="800" Grid.ColumnSpan="2">
+            <Image x:Name="lettermark_fox" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
+            <TextBlock Text="Add a Sample" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="-153,0,0,0" Foreground="White"></TextBlock>
+        </DockPanel>
         <TextBlock HorizontalAlignment="Left" Margin="130,242,0,0" FontSize="26" Text="Sample was successfully added to the catalogue." TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="572" />
-        <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="308,354,0,0" Height="60" Width="204" VerticalAlignment="Top" Click="Exit" />
+        <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="308,354,0,0" Height="60" Width="204" VerticalAlignment="Top" Click="Exit" BorderBrush="{x:Null}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

@@ -12,12 +12,6 @@ namespace GeoApp
     /// </summary>
     public partial class EditSampleWindow : Window
     {
-        public EditSampleWindow()
-        {
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            InitializeComponent();
-        }
-
         private IController _controller;
         private Sample _sample;
 
@@ -27,6 +21,7 @@ namespace GeoApp
         /// <param name="repository"></param>
         public EditSampleWindow(Sample sample, Controller controller)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
             _sample = sample;
             _controller = controller;
@@ -128,17 +123,6 @@ namespace GeoApp
 
                 SuccessfulEditWindow confirmation = new();
                 confirmation.Show();
-                /* MainWindow.Samples[itemLocation].SampleId = newSampleId;
-                 MainWindow.Samples[itemLocation].Name = sampleInfo[2];
-                 MainWindow.Samples[itemLocation].SampleType = sampleInfo[3];
-                 MainWindow.Samples[itemLocation].GeologicAge = sampleInfo[4];
-                 MainWindow.Samples[itemLocation].LocationDescription = sampleInfo[5];
-                 MainWindow.Samples[itemLocation].City = sampleInfo[6];
-                 MainWindow.Samples[itemLocation].State = sampleInfo[7];
-                 MainWindow.Samples[itemLocation].Country = sampleInfo[8];
-                 MainWindow.Samples[itemLocation].Latitude = newLatitude;
-                 MainWindow.Samples[itemLocation].Longitude = newLongitude;
-                 MainWindow.Samples[itemLocation].Image = _sample.Image;*/
             }
             else
             {

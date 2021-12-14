@@ -20,6 +20,7 @@ namespace GeoApp
         /// <param name="repository"></param>
         public AddSampleWindow(Controller controller)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
             _controller = controller;
         }

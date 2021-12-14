@@ -6,20 +6,42 @@
         mc:Ignorable="d"
         Title="ReportIssueWindow" Height="500" Width="1000" ResizeMode="NoResize">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="80" Fill="Black" Width="1000" Stroke="Black" VerticalAlignment="Top" />
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Report an Issue" TextWrapping="Wrap" VerticalAlignment="Top" />
-        <ComboBox Name="Type" HorizontalAlignment="Left" Margin="167,105,0,0" VerticalAlignment="Top" Width="770" Height="26">
-            <ComboBoxItem Name="Misinformation">
-                <TextBlock Text="Misinformation"/>
-            </ComboBoxItem>
-            <ComboBoxItem Name="SystemIssue">
-                <TextBlock Text="System Issue"/>
-            </ComboBoxItem>
-        </ComboBox>
-        <TextBox HorizontalAlignment="Left" Name="Description" Margin="167,167,0,0" FontSize="15" TextWrapping="Wrap" VerticalAlignment="Top" Width="770" Height="217"/>
-        <TextBlock HorizontalAlignment="Left" Margin="67,102,0,0" FontSize="19" FontWeight="SemiBold" Text="Issue Type:" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="100"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,164,0,0" FontSize="19" FontWeight="SemiBold" Text="Issue Description:" TextWrapping="Wrap" VerticalAlignment="Top" Height="58" Width="170"/>
-        <Button FontWeight="Medium" Content="Submit" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="258,395,0,0" Height="58" Width="204" VerticalAlignment="Top" Click="Submit" />
-        <Button FontWeight="Medium" Content="Cancel" Background="#A8A6A0" FontSize="25" HorizontalAlignment="Left" Margin="522,395,0,0" Height="58" Width="204" Click="Cancel" VerticalAlignment="Top" />
+        <DockPanel HorizontalAlignment="Left" FlowDirection="LeftToRight" VerticalAlignment="Top" Height="80" Background="Black" Width="1000" Grid.ColumnSpan="2">
+            <Image x:Name="lettermark_fox" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
+            <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="-153,20,0,0" Text="Report an Issue" VerticalAlignment="Top" />
+        </DockPanel>
+        <StackPanel Orientation="Vertical" Margin="0,80,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center">
+                <TextBlock HorizontalAlignment="Right" FontSize="19" Text="Issue Type:" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="100" Margin="48,0,0,0"/>
+                <ComboBox Name="Type" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="770" Height="26">
+                    <ComboBoxItem Name="Misinformation">
+                        <TextBlock Text="Misinformation"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem Name="SystemIssue">
+                        <TextBlock Text="System Issue"/>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock HorizontalAlignment="Right" FontSize="19" Text="Issue Description:" VerticalAlignment="Top" Margin="-10,0,10,0"/>
+                <TextBox HorizontalAlignment="Left" Name="Description" FontSize="15" TextWrapping="Wrap" Width="772" Height="217" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20">
+                <Button FontWeight="Medium" Content="Submit" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Height="58" Width="204" VerticalAlignment="Top" Click="Submit" BorderBrush="{x:Null}" Margin="5,0,5,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button FontWeight="Medium" Content="Cancel" Background="#A8A6A0" FontSize="25" HorizontalAlignment="Left" Height="58" Width="204" Click="Cancel" VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="5,0,5,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
