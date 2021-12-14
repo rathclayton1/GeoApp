@@ -4,7 +4,7 @@
             <Image x:Name="lettermark_fox" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="79" Margin="15,0,0,0" VerticalAlignment="Top" Width="138" Source="/Assets/lettermark-fox.jpg" Stretch="Uniform"/>
             <TextBlock Text="Edit Sample" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="-153,0,0,0" Foreground="White"></TextBlock>
         </DockPanel>
-        <TextBlock HorizontalAlignment="Left" Margin="56,217,0,0" FontSize="26" Text="Sample could not be updated. Please validate all input fields." TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="708" />
+        <TextBlock HorizontalAlignment="Left" Margin="110,0,0,0" FontSize="28" Text="Sample could not be updated." TextWrapping="Wrap" VerticalAlignment="Center" Height="43" Width="600" TextAlignment="Center" />
         <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="308,354,0,0" Height="60" Width="204" VerticalAlignment="Top" Click="Exit" BorderBrush="{x:Null}">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -12,5 +12,6 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <TextBlock x:Name="ErrorReasonTextBlock" HorizontalAlignment="Left" Height="43" Margin="160,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" FontSize="26" TextAlignment="Center"/>
     </Grid>
 </Window>

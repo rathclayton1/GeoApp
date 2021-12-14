@@ -130,6 +130,7 @@ namespace GeoApp
                 else
                 {
                     UnsuccessfulEditWindow error = new();
+                    error.setErrorMessage(_controller.getErrorMessage());
                     error.Show();
                 }
                 Close();
