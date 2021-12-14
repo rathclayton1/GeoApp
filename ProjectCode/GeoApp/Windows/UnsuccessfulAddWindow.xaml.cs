@@ -24,7 +24,7 @@ namespace GeoApp
 
         public void setErrorMessage(string message)
         {
-            ErrorReasonTextBox.Text = message;
+            ErrorReasonTextBlock.Text = message;
         }
     }
 }

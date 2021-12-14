@@ -2,7 +2,8 @@
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="80" Fill="Black" Width="800" Stroke="Black" VerticalAlignment="Top" />
         <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Edit Sample" TextWrapping="Wrap" VerticalAlignment="Top" />
-        <TextBlock HorizontalAlignment="Left" Margin="56,217,0,0" FontSize="26" Text="Sample could not be updated. Please validate all input fields." TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="708" />
+        <TextBlock x:Name="EditSampleErrorTextBlock" HorizontalAlignment="Left" Margin="182,189,0,0" FontSize="24" Text="Sample could not be updated." TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="456" TextAlignment="Center" />
         <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="308,354,0,0" Height="60" Width="204" VerticalAlignment="Top" Click="Exit" />
+        <TextBlock x:Name="ErrorReasonTextBlock" HorizontalAlignment="Left" Height="43" Margin="160,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" FontSize="20" TextAlignment="Center"/>
     </Grid>
 </Window>

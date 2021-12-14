@@ -67,6 +67,7 @@ namespace GeoApp
             else
             {
                 UnsuccessfulAddWindow error = new();
+                error.setErrorMessage(_controller.getErrorMessage());
                 error.Show();
             }
             this.Close();

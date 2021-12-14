@@ -3,8 +3,8 @@
         <Rectangle Height="80" Width="800" Fill="Black" Stroke="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <TextBlock FontSize="30" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,0" Text="Add a Sample" TextWrapping="Wrap" VerticalAlignment="Top" />
         <TextBlock x:Name="ErrorAddSampleTextBlock" HorizontalAlignment="Center" Margin="0,199,0,0" FontSize="28" Text="Could not add sample." TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="298" />
-        <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Left" Margin="308,354,0,0" Height="60" Width="204" VerticalAlignment="Top" Click="Exit" />
-        <TextBox x:Name="ErrorReasonTextBox" HorizontalAlignment="Center" Height="43" Margin="0,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" TextChanged="TextBox_TextChanged" FontSize="22" IsReadOnly="True"/>
+        <Button FontWeight="Medium" Content="OK" Background="#FFCC00" FontSize="25" HorizontalAlignment="Center" Margin="0,364,0,0" Height="60" Width="204" VerticalAlignment="Top" Click="Exit" />
+        <TextBlock x:Name="ErrorReasonTextBlock" HorizontalAlignment="Center" Height="53" Margin="0,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" FontSize="24" TextAlignment="Center"/>
 
     </Grid>
 </Window>
