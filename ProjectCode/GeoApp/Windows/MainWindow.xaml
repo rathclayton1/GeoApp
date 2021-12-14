@@ -66,7 +66,7 @@
                     </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
                             <Setter Property="VerticalAlignment" Value="Center"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
@@ -79,7 +79,7 @@
                     </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
                             <Setter Property="VerticalAlignment" Value="Center"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
@@ -92,7 +92,7 @@
                     </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
                             <Setter Property="VerticalAlignment" Value="Center"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
@@ -105,7 +105,7 @@
                     </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
                             <Setter Property="VerticalAlignment" Value="Center"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
@@ -166,38 +166,40 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox  x:Name="SearchBox" Text="Search" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1098" Height="74" Margin="133,103,0,0" TextAlignment="Right" FontSize="48" BorderThickness="0" TextChanged="SearchBox_TextChanged" Foreground="Black" GotFocus="SearchBox_GotFocus" KeyDown="SearchBox_KeyDown">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </TextBox.Resources>
-            <TextBox.Effect>
-                <DropShadowEffect ShadowDepth="2" Direction="330" Color="Black" BlurRadius="4"/>
-            </TextBox.Effect>
-        </TextBox>
-        <Button x:Name="AddButton" Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="25,102,0,0" Padding="8,-15,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="AddButton_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="4"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="SearchButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,124,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="SearchButton_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="4"/>
-                </Style>
-            </Button.Resources>
-            <Image x:Name="MagnifyingGlassImage" Source="/Assets/magnifying-glass.png" RenderOptions.BitmapScalingMode="Fant" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </Button>
-        <Button x:Name="ClearButton" HorizontalContentAlignment="Center" RenderOptions.BitmapScalingMode="Fant" VerticalContentAlignment="Center" Margin="0,102,33,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="75" Width="74" Background="#FFFFCC00" BorderThickness="0" Click="ClearButton_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="4"/>
-                </Style>
-            </Button.Resources>
-            <Image x:Name="CrossIcon" Source="/Assets/cross-icon.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,105,0,0" Width="1390" Height="75">
+            <Button x:Name="AddButton" Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="10,-15,10,0" Margin="0,0,20,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="AddButton_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox  x:Name="SearchBox" Text="Search" TextWrapping="Wrap" Margin="0,0,20,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1105" Height="74" TextAlignment="Right" FontSize="48" BorderThickness="1" TextChanged="SearchBox_TextChanged" Foreground="Black" GotFocus="SearchBox_GotFocus" KeyDown="SearchBox_KeyDown" BorderBrush="Gray">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Effect>
+                    <DropShadowEffect ShadowDepth="2" Direction="330" Color="Black" BlurRadius="4"/>
+                </TextBox.Effect>
+            </TextBox>
+            <Button x:Name="SearchButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" FontSize="60" Height="75" Width="75" Background="#FFFFCC00" BorderThickness="0" Click="SearchButton_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+                <Image x:Name="MagnifyingGlassImage" Source="/Assets/magnifying-glass.png" RenderOptions.BitmapScalingMode="Fant" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Button>
+            <Button x:Name="ClearButton" HorizontalContentAlignment="Center" RenderOptions.BitmapScalingMode="Fant" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Height="75" Width="74" Background="#FFFFCC00" BorderThickness="0" Click="ClearButton_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+                <Image x:Name="CrossIcon" Source="/Assets/cross-icon.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
