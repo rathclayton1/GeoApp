@@ -1,9 +1,11 @@
 ﻿using GeoApp.Windows;
 using MySql.Data.MySqlClient;
+using System;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace GeoApp
@@ -64,16 +66,43 @@ namespace GeoApp
             issuesWindow.Show();
         }
 
+        /// <summary>
+        /// Method for performing a search using a ListCollectionView filter.
+        /// </summary>
+        /// <returns>A collection of the filtered list</returns>
+        private ListCollectionView PerformSearch()
+        {
+            ListCollectionView collectionView = new(Samples);
+            collectionView.Filter = (x) =>
+            {
+                Sample sample = x as Sample;
+                string normalizedSearchTerm = _searchText.ToLower();
+                return sample.SampleId.ToString().ToLower().Contains(normalizedSearchTerm) ||
+                sample.Name.ToLower().Contains(normalizedSearchTerm) ||
+                sample.SampleType.ToLower().Contains(normalizedSearchTerm) ||
+                sample.LocationDescription.ToLower().Contains(normalizedSearchTerm) ||
+                sample.GeologicAge.ToLower().Contains(normalizedSearchTerm);
+            };
+
+            return collectionView;
+        }
+
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
+            if (_searchText == "Search")
+            {
+                _searchText = string.Empty;
+                SearchBox.Text = string.Empty;
+            }
+
+            SampleTable.ItemsSource = PerformSearch();
         }
 
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetSamplesByKeyword(_searchText));
+                SampleTable.ItemsSource = PerformSearch();
             }
         }
 
@@ -86,7 +115,7 @@ namespace GeoApp
         {
             if (SearchBox.Text.Equals("Search"))
             {
-                SearchBox.Text = "";
+                SearchBox.Text = string.Empty;
             }
         }
 
@@ -117,7 +146,7 @@ namespace GeoApp
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             SearchBox.Text = "Search";
-            SampleTable.ItemsSource = new ObservableCollection<Sample>(_controller.GetAllSamples());
+            SampleTable.ItemsSource = Samples;
         }
     }
 }
