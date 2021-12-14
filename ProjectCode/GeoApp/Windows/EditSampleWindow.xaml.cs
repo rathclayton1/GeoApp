@@ -125,14 +125,15 @@ namespace GeoApp
                     MainWindow.Samples.Insert(itemLocation, _sample);
 
                     SuccessfulEditWindow confirmation = new();
-                    confirmation.Show();                  
+                    confirmation.Show();
+                    Close();
                 }
                 else
                 {
                     UnsuccessfulEditWindow error = new();
+                    error.setErrorMessage(_controller.getErrorMessage());
                     error.Show();
                 }
-                Close();
             }
             catch (MySqlException ex)
             {

@@ -13,5 +13,6 @@ namespace GeoApp
         List<Issue> GetAllIssues();
         bool CreateIssue(List<string> issue);
         bool DeleteIssue(Issue issue);
+        string getErrorMessage();
     }
 }

@@ -57,37 +57,22 @@ namespace GeoApp
                 fs.Close();
             }
 
-            try
+            var createdSample = _controller.CreateNewSample(sampleInfo, imageData);
+            //TO DO: work on refactoring controller to take image byte array, then repo.
+            if (createdSample != null)
             {
-                var createdSample = _controller.CreateNewSample(sampleInfo, imageData);
-                if (createdSample != null)
-                {
-                    SuccessfulAddWindow confirmation = new();
-                    confirmation.Show();
-                    createdSample.Image = imageData;
-                    MainWindow.Samples.Add(createdSample);
-                }
-                else
-                {
-                    UnsuccessfulAddWindow error = new();
-                    error.Show();
-                }
-                this.Close();
+                SuccessfulAddWindow confirmation = new();
+                confirmation.Show();
+                createdSample.Image = imageData;
+                MainWindow.Samples.Add(createdSample);
+                Close();
             }
-            catch (MySqlException ex)
+            else
             {
-                if (ex.Number == 0)
-                {
-                    MessageBox.Show("Couldn't connect to the server while adding the sample. Contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("There was a problem in the database while adding entry, " +
-                        "please check your connection, try again or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                UnsuccessfulAddWindow error = new();
+                error.setErrorMessage(_controller.getErrorMessage());
+                error.Show();
             }
-
-            
         }
 
         /// <summary>
