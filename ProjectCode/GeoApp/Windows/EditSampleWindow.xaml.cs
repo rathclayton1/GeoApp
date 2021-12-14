@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -100,36 +101,52 @@ namespace GeoApp
                 fs.Close();
             }
 
-            if (_controller.UpdateSample(sampleInfo, _sample.Image))
+            try
             {
+                if (_controller.UpdateSample(sampleInfo, _sample.Image))
+                {
 
-                int itemLocation = MainWindow.Samples.IndexOf(_sample);
-                MainWindow.Samples.RemoveAt(itemLocation);
-                int.TryParse(sampleInfo[1], out Int32 newSampleId);
-                _sample.SampleId = newSampleId;
-                _sample.Name = sampleInfo[2];
-                _sample.SampleType = sampleInfo[3];
-                _sample.GeologicAge = sampleInfo[4];
-                _sample.LocationDescription = sampleInfo[5];
-                _sample.City = sampleInfo[6];
-                _sample.State = sampleInfo[7];
-                _sample.Country = sampleInfo[8];
-                double.TryParse(sampleInfo[9], out Double newLatitude);
-                _sample.Latitude = newLatitude;
-                double.TryParse(sampleInfo[10], out Double newLongitude);
-                _sample.Longitude = newLongitude;
+                    int itemLocation = MainWindow.Samples.IndexOf(_sample);
+                    MainWindow.Samples.RemoveAt(itemLocation);
+                    int.TryParse(sampleInfo[1], out Int32 newSampleId);
+                    _sample.SampleId = newSampleId;
+                    _sample.Name = sampleInfo[2];
+                    _sample.SampleType = sampleInfo[3];
+                    _sample.GeologicAge = sampleInfo[4];
+                    _sample.LocationDescription = sampleInfo[5];
+                    _sample.City = sampleInfo[6];
+                    _sample.State = sampleInfo[7];
+                    _sample.Country = sampleInfo[8];
+                    double.TryParse(sampleInfo[9], out Double newLatitude);
+                    _sample.Latitude = newLatitude;
+                    double.TryParse(sampleInfo[10], out Double newLongitude);
+                    _sample.Longitude = newLongitude;
 
-                MainWindow.Samples.Insert(itemLocation, _sample);
+                    MainWindow.Samples.Insert(itemLocation, _sample);
 
-                SuccessfulEditWindow confirmation = new();
-                confirmation.Show();
+                    SuccessfulEditWindow confirmation = new();
+                    confirmation.Show();                  
+                }
+                else
+                {
+                    UnsuccessfulEditWindow error = new();
+                    error.Show();
+                }
+                Close();
             }
-            else
+            catch (MySqlException ex)
             {
-                UnsuccessfulEditWindow error = new();
-                error.Show();
+                if (ex.Number == 0)
+                {
+                    MessageBox.Show("Couldn't connect to the server while updating entry. Please" +
+                        " try again or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem in the database while updating entry. " +
+                        "Please try again, check your connection, or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
-            Close();
         }
 
         /// <summary>
