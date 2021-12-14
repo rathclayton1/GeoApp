@@ -1,7 +1,6 @@
 ﻿using GeoApp.Windows;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace GeoApp

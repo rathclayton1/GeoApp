@@ -31,7 +31,7 @@
                 </Button>
             </StackPanel>
         </DockPanel>
-        <DataGrid x:Name="SampleTable" HorizontalAlignment="Center" Height="780" Width="1390" Margin="0,203,0,0" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" ColumnWidth="Auto" VerticalAlignment="Top" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+        <DataGrid x:Name="SampleTable" HorizontalAlignment="Center" Height="780" Width="1390" Margin="0,203,0,0" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" ColumnWidth="Auto" VerticalAlignment="Top" AutoGenerateColumns="False" HeadersVisibility="Column" EnableRowVirtualization="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
             <DataGrid.Resources>
                 <ResourceDictionary>
                     <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
@@ -110,7 +110,7 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTemplateColumn Header="Image" IsReadOnly="True" Width="*">
+                <DataGridTemplateColumn x:Name="ImageColumn" Header="Image" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -118,13 +118,16 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Border BorderThickness="1" BorderBrush="Black" MaxHeight="125" MaxWidth="200">
-                                <Image Source="{Binding Image}" />
+                            <Border BorderThickness="0" BorderBrush="Black" MaxHeight="125" MaxWidth="200">
+                                <StackPanel x:Name="ImagePanel">
+                                    <Image Source="{Binding Image}" />
+                                    <TextBlock x:Name="NoImageText" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No Image" TextWrapping="Wrap"  Width="56" Visibility="Hidden" Foreground="Gray" />
+                                </StackPanel>
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Actions" IsReadOnly="True" Width="150">
+                <DataGridTemplateColumn x:Name="ActionsColumn" Header="Actions" IsReadOnly="True" Width="150">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>

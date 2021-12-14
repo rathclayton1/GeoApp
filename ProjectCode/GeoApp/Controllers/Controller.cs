@@ -135,7 +135,12 @@ namespace GeoApp
             }
             sample.Image = image;
             bool added = _repo.AddNewSample(sample);
-            Sample newSample = _repo.RetrieveSampleByFields(sample);
+            Sample newSample = null;
+            if (added)
+            {
+                newSample = _repo.RetrieveSampleByFields(sample);
+            }
+
 
             return added ? newSample : null;
         }

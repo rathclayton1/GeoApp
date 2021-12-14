@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace GeoApp
 {
@@ -9,6 +10,7 @@ namespace GeoApp
     {
         public DeleteSampleConfirmationWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
@@ -36,10 +38,29 @@ namespace GeoApp
         /// <param name="e"></param>
         private void Delete(object sender, RoutedEventArgs e)
         {
-            _controller.DeleteSample(_sample);
-            MainWindow.Samples.Remove(_sample);
-            Close();
+            try
+            {
+                _controller.DeleteSample(_sample);
+                MainWindow.Samples.Remove(_sample);
+                Close();
+            }
+            catch (MySqlException ex)
+            {
+                if (ex.Number == 0)
+                {
+                    MessageBox.Show("Couldn't connect to the server while deleting sample. Please " +
+                        "try again, or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem in the database while deleting your sample, please check your connection, " +
+                        "try again or contact your administrator.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+                }
+            }
         }
+
 
         /// <summary>
         /// Method to cancel sample deletion

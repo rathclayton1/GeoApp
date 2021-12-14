@@ -12,6 +12,7 @@ namespace GeoApp
         /// </summary>
         public UnsuccessfulAddWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 

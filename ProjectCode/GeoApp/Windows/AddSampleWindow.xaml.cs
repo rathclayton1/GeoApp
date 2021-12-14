@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,7 @@ namespace GeoApp
         /// <param name="repository"></param>
         public AddSampleWindow(Controller controller)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
             _controller = controller;
         }
@@ -67,7 +69,6 @@ namespace GeoApp
             else
             {
                 UnsuccessfulAddWindow error = new();
-                error.setErrorMessage(_controller.getErrorMessage());
                 error.Show();
             }
             this.Close();
