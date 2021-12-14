@@ -6,6 +6,7 @@ namespace GeoApp
     /// <summary>
     /// Interaction logic for DeleteSampleConfirmationWindow.xaml
     /// </summary>
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     public partial class DeleteSampleConfirmationWindow : Window
     {
         public DeleteSampleConfirmationWindow()

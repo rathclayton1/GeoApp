@@ -29,6 +29,7 @@ namespace GeoApp
         /// <summary>
         /// Submit a new sample
         /// </summary>
+        /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Submit(object sender, RoutedEventArgs e)

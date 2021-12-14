@@ -9,7 +9,7 @@ namespace UnitTests
     /// Class to test every method in Repository.cs
     /// Using Moq to simulate a database
     /// 
-    /// Author: Clayton Rath
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     /// </summary>
     [TestClass]
     public class RepoTests

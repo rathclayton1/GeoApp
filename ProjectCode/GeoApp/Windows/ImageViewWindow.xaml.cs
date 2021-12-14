@@ -6,6 +6,7 @@ namespace GeoApp.Windows
 {
     /// <summary>
     /// Interaction logic for ImageViewWindow.xaml
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     /// </summary>
     public partial class ImageViewWindow : Window
     {

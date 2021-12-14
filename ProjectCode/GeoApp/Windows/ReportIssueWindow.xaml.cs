@@ -6,6 +6,7 @@ namespace GeoApp
 {
     /// <summary>
     /// Interaction logic for ReportIssueWindow.xaml
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     /// </summary>
     public partial class ReportIssueWindow : Window
     {

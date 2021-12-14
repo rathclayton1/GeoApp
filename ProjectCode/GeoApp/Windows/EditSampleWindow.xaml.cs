@@ -153,6 +153,7 @@ namespace GeoApp
         /// <summary>
         /// Edit an image
         /// </summary>
+        /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void EditImage(object sender, RoutedEventArgs e)

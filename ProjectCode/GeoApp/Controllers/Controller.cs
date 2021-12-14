@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace GeoApp
 {
+    /// <summary>
+    /// This class is the main logic of our program. A middle man between
+    /// the repo class and the UI.
+    /// </summary>
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     public class Controller : IController
     {
         private IRepository _repo;

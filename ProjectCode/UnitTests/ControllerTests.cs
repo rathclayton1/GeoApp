@@ -10,7 +10,7 @@ namespace UnitTests
     /// <summary>
     /// Class to test every method in Controller.cs
     /// 
-    /// Author: Clayton Rath
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     /// </summary>
     [TestClass]
     public class ControllerTests

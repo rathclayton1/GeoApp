@@ -5,6 +5,10 @@ using System.Data;
 
 namespace GeoApp
 {
+    /// <summary
+    /// This class handles interactions with our database.
+    /// </summary>
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     public class Repository : IRepository
     {
         List<Sample> _dataList = new();

@@ -2,6 +2,10 @@
 
 namespace GeoApp
 {
+    /// <summary>
+    /// This class is a representation of our database issue column.
+    /// </summary>
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     public class Issue
     {
         private IssueType _type;

@@ -1,5 +1,9 @@
 ﻿using System.Collections.Generic;
 
+/// <summary>
+/// This is a public version of a concrete class.
+/// </summary>
+/// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
 namespace GeoApp
 {
     public interface IController

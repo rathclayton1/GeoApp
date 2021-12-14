@@ -2,6 +2,10 @@
 
 namespace GeoApp
 {
+    /// <summary>
+    /// This class is the representation of our database sample.
+    /// </summary>
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     public class Sample
     {
         private int _dbId;

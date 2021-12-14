@@ -54,6 +54,7 @@ namespace GeoApp
 
         /// <summary>
         /// Method for loading initial table data of all samples
+        /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
         /// </summary>
         /// <returns>A list of all samples</returns>
         private ObservableCollection<Sample> LoadCollectionData()

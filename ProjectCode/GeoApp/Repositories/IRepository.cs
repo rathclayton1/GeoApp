@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
-
+/// <summary>
+/// Public version of concrete class
+/// </summary>
+/// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
 namespace GeoApp
 {
+    
     public interface IRepository
     {
         public List<Sample> RetrieveAllSamples();

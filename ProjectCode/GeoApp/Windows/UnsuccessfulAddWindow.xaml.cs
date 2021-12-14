@@ -4,6 +4,7 @@ namespace GeoApp
 {
     /// <summary>
     /// Interaction logic for UnsuccessfulAddWindow.xaml
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     /// </summary>
     public partial class UnsuccessfulAddWindow : Window
     {

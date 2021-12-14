@@ -7,6 +7,7 @@ namespace GeoApp
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
+    /// @author: Demetrios Green, Ben Pink, Clayton Rath, David Vegter
     /// </summary>
     public partial class SampleViewWindow : Window
     {
