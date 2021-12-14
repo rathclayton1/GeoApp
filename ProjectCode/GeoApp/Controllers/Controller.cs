@@ -5,10 +5,10 @@ namespace GeoApp
 {
     public class Controller : IController
     {
-        private Repository _repo;
+        private IRepository _repo;
         private string errorMessage;
 
-        public Controller(Repository repository)
+        public Controller(IRepository repository)
         {
             _repo = repository;
         }

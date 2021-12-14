@@ -5,9 +5,18 @@ using System.Collections.Generic;
 
 namespace UnitTests
 {
+    /// <summary>
+    /// Class to test every method in Repository.cs
+    /// Using Moq to simulate a database
+    /// 
+    /// Author: Clayton Rath
+    /// </summary>
     [TestClass]
     public class RepoTests
     {
+        /// <summary>
+        /// Test adding a valid sample
+        /// </summary>
         [TestMethod]
         public void AddValidSample()
         {
@@ -19,7 +28,9 @@ namespace UnitTests
             };
             Assert.IsTrue(mockRepo.Object.AddNewSample(sample));         
         }
-
+        /// <summary>
+        /// Test retrieving a sample
+        /// </summary>
         [TestMethod]
         public void RetrieveSamplebyId()
         {
@@ -40,6 +51,9 @@ namespace UnitTests
             });
             Assert.AreEqual(mockRepo.Object.RetrieveSampleById(1).GetType(), typeof(Sample));
         }
+        /// <summary>
+        /// Test deleting a sample from the database
+        /// </summary>
         [TestMethod]
         public void DeleteSampleById()
         {
@@ -47,6 +61,9 @@ namespace UnitTests
             mockRepo.Setup(t => t.DeleteSampleById(It.IsAny<int>())).Returns(true);
             Assert.IsTrue(mockRepo.Object.DeleteSampleById(1));
         }
+        /// <summary>
+        /// Test updating a sample correctly
+        /// </summary>
         [TestMethod]
         public void EditSamplebyId()
         {
@@ -67,6 +84,9 @@ namespace UnitTests
                 Image = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 }
             }));
         }
+        /// <summary>
+        /// Test retrieving all samples from the database
+        /// </summary>
         [TestMethod]
         public void RetrieveAllSamples()
         {
@@ -102,6 +122,9 @@ namespace UnitTests
             });
             Assert.AreEqual(mockRepo.Object.RetrieveAllSamples().GetType(), typeof(List<Sample>));
         }
+        /// <summary>
+        /// Test adding a valid issue to the database
+        /// </summary>
         [TestMethod]
         public void AddValidIssue()
         {
@@ -115,6 +138,9 @@ namespace UnitTests
             };
             Assert.IsTrue(mockRepo.Object.CreateIssue(issue));
         }
+        /// <summary>
+        /// Test deleting an issue by ID
+        /// </summary>
         [TestMethod]
         public void DeleteIssueById()
         {
@@ -122,6 +148,9 @@ namespace UnitTests
             mockRepo.Setup(t => t.DeleteIssueById(It.IsAny<int>())).Returns(true);
             Assert.IsTrue(mockRepo.Object.DeleteIssueById(1));
         }
+        /// <summary>
+        /// Test retrieving all issues
+        /// </summary>
         public void RetrieveAllIssues()
         {
             Mock<IRepository> mockRepo = new Mock<IRepository>();
